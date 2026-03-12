@@ -1,37 +1,19 @@
 {
-  "name": "tuavec-professional-backend",
+  "name": "tuavec-backend",
   "version": "1.0.0",
-  "description": "Professional E-commerce Backend for Tu Avec",
+  "description": "Tu Avec E-commerce Backend",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
-    "seed": "node -e \"require('./server.js'); setTimeout(() => {}, 2000)\""
+    "dev": "nodemon server.js"
   },
-  "keywords": [
-    "ecommerce",
-    "api",
-    "mongodb",
-    "express"
-  ],
-  "author": "Tu Avec",
-  "license": "MIT",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.0.0",
     "express": "^4.18.2",
-    "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.0.3",
-    "multer": "^1.4.5-lts.1",
-    "nodemailer": "^8.0.1",
-    "sslcommerz-lts": "^1.2.0"
-  },
-  "devDependencies": {
-    "nodemon": "^3.0.2"
+    "mongoose": "^7.0.0"
   },
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
+    "node": ">=14.0.0"
   }
 }
