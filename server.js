@@ -6,263 +6,118 @@ require('dotenv').config();
 
 const app = express();
 
-// ========== MIDDLEWARE ==========
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+// ========== ENHANCED CORS MIDDLEWARE ==========
+const allowedOrigins = [
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+    'http://192.168.8.107:3000',
+    'http://192.168.8.103:3000',
+    /^http:\/\/192\.168\.\d{1,3}\.\d{1,3}:3000$/,  // Any local network IP
+    /\.vercel\.app$/,
+    /\.netlify\.app$/,
+    /\.onrender\.com$/
+];
 
-// Serve uploaded files
+app.use(cors({
+    origin: function (origin, callback) {
+        // Allow requests with no origin (mobile apps, curl, etc)
+        if (!origin) return callback(null, true);
+        
+        const isAllowed = allowedOrigins.some(allowed => 
+            allowed instanceof RegExp ? allowed.test(origin) : allowed === origin
+        );
+        
+        if (isAllowed) {
+            callback(null, true);
+        } else {
+            callback(new Error(`CORS block: Origin ${origin} not allowed`));
+        }
+    },
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Request logging
-app.use((req, res, next) => {
-    console.log(`${req.method} ${req.path} - ${new Date().toISOString()}`);
-    next();
-});
-
 // ========== DATABASE CONNECTION ==========
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/tuavec')
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/tuavec', {
+    // No deprecated options needed in newer versions
+})
     .then(() => {
-        console.log('✅ MongoDB Connected');
-        console.log(`📊 Database: ${mongoose.connection.name}`);
+        console.log('✅ MongoDB Connected to Tu Avec');
+        console.log('📦 Database:', mongoose.connection.name);
     })
     .catch(err => {
         console.error('❌ MongoDB Connection Error:', err.message);
         process.exit(1);
     });
 
-// ========== ROUTES ==========
-
-// Health check
+// ========== HEALTH CHECK ROUTE ==========
 app.get('/health', (req, res) => {
-    res.json({ 
+    res.json({
         success: true,
         message: 'Tu Avec API is running',
-        timestamp: new Date().toISOString(),
-        env: process.env.NODE_ENV || 'development'
+        database: mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected',
+        timestamp: new Date().toISOString()
     });
 });
 
-// Import routes
-const authRoutes = require('./routes/auth');
+// ========== ROUTES ==========
 const productRoutes = require('./routes/products');
 const orderRoutes = require('./routes/orders');
-const reviewRoutes = require('./routes/reviews');
 
-// Mount routes
-app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
-app.use('/api/reviews', reviewRoutes);
 
-// Image upload route
-const { uploadSingle, uploadMultiple, handleUploadError } = require('./middleware/upload');
-const { authenticate, adminOnly } = require('./middleware/auth');
-
-app.post('/api/upload/single', authenticate, adminOnly, uploadSingle, handleUploadError, (req, res) => {
-    if (!req.file) {
-        return res.status(400).json({
-            success: false,
-            error: 'No file uploaded'
-        });
-    }
-    
-    const fileUrl = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
-    
-    res.json({
-        success: true,
-        message: 'File uploaded successfully',
-        url: fileUrl,
-        filename: req.file.filename
+// ========== ERROR HANDLING MIDDLEWARE ==========
+app.use((err, req, res, next) => {
+    console.error('❌ Server Error:', err);
+    res.status(err.status || 500).json({
+        success: false,
+        error: err.message || 'Internal Server Error',
+        ...(process.env.NODE_ENV === 'development' && { stack: err.stack })
     });
 });
 
-app.post('/api/upload/multiple', authenticate, adminOnly, uploadMultiple, handleUploadError, (req, res) => {
-    if (!req.files || req.files.length === 0) {
-        return res.status(400).json({
-            success: false,
-            error: 'No files uploaded'
-        });
-    }
-    
-    const files = req.files.map(file => ({
-        url: `${req.protocol}://${req.get('host')}/uploads/${file.filename}`,
-        filename: file.filename
-    }));
-    
-    res.json({
-        success: true,
-        message: `${files.length} files uploaded successfully`,
-        files
+// ========== 404 HANDLER ==========
+app.use('*', (req, res) => {
+    res.status(404).json({
+        success: false,
+        error: 'Route not found',
+        path: req.originalUrl
     });
 });
-
-// Admin stats endpoint
-app.get('/api/admin/stats', authenticate, adminOnly, async (req, res) => {
-    try {
-        const { Product, Order, User, Review } = require('./models');
-        
-        const totalProducts = await Product.countDocuments({ status: 'active' });
-        const totalOrders = await Order.countDocuments();
-        const totalCustomers = await User.countDocuments({ role: 'customer' });
-        const pendingOrders = await Order.countDocuments({ status: 'pending' });
-        const pendingReviews = await Review.countDocuments({ status: 'pending' });
-        
-        const revenueResult = await Order.aggregate([
-            { $match: { paymentStatus: 'paid' } },
-            { $group: { _id: null, total: { $sum: '$total' } } }
-        ]);
-        const totalRevenue = revenueResult[0]?.total || 0;
-        
-        const ordersByStatus = await Order.aggregate([
-            { $group: { _id: '$status', count: { $sum: 1 } } }
-        ]);
-        
-        const recentOrders = await Order.find()
-            .sort({ createdAt: -1 })
-            .limit(5)
-            .select('orderNumber customer total status createdAt');
-        
-        const lowStockProducts = await Product.find({ stock: { $lt: 10 }, status: 'active' })
-            .select('title stock')
-            .limit(10);
-        
-        res.json({
-            success: true,
-            stats: {
-                totalProducts,
-                totalOrders,
-                totalCustomers,
-                totalRevenue,
-                pendingOrders,
-                pendingReviews,
-                ordersByStatus,
-                recentOrders,
-                lowStockProducts
-            }
-        });
-        
-    } catch (error) {
-        console.error('Get stats error:', error);
-        res.status(500).json({
-            success: false,
-            error: 'Failed to fetch statistics'
-        });
-    }
-});
-
-// Seed database (development only)
-if (process.env.NODE_ENV !== 'production') {
-    app.post('/api/seed', async (req, res) => {
-        try {
-            const { Product, Category } = require('./models');
-            
-            const sampleProducts = [
-                {
-                    title: 'Ferrero Rocher 24pc Premium Gift Box',
-                    description: 'Luxurious hazelnut chocolates wrapped in golden foil. Perfect for gifting.',
-                    category: 'Chocolates',
-                    brand: 'Ferrero',
-                    price: 1850,
-                    comparePrice: 2100,
-                    stock: 50,
-                    featured: true,
-                    images: [{ url: 'https://images.unsplash.com/photo-1511381939415-e44015466834?w=500', isPrimary: true }],
-                    tags: ['chocolate', 'premium', 'gift', 'ferrero']
-                },
-                {
-                    title: 'Nike Air Max Women\'s Running Shoes',
-                    description: 'Premium running shoes with air cushioning technology',
-                    category: 'Footwear',
-                    subcategory: 'Running Shoes',
-                    brand: 'Nike',
-                    price: 8500,
-                    comparePrice: 10000,
-                    stock: 25,
-                    featured: true,
-                    images: [{ url: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500', isPrimary: true }],
-                    variants: [
-                        { name: 'Size', value: '7', stock: 5 },
-                        { name: 'Size', value: '8', stock: 10 },
-                        { name: 'Size', value: '9', stock: 10 }
-                    ],
-                    tags: ['shoes', 'nike', 'running', 'athletic']
-                },
-                {
-                    title: 'MAC Ruby Woo Lipstick',
-                    description: 'Iconic matte red lipstick with long-lasting formula',
-                    category: 'Cosmetics',
-                    subcategory: 'Lipstick',
-                    brand: 'MAC',
-                    price: 2500,
-                    stock: 50,
-                    featured: true,
-                    images: [{ url: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=500', isPrimary: true }],
-                    tags: ['lipstick', 'mac', 'makeup', 'cosmetics']
-                }
-            ];
-            
-            const products = await Product.insertMany(sampleProducts);
-            
-            res.json({
-                success: true,
-                message: 'Database seeded successfully',
-                productsCreated: products.length
-            });
-            
-        } catch (error) {
-            console.error('Seed error:', error);
-            res.status(500).json({
-                success: false,
-                error: 'Failed to seed database'
-            });
-        }
-    });
-}
-
-// ========== ERROR HANDLING ==========
-
-// Import error handlers
-const { errorHandler, notFound } = require('./middleware/auth');
-
-// 404 handler
-app.use(notFound);
-
-// Global error handler
-app.use(errorHandler);
 
 // ========== START SERVER ==========
-
 const PORT = process.env.PORT || 5000;
-
-const server = app.listen(PORT, () => {
-    console.log('');
-    console.log('🚀 =====================================');
-    console.log('🚀 Tu Avec Backend Server Started');
-    console.log('🚀 =====================================');
-    console.log(`📍 Server: http://localhost:${PORT}`);
-    console.log(`🏥 Health: http://localhost:${PORT}/health`);
-    console.log(`📚 API Prefix: /api`);
-    console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
-    console.log('🚀 =====================================');
-    console.log('');
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`\n🚀 Tu Avec Backend running on:`);
+    console.log(`   - Local:   http://localhost:${PORT}`);
+    console.log(`   - Network: http://192.168.8.107:${PORT}`);
+    console.log(`\n📡 API Endpoints:`);
+    console.log(`   - GET  /health`);
+    console.log(`   - GET  /api/products`);
+    console.log(`   - GET  /api/products/:id`);
+    console.log(`   - POST /api/orders`);
+    console.log(`\n✅ Server ready to accept connections!\n`);
 });
 
-// Graceful shutdown
+// ========== GRACEFUL SHUTDOWN ==========
 process.on('SIGTERM', () => {
-    console.log('SIGTERM signal received: closing HTTP server');
-    server.close(() => {
-        console.log('HTTP server closed');
-        mongoose.connection.close(false, () => {
-            console.log('MongoDB connection closed');
-            process.exit(0);
-        });
+    console.log('👋 SIGTERM received, closing server gracefully...');
+    mongoose.connection.close(() => {
+        console.log('✅ MongoDB connection closed');
+        process.exit(0);
     });
 });
 
-process.on('unhandledRejection', (err) => {
-    console.error('Unhandled Rejection:', err);
-    server.close(() => process.exit(1));
+process.on('SIGINT', () => {
+    console.log('\n👋 SIGINT received, closing server gracefully...');
+    mongoose.connection.close(() => {
+        console.log('✅ MongoDB connection closed');
+        process.exit(0);
+    });
 });
-
-module.exports = app;

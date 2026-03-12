@@ -8,17 +8,24 @@
     "dev": "nodemon server.js",
     "seed": "node -e \"require('./server.js'); setTimeout(() => {}, 2000)\""
   },
-  "keywords": ["ecommerce", "api", "mongodb", "express"],
+  "keywords": [
+    "ecommerce",
+    "api",
+    "mongodb",
+    "express"
+  ],
   "author": "Tu Avec",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^8.0.3",
-    "cors": "^2.8.5",
     "bcryptjs": "^2.4.3",
-    "jsonwebtoken": "^9.0.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
-    "multer": "^1.4.5-lts.1"
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^8.0.1",
+    "sslcommerz-lts": "^1.2.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"

@@ -12,21 +12,46 @@ const {
 } = require('../utils/helpers');
 
 // ========== CREATE ORDER ==========
-router.post('/', orderRateLimit, optionalAuth, async (req, res) => {
+// FIXED ORDER ROUTE - Replace your POST route in backend/routes/orders.js
+
+router.post('/', async (req, res) => {
     try {
-        const { customer, shippingAddress, items, paymentMethod, discountCode } = req.body;
+        console.log('📦 Received order request:', req.body);
         
-        // Validation
-        if (!customer || !shippingAddress || !items || !items.length || !paymentMethod) {
+        const { customer, shippingAddress, items, paymentMethod } = req.body;
+        
+        // Validate required fields
+        if (!customer || !shippingAddress || !items || !paymentMethod) {
             return res.status(400).json({
                 success: false,
                 error: 'Missing required fields'
             });
         }
         
+        if (!items || items.length === 0) {
+            return res.status(400).json({
+                success: false,
+                error: 'Order must have at least one item'
+            });
+        }
+        
+        // Validate all items have productId
+        for (const item of items) {
+            if (!item.productId) {
+                return res.status(400).json({
+                    success: false,
+                    error: 'All items must have a productId'
+                });
+            }
+        }
+        
+        // ✅ GENERATE ORDER NUMBER
+        const orderNumber = 'TUA-' + Date.now() + Math.random().toString(36).substr(2, 9).toUpperCase();
+        console.log('✅ Generated order number:', orderNumber);
+        
         // Calculate totals
         let subtotal = 0;
-        const orderItems = [];
+        const enrichedItems = [];
         
         for (const item of items) {
             const product = await Product.findById(item.productId);
@@ -45,82 +70,74 @@ router.post('/', orderRateLimit, optionalAuth, async (req, res) => {
                 });
             }
             
-            const itemSubtotal = product.price * item.quantity;
-            subtotal += itemSubtotal;
+            const itemTotal = product.price * item.quantity;
+            subtotal += itemTotal;
             
-            orderItems.push({
-                product: product._id,
+            enrichedItems.push({
+                productId: product._id,
                 title: product.title,
-                slug: product.slug,
-                image: product.images[0]?.url,
                 price: product.price,
-                quantity: item.quantity,
-                variant: item.variant,
-                subtotal: itemSubtotal
+                quantity: item.quantity
             });
         }
         
         // Calculate shipping
-        const shippingCost = calculateShipping(
-            shippingAddress.region, 
-            items.reduce((sum, item) => sum + item.quantity, 0)
-        );
+        const shippingCost = shippingAddress.region === 'Dhaka' ? 60 : 120;
+        const totalAmount = subtotal + shippingCost;
         
-        // Apply discount if any
-        let discount = 0;
-        // TODO: Implement coupon logic
+        console.log('💰 Order totals:', { subtotal, shippingCost, totalAmount });
         
-        const total = subtotal + shippingCost - discount;
-        
-        // Create order
-        const order = await Order.create({
-            user: req.userId || null,
-            customer,
-            shippingAddress,
-            items: orderItems,
-            subtotal,
-            shippingCost,
-            discount,
-            discountCode,
-            total,
-            paymentMethod,
-            paymentStatus: paymentMethod === 'cod' ? 'unpaid' : 'pending',
-            estimatedDelivery: estimateDelivery(shippingAddress.region),
-            timeline: [{
-                status: 'pending',
-                message: 'Order placed successfully',
-                timestamp: new Date()
-            }],
-            ipAddress: req.ip,
-            userAgent: req.headers['user-agent']
+        // ✅ CREATE ORDER WITH ORDER NUMBER
+        const order = new Order({
+    orderNumber: orderNumber,
+    customer: customer,
+    shippingAddress: shippingAddress,
+    items: enrichedItems,
+    paymentMethod: paymentMethod,
+    subtotal: subtotal,
+    shippingCost: shippingCost,
+    total: totalAmount,  // ✅ CORRECT - changed to 'total'
+    status: 'pending'
         });
+        
+        console.log('💾 Saving order:', order);
+        
+        await order.save();
+        
+        console.log('✅ Order saved successfully!');
         
         // Update product stock
         for (const item of items) {
             await Product.findByIdAndUpdate(
                 item.productId,
                 { 
-                    $inc: { stock: -item.quantity, salesCount: item.quantity }
+                    $inc: { 
+                        stock: -item.quantity,
+                        salesCount: item.quantity
+                    }
                 }
             );
         }
         
-        // Send notifications
-        await sendOrderConfirmationSMS(customer.phone, order.orderNumber);
-        await sendOrderConfirmationEmail(customer.email, order.orderNumber, order);
+        console.log('✅ Stock updated');
         
         res.status(201).json({
             success: true,
-            message: 'Order placed successfully',
-            orderNumber: order.orderNumber,
-            order
+            message: 'Order created successfully',
+            orderNumber: orderNumber,
+            order: {
+                _id: order._id,
+                orderNumber: order.orderNumber,
+                total: order.total,
+                status: order.status
+            }
         });
         
     } catch (error) {
         console.error('Create order error:', error);
         res.status(500).json({
             success: false,
-            error: 'Failed to create order'
+            error: error.message || 'Failed to create order'
         });
     }
 });
