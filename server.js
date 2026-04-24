@@ -93,6 +93,7 @@ app.use('*', (req, res) => {
 
 // ========== START SERVER ==========
 const PORT = process.env.PORT || 5000;
+app.listen(PORT, ...);
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`\n🚀 Tu Avec Backend running on:`);
     console.log(`   - Local:   http://localhost:${PORT}`);
