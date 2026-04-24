@@ -1682,7 +1682,7 @@
             </div>
             <div class="top-bar-right">
                 <span id="userGreeting">Welcome, Guest!</span>
-                <button type="button" onclick="toggleAuth()" class="nav-btn" style="padding: 4px 12px; border: none;"><i class="fas fa-user"></i> Login</button>
+                <button onclick="toggleAuth()" class="nav-btn" style="padding: 4px 12px; border: none;"><i class="fas fa-user"></i> Login</button>
             </div>
         </div>
     </div>
@@ -1701,24 +1701,24 @@
                            oninput="handleSearchInput()"
                            onfocus="showAutocomplete()"
                            onblur="hideAutocomplete()">
-                    <button type="button" class="search-btn" onclick="handleSearch()"><i class="fas fa-search"></i></button>
+                    <button class="search-btn" onclick="handleSearch()"><i class="fas fa-search"></i></button>
                     
                     <div class="search-autocomplete" id="searchAutocomplete"></div>
                 </div>
 
                 <div class="nav-actions">
-                    <button type="button" class="nav-btn" onclick="toggleTheme()" aria-label="Toggle theme">
+                    <button class="nav-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                         <i class="fas fa-moon" id="themeIcon"></i>
                     </button>
-                    <button type="button" class="nav-btn" onclick="toggleNotifications()" aria-label="Notifications">
+                    <button class="nav-btn" onclick="toggleNotifications()" aria-label="Notifications">
                         <i class="fas fa-bell"></i>
                         <span class="badge" id="notificationBadge" style="display: none;">3</span>
                     </button>
-                    <button type="button" class="nav-btn" onclick="toggleMessages()" aria-label="Messages">
+                    <button class="nav-btn" onclick="toggleMessages()" aria-label="Messages">
                         <i class="fas fa-envelope"></i>
                         <span class="badge" id="messageBadge" style="display: none;">2</span>
                     </button>
-                    <button type="button" class="nav-btn" onclick="toggleAuth()" aria-label="Account">
+                    <button class="nav-btn" onclick="toggleAuth()" aria-label="Account">
                         <i class="fas fa-user"></i>
                     </button>
                 </div>
@@ -2004,12 +2004,12 @@
         // ========== CONFIGURATION ==========
         const LOCAL_API = 'http://localhost:5000/api';
         const LIVE_API = 'https://tuavec.onrender.com/api';
-        
-        const isLocal = window.location.protocol === 'file:' || 
-                        window.location.hostname === 'localhost' || 
+
+        const isLocal = window.location.protocol === 'file:' ||
+                        window.location.hostname === 'localhost' ||
                         window.location.hostname === '127.0.0.1' ||
                         window.location.hostname.startsWith('192.168.');
-        
+
         const API_URL = isLocal ? LOCAL_API : LIVE_API;
 
         // ========== STATE MANAGEMENT ==========
@@ -2081,7 +2081,7 @@
         // ========== POST LOADING ==========
         async function loadPosts() {
             try {
-                const response = await fetch('https://tuavec.onrender.com/api/products');
+                const response = await fetch(`${API_URL}/products`);
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}`);
                 }
