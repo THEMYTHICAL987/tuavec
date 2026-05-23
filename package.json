@@ -4,8 +4,8 @@
   "description": "Tu Avec E-commerce Backend",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "node server.js"
+    "start": "node tuavec-complete-final/backend/server.js",
+    "dev": "node tuavec-complete-final/backend/server.js"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
