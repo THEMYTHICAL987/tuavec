@@ -96,8 +96,8 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, ...);
 app.listen(PORT, '0.0.0.0', () => {
     console.log(`\n🚀 Tu Avec Backend running on:`);
-    console.log(`   - Local:   http://localhost:${PORT}`);
-    console.log(`   - Network: http://192.168.8.107:${PORT}`);
+    console.log(`   - Local:   http://localhost:3000`);
+    console.log(`   - Network: http://192.168.8.107:3000`);
     console.log(`\n📡 API Endpoints:`);
     console.log(`   - GET  /health`);
     console.log(`   - GET  /api/products`);

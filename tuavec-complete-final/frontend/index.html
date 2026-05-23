@@ -2014,6 +2014,7 @@
 
         // ========== STATE MANAGEMENT ==========
         let posts = [];
+        window.cartState = window.cartState || [];
         let currentFilters = {
             category: '',
             search: ''
@@ -2414,10 +2415,83 @@
             document.getElementById('overlay').classList.remove('active');
         }
 
-        function submitOrder(event) {
+        async function submitOrder(event) {
             event.preventDefault();
-            closeCheckout();
-            showToast('Order placed successfully!', 'success');
+
+            const name = document.getElementById('customerName').value.trim();
+            const phone = document.getElementById('customerPhone').value.trim();
+            const email = document.getElementById('customerEmail').value.trim();
+            const region = document.getElementById('customerRegion').value;
+            const city = document.getElementById('customerCity').value.trim();
+            const area = document.getElementById('customerArea').value.trim();
+            const address = document.getElementById('customerAddress').value.trim();
+            const paymentMethod = document.getElementById('paymentMethod').value;
+            const notes = document.getElementById('orderNotes').value.trim();
+            const giftWrap = document.getElementById('giftWrap').checked;
+
+            // Expecting a global cart state `window.cartState` maintained elsewhere
+            const items = window.cartState && Array.isArray(window.cartState) ? window.cartState : [];
+
+            if (!name || !phone || !region || !city || !address) {
+                showToast('Please fill required shipping details.', 'warning');
+                return;
+            }
+
+            if (!items || items.length === 0) {
+                showToast('Your cart is empty.', 'warning');
+                return;
+            }
+
+            const payload = {
+                customer: { name, phone, email },
+                shippingAddress: {
+                    fullName: name,
+                    phone,
+                    region,
+                    city,
+                    area,
+                    address
+                },
+                items: items.map(i => ({ productId: i.productId, quantity: i.quantity })),
+                paymentMethod,
+                notes,
+                giftWrap
+            };
+
+            try {
+                showToast('Placing order...', 'info');
+                const resp = await fetch(`${API_URL}/orders`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!resp.ok) {
+                    const errBody = await resp.json().catch(() => ({}));
+                    throw new Error(errBody.error || `Server responded ${resp.status}`);
+                }
+
+                const data = await resp.json();
+
+                if (data && data.paymentUrl) {
+                    // Redirect user to bKash payment page
+                    window.location.href = data.paymentUrl;
+                    return;
+                }
+
+                if (data && data.success) {
+                    showToast('Order created successfully!', 'success');
+                    // Optionally clear cart
+                    window.cartState = [];
+                    closeCheckout();
+                } else {
+                    throw new Error((data && data.error) || 'Order creation failed');
+                }
+
+            } catch (err) {
+                console.error('Order submission error:', err);
+                showToast('Unable to place order right now. Please try again later.', 'error');
+            }
         }
 
         function toggleChat() {
