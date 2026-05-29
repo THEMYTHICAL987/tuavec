@@ -532,6 +532,10 @@
             line-height: 1.4;
             height: 50px;
             overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
 
         .product-rating {
@@ -1682,7 +1686,9 @@
             </div>
             <div class="top-bar-right">
                 <span id="userGreeting">Welcome, Guest!</span>
-                <button onclick="toggleAuth()" class="nav-btn" style="padding: 4px 12px; border: none;"><i class="fas fa-user"></i> Login</button>
+                <button onclick="openOrdersModal()" class="nav-btn" style="padding: 4px 12px; border: none;"><i class="fas fa-box"></i> Orders</button>
+                <button id="logoutBtn" onclick="logout()" class="nav-btn" style="padding: 4px 12px; border: none; display:none;"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                <button id="loginTopBtn" onclick="openLoginModal()" class="nav-btn" style="padding: 4px 12px; border: none;"><i class="fas fa-user"></i> Login</button>
             </div>
         </div>
     </div>
@@ -1697,7 +1703,7 @@
                     <input type="text" 
                            class="search-box" 
                            id="searchInput" 
-                           placeholder="Search blog posts..."
+                           placeholder="Search products, brands, categories..."
                            oninput="handleSearchInput()"
                            onfocus="showAutocomplete()"
                            onblur="hideAutocomplete()">
@@ -1710,6 +1716,10 @@
                     <button class="nav-btn" onclick="toggleTheme()" aria-label="Toggle theme">
                         <i class="fas fa-moon" id="themeIcon"></i>
                     </button>
+                    <button class="nav-btn" onclick="toggleCart()" aria-label="View cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge" id="cartBadge">0</span>
+                    </button>
                     <button class="nav-btn" onclick="toggleNotifications()" aria-label="Notifications">
                         <i class="fas fa-bell"></i>
                         <span class="badge" id="notificationBadge" style="display: none;">3</span>
@@ -1718,7 +1728,7 @@
                         <i class="fas fa-envelope"></i>
                         <span class="badge" id="messageBadge" style="display: none;">2</span>
                     </button>
-                    <button class="nav-btn" onclick="toggleAuth()" aria-label="Account">
+                    <button id="loginNavBtn" class="nav-btn" onclick="openLoginModal()" aria-label="Account">
                         <i class="fas fa-user"></i>
                     </button>
                 </div>
@@ -1729,17 +1739,15 @@
     <!-- HERO SECTION -->
     <section class="hero" role="banner">
         <div class="hero-content">
-            <h1>Discover Thailand's Hidden Gems</h1>
-            <p>Explore authentic culture, travel tips, and premium Thai imports through our curated blog posts</p>
-            <button class="btn btn-primary" onclick="scrollToPosts()" aria-label="Scroll to blog posts">Explore Posts</button>
-        </div>
-    </section>
+            <h1>Shop Premium Thai Imports with Fast Delivery</h1>
+            <p>Find authentic products, unbeatable offers, and secure checkout from the Tu Avec marketplace.</p>
+            <button class="btn btn-primary" onclick="scrollToPosts()" aria-label="Scroll to products">Shop Now</button>
 
-    <!-- BLOG POSTS SECTION -->
+<!-- PRODUCT LIST SECTION -->
     <main class="container" role="main">
         <div class="blog-section">
             <div class="section-header">
-                <h2><i class="fas fa-newspaper" aria-hidden="true"></i> Latest Posts</h2>
+                <h2><i class="fas fa-shopping-bag" aria-hidden="true"></i> Latest Products</h2>
                 <span id="postsCount" aria-live="polite">Loading...</span>
             </div>
 
@@ -1953,6 +1961,75 @@
     </div>
 
     <!-- LIVE CHAT WIDGET -->
+    <!-- PRODUCT DETAIL MODAL -->
+    <div class="modal" id="productModal">
+        <div class="modal-content" id="productModalContent">
+            <div class="modal-header">
+                <h2 id="productModalTitle"></h2>
+                <button class="close-btn" onclick="closeProductModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div id="productModalBody">
+                <!-- Filled dynamically -->
+            </div>
+            <div style="margin-top:20px;text-align:right;">
+                <button class="btn btn-secondary" onclick="closeProductModal()">Close</button>
+                <button class="btn btn-primary" id="productModalAddBtn">Add to Cart</button>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="ordersModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>My Orders</h2>
+                <button class="close-btn" onclick="closeOrdersModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body" id="ordersModalBody" style="max-height:60vh;overflow-y:auto;">
+                <p>Loading your order history...</p>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login or Sign Up</h2>
+                <button class="close-btn" onclick="closeLoginModal()"><i class="fas fa-times"></i></button>
+            </div>
+            <div style="display:flex;gap:10px;margin-bottom:18px;">
+                <button type="button" class="btn btn-secondary" onclick="showAuthForm('login')" style="flex:1;">Login</button>
+                <button type="button" class="btn btn-secondary" onclick="showAuthForm('signup')" style="flex:1;">Sign Up</button>
+            </div>
+            <form id="loginForm" onsubmit="submitLogin(event)">
+                <div class="form-group">
+                    <label class="form-label">Email or Phone</label>
+                    <input type="text" class="form-input" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;">Sign In</button>
+            </form>
+            <form id="signupForm" onsubmit="submitSignup(event)" style="display:none;">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" id="signupName" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone</label>
+                    <input type="tel" class="form-input" id="signupPhone" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="signupPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width:100%;">Create Account</button>
+            </form>
+        </div>
+    </div>
     <div class="chat-widget">
         <button class="chat-button" onclick="toggleChat()">
             <i class="fas fa-comments"></i>
@@ -2014,7 +2091,21 @@
 
         // ========== STATE MANAGEMENT ==========
         let posts = [];
-        window.cartState = window.cartState || [];
+        let loyaltyPoints = 0;
+        let currentUser = null;
+        let availableCategories = [];
+        try {
+            window.cartState = window.cartState || JSON.parse(localStorage.getItem('tuavec_cart') || '[]');
+            if (!Array.isArray(window.cartState)) window.cartState = [];
+        } catch (e) {
+            window.cartState = [];
+        }
+        try {
+            window.wishlistState = window.wishlistState || JSON.parse(localStorage.getItem('tuavec_wishlist') || '[]');
+            if (!Array.isArray(window.wishlistState)) window.wishlistState = [];
+        } catch (e) {
+            window.wishlistState = [];
+        }
         let currentFilters = {
             category: '',
             search: ''
@@ -2032,6 +2123,9 @@
 
         // ========== FLASH SALE SYSTEM ==========
         function initFlashSale() {
+            const banner = document.getElementById('flashSaleBanner');
+            if (!banner) return; // elements not present, skip
+
             const flashSale = {
                 code: 'FLASH20',
                 discount: '20%',
@@ -2070,6 +2164,10 @@
             return Math.floor(amount / 100) * 10;
         }
 
+        function getProductImage(product) {
+            return product.featuredImage?.url || product.image || product.images?.[0]?.url || product.photos?.[0]?.url || product.featuredImage || `https://placehold.co/400x400/222222/b76e79?text=${encodeURIComponent(product.title || 'Product')}`;
+        }
+
         function updateLoyaltyDisplay() {
             document.getElementById('loyaltyPoints').textContent = loyaltyPoints;
             document.getElementById('totalPoints').textContent = loyaltyPoints;
@@ -2079,18 +2177,80 @@
             document.getElementById('pointsToNextTier').textContent = pointsNeeded;
         }
 
-        // ========== POST LOADING ==========
-        async function loadPosts() {
+        async function loadCategories() {
             try {
-                const response = await fetch(`${API_URL}/products`);
+                const response = await fetch(`${API_URL}/products/meta/categories`);
+                if (!response.ok) throw new Error('Failed to load categories');
+                const data = await response.json();
+                availableCategories = Array.isArray(data.categories) ? data.categories : [];
+                const container = document.querySelector('.categories-grid');
+                if (!container) return;
+                container.innerHTML = availableCategories.length ? availableCategories.slice(0, 8).map(category => `
+                    <div class="category-card" onclick="filterCategory('${category.replace(/'/g, "\\'")}')" role="button" tabindex="0" aria-label="Filter by ${category}">
+                        <i class="fas fa-tag" aria-hidden="true"></i>
+                        <h3>${category}</h3>
+                        <p>Shop ${category} products</p>
+                    </div>
+                `).join('') : container.innerHTML;
+            } catch (err) {
+                console.warn('Category load failed:', err);
+            }
+        }
+
+        async function loadSearchSuggestions(query) {
+            try {
+                const autocomplete = document.getElementById('searchAutocomplete');
+                const response = await fetch(`${API_URL}/products/search/${encodeURIComponent(query)}?limit=6`);
+                if (!response.ok) return;
+                const data = await response.json();
+                if (!data.products || !data.products.length) {
+                    autocomplete.innerHTML = '<div class="autocomplete-item">No suggestions found</div>';
+                    return;
+                }
+                autocomplete.innerHTML = data.products.map(product => `
+                    <div class="autocomplete-item" onclick="selectSuggestion('${product.slug || product._id || product.id}')">
+                        <img class="autocomplete-img" src="${getProductImage(product)}" alt="${product.title || product.name}" />
+                        <div>
+                            <strong>${product.title || product.name}</strong>
+                            <div style="font-size:12px;color:var(--text-muted);">à§³${product.price || 0}</div>
+                        </div>
+                    </div>
+                `).join('');
+                autocomplete.classList.add('active');
+            } catch (err) {
+                console.warn('Search suggestions failed:', err);
+            }
+        }
+
+        function selectSuggestion(slug) {
+            hideAutocomplete();
+            document.getElementById('searchInput').value = '';
+            viewPost(slug);
+        }
+
+        // ========== POST LOADING ==========
+        async function loadPosts(params = {}) {
+            try {
+                const query = new URLSearchParams();
+                if (params.search) query.append('search', params.search);
+                if (params.category) query.append('category', params.category);
+                if (params.updatedSince) query.append('updatedSince', params.updatedSince);
+                const sortBy = params.sortBy || 'updatedAt';
+                const sortOrder = params.sortOrder || 'desc';
+                query.append('sortBy', sortBy);
+                query.append('sortOrder', sortOrder);
+                const url = `${API_URL}/products${query.toString() ? `?${query.toString()}` : ''}`;
+                const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}`);
                 }
 
                 const data = await response.json();
-
-                if (data.success && data.data) {
-                    posts = data.data;
+                const list = (data && (data.products || data.data)) || (Array.isArray(data) ? data : null);
+                if (list) {
+                    posts = list;
+                    if (typeof params.search !== 'undefined') currentFilters.search = params.search;
+                    if (typeof params.category !== 'undefined') currentFilters.category = params.category;
                     renderPosts();
                     updatePostsCount();
                     loadRecommendedPosts();
@@ -2110,19 +2270,19 @@
                 if (currentFilters.category && p.category !== currentFilters.category) return false;
                 if (currentFilters.search) {
                     const search = currentFilters.search.toLowerCase();
-                    return p.title.toLowerCase().includes(search) ||
-                           p.content?.toLowerCase().includes(search) ||
-                           p.tags?.some(tag => tag.toLowerCase().includes(search));
+                    return (p.name || p.title || '').toLowerCase().includes(search) ||
+                           (p.description || p.shortDescription || '').toLowerCase().includes(search) ||
+                           (p.tags || []).some(tag => tag.toLowerCase().includes(search));
                 }
                 return true;
             });
 
             if (currentSort === 'views') {
-                filtered.sort((a, b) => b.views - a.views);
+                filtered.sort((a, b) => (b.views || 0) - (a.views || 0));
             } else if (currentSort === 'likes') {
-                filtered.sort((a, b) => b.likes - a.likes);
+                filtered.sort((a, b) => (b.likes || 0) - (a.likes || 0));
             } else {
-                filtered.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+                filtered.sort((a, b) => new Date(b.createdAt || b.updatedAt) - new Date(a.createdAt || a.updatedAt));
             }
 
             container.innerHTML = '';
@@ -2130,66 +2290,50 @@
             if (filtered.length === 0) {
                 container.innerHTML = `
                     <div class="empty-state">
-                        <i class="fas fa-newspaper"></i>
-                        <h3>No posts found</h3>
-                        <p>Try adjusting your search or filters</p>
+                        <i class="fas fa-box-open"></i>
+                        <h3>No products found</h3>
+                        <p>Try adjusting your search or filters.</p>
                     </div>
                 `;
                 return;
             }
 
-            filtered.forEach(post => {
-                const postCard = document.createElement('article');
-                postCard.className = 'post-card';
-                postCard.innerHTML = `
-                    <div class="post-img-wrapper">
-                        <img src="${post.featuredImage?.url || 'https://via.placeholder.com/400?text=' + encodeURIComponent(post.title)}" 
-                             class="post-img" loading="lazy" alt="${post.featuredImage?.alt || post.title}">
+            filtered.forEach(product => {
+                const name = product.name || product.title || 'Untitled Product';
+                const price = product.price || product.salePrice || 0;
+                const comparePrice = product.comparePrice || product.originalPrice || 0;
+                const discount = comparePrice > price ? Math.round(((comparePrice - price) / comparePrice) * 100) : 0;
+                const stock = (typeof product.stock === 'number' ? product.stock : product.inventory?.quantity) || 0;
+                const rating = product.rating || 0;
+                const primaryImage = getProductImage(product);
+
+                const productCard = document.createElement('article');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-card-image">
+                        <img src="${primaryImage}" alt="${name}" loading="lazy" />
+                        ${discount ? `<span class="discount-badge">${discount}% OFF</span>` : ''}
                     </div>
-                    <div class="post-info">
-                        <div class="post-category">${post.category}</div>
-                        <h3 class="post-title">${post.title}</h3>
-                        <p class="post-excerpt">${post.excerpt || post.content.substring(0, 150) + '...'}</p>
-                        <div class="post-meta">
-                            <div class="post-stats">
-                                <span class="post-stat"><i class="fas fa-eye"></i> ${post.views || 0}</span>
-                                <span class="post-stat"><i class="fas fa-heart"></i> ${post.likes || 0}</span>
-                                <span class="post-stat"><i class="fas fa-comment"></i> ${post.comments || 0}</span>
-                            </div>
-                            <span><i class="fas fa-calendar"></i> ${new Date(post.createdAt).toLocaleDateString()}</span>
+                    <div class="product-card-content">
+                        <div class="product-category">${product.category || 'General'}</div>
+                        <h3 class="product-title">${name}</h3>
+                        <p class="product-excerpt">${product.shortDescription || (product.description ? product.description.substring(0, 120) + '...' : 'High-quality product from Tu Avec.')}</p>
+                        <div class="product-price-row">
+                            <span class="product-price">à§³${price}</span>
+                            ${comparePrice > price ? `<span class="product-compare">à§³${comparePrice}</span>` : ''}
                         </div>
-                        <div class="post-actions">
-                            <button class="post-action-btn like-btn" onclick="toggleLike('${post._id || post.id}')">
-                                <i class="fas fa-heart"></i> Like
-                            </button>
-                            <button class="post-action-btn comment-btn" onclick="toggleComments('${post._id || post.id}')">
-                                <i class="fas fa-comment"></i> Comment
-                            </button>
-                            <div class="share-menu">
-                                <button class="post-action-btn share-btn" onclick="toggleShareMenu(this)">
-                                    <i class="fas fa-share"></i> Share
-                                </button>
-                                <div class="share-options">
-                                    <div class="share-option" onclick="shareToFacebook('${post._id || post.id}')">
-                                        <i class="fab fa-facebook-f"></i> Facebook
-                                    </div>
-                                    <div class="share-option" onclick="shareToTwitter('${post._id || post.id}')">
-                                        <i class="fab fa-twitter"></i> Twitter
-                                    </div>
-                                    <div class="share-option" onclick="copyPostLink('${post._id || post.id}')">
-                                        <i class="fas fa-link"></i> Copy Link
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="product-details-row">
+                            <span>${stock > 0 ? 'In stock' : 'Out of stock'}</span>
+                            <span>${rating.toFixed(1)} <i class="fas fa-star"></i></span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="post-action-btn" onclick="viewPost('${product.slug || product._id || product.id}')">View</button>
+                            <button class="post-action-btn" onclick="addToCart('${product._id || product.id}', 1)"><i class="fas fa-cart-plus"></i> Add</button>
+                            <button class="post-action-btn" onclick="toggleWishlistItem('${product._id || product.id}')"><i class="fas fa-heart"></i></button>
                         </div>
                     </div>
                 `;
-                postCard.onclick = (e) => {
-                    if (!e.target.closest('.post-action-btn')) {
-                        viewPost(post.slug);
-                    }
-                };
-                container.appendChild(postCard);
+                container.appendChild(productCard);
             });
         }
 
@@ -2241,7 +2385,7 @@
         function shareToTwitter(postId) {
             const post = posts.find(p => (p._id || p.id) === postId);
             const url = encodeURIComponent(window.location.href + '?post=' + postId);
-            const text = encodeURIComponent(`${post.title} - ${post.excerpt || post.content.substring(0, 100)}...`);
+            const text = encodeURIComponent(`${post.title} - ${post.excerpt || ((post.content||'').substring(0, 100))}...`);
             window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}&hashtags=TuAvec,Thailand`, '_blank');
             closeShareMenus();
         }
@@ -2270,19 +2414,27 @@
         // ========== FILTER FUNCTIONS ==========
         function filterCategory(category) {
             currentFilters.category = category;
-            renderPosts();
+            loadPosts({ category, search: currentFilters.search });
         }
 
         function handleSearch() {
             const query = document.getElementById('searchInput').value.trim();
             currentFilters.search = query;
-            renderPosts();
+            loadPosts({ search: query, category: currentFilters.category });
         }
 
         function handleSearchInput() {
-            // Debounced search
+            const query = document.getElementById('searchInput').value.trim();
+            currentFilters.search = query;
             clearTimeout(window.searchTimeout);
-            window.searchTimeout = setTimeout(handleSearch, 300);
+            window.searchTimeout = setTimeout(() => {
+                loadPosts({ search: query, category: currentFilters.category });
+                if (query.length >= 2) {
+                    loadSearchSuggestions(query);
+                } else {
+                    hideAutocomplete();
+                }
+            }, 300);
         }
 
         // ========== SCROLL TO POSTS ==========
@@ -2325,10 +2477,284 @@
                 document.body.classList.add('light-mode');
                 document.getElementById('themeIcon').className = 'fas fa-sun';
             }
+            updateUserGreeting();
+            loadCategories();
+            loadUserProfile();
+        }
+
+        function openLoginModal() {
+            document.getElementById('loginModal').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+            showAuthForm('login');
+        }
+
+        function closeLoginModal() {
+            document.getElementById('loginModal').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+
+        async function submitLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+            if (!email || !password) {
+                showToast('Please enter email and password.', 'warning');
+                return;
+            }
+
+            try {
+                showToast('Logging in...', 'info');
+                const resp = await fetch(`${API_URL}/auth/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ emailOrPhone: email, password })
+                });
+
+                if (!resp.ok) {
+                    const errorBody = await resp.json().catch(() => ({}));
+                    throw new Error(errorBody.error || `Login failed (${resp.status})`);
+                }
+
+                const data = await resp.json();
+                if (data && (data.token || data.accessToken)) {
+                    const token = data.token || data.accessToken;
+                    localStorage.setItem('tuavec_jwt', token);
+                    localStorage.setItem('tuavec_user_email', email);
+                    currentUser = data.user || { email };
+                    showToast('Logged in successfully!', 'success');
+                    closeLoginModal();
+                    updateUserGreeting();
+                    return;
+                }
+
+                throw new Error('Login response missing token');
+            } catch (err) {
+                console.error('Login error:', err);
+                showToast(err.message || 'Login failed', 'error');
+            }
+        }
+
+        function showAuthForm(mode) {
+            const loginForm = document.getElementById('loginForm');
+            const signupForm = document.getElementById('signupForm');
+            if (!loginForm || !signupForm) return;
+            loginForm.style.display = mode === 'login' ? 'block' : 'none';
+            signupForm.style.display = mode === 'signup' ? 'block' : 'none';
+        }
+
+        async function submitSignup(event) {
+            event.preventDefault();
+            const name = document.getElementById('signupName').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const phone = document.getElementById('signupPhone').value.trim();
+            const password = document.getElementById('signupPassword').value.trim();
+
+            if (!name || !email || !phone || !password) {
+                showToast('Please complete all signup fields.', 'warning');
+                return;
+            }
+
+            try {
+                showToast('Creating account...', 'info');
+                const resp = await fetch(`${API_URL}/auth/signup`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone, password })
+                });
+
+                if (!resp.ok) {
+                    const errorBody = await resp.json().catch(() => ({}));
+                    throw new Error(errorBody.error || `Signup failed (${resp.status})`);
+                }
+
+                const data = await resp.json();
+                if (data && data.token) {
+                    localStorage.setItem('tuavec_jwt', data.token);
+                    localStorage.setItem('tuavec_user_email', email);
+                    currentUser = data.user || { name, email };
+                    showToast('Account created successfully!', 'success');
+                    closeLoginModal();
+                    updateUserGreeting();
+                    return;
+                }
+
+                throw new Error('Signup response missing token');
+            } catch (err) {
+                console.error('Signup error:', err);
+                showToast(err.message || 'Signup failed', 'error');
+            }
+        }
+
+        function updateUserGreeting() {
+            const userGreeting = document.getElementById('userGreeting');
+            const logoutBtn = document.getElementById('logoutBtn');
+            const loginTopBtn = document.getElementById('loginTopBtn');
+            const loginNavBtn = document.getElementById('loginNavBtn');
+            if (!userGreeting) return;
+            if (currentUser) {
+                userGreeting.textContent = `Hello, ${currentUser.name || currentUser.email || 'Member'}`;
+                if (logoutBtn) logoutBtn.style.display = 'inline-flex';
+                if (loginTopBtn) loginTopBtn.style.display = 'none';
+                if (loginNavBtn) loginNavBtn.style.display = 'none';
+            } else {
+                userGreeting.textContent = 'Welcome, Guest!';
+                if (logoutBtn) logoutBtn.style.display = 'none';
+                if (loginTopBtn) loginTopBtn.style.display = 'inline-flex';
+                if (loginNavBtn) loginNavBtn.style.display = 'inline-flex';
+            }
+        }
+
+        async function loadUserProfile() {
+            const token = localStorage.getItem('tuavec_jwt');
+            if (!token) return;
+            try {
+                const resp = await fetch(`${API_URL}/auth/me`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                if (!resp.ok) {
+                    localStorage.removeItem('tuavec_jwt');
+                    localStorage.removeItem('tuavec_user_email');
+                    currentUser = null;
+                    updateUserGreeting();
+                    return;
+                }
+                const data = await resp.json();
+                if (data.success && data.user) {
+                    currentUser = data.user;
+                    localStorage.setItem('tuavec_user_email', data.user.email || '');
+                } else {
+                    currentUser = null;
+                }
+            } catch (err) {
+                console.warn('Failed to load user profile', err);
+                currentUser = null;
+            }
+            updateUserGreeting();
+        }
+
+        function logout() {
+            localStorage.removeItem('tuavec_jwt');
+            localStorage.removeItem('tuavec_user_email');
+            currentUser = null;
+            updateUserGreeting();
+            showToast('Logged out successfully', 'info');
+        }
+
+        async function openOrdersModal() {
+            const token = localStorage.getItem('tuavec_jwt');
+            const body = document.getElementById('ordersModalBody');
+            if (!token) {
+                showToast('Please login to view your orders.', 'warning');
+                openLoginModal();
+                return;
+            }
+            if (body) body.innerHTML = '<p>Loading your order history...</p>';
+            try {
+                const resp = await fetch(`${API_URL}/orders/my-orders?limit=20`, {
+                    headers: { Authorization: `Bearer ${token}` }
+                });
+                if (!resp.ok) {
+                    const errorBody = await resp.json().catch(() => ({}));
+                    throw new Error(errorBody.error || 'Unable to fetch orders');
+                }
+                const data = await resp.json();
+                renderOrders(data.orders || []);
+            } catch (err) {
+                if (body) body.innerHTML = `<p>${err.message}</p>`;
+            }
+            const modal = document.getElementById('ordersModal');
+            if (modal) modal.classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        function closeOrdersModal() {
+            const modal = document.getElementById('ordersModal');
+            if (modal) modal.classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+
+        function renderOrders(orders) {
+            const body = document.getElementById('ordersModalBody');
+            if (!body) return;
+            if (!orders || orders.length === 0) {
+                body.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-box-open"></i>
+                        <h3>No orders yet</h3>
+                        <p>Your recent purchases will appear here after checkout.</p>
+                    </div>
+                `;
+                return;
+            }
+            body.innerHTML = orders.map(order => `
+                <div class="order-card" style="border:1px solid rgba(183,110,121,0.2);border-radius:14px;padding:18px;margin-bottom:16px;background:var(--bg-card);">
+                    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+                        <strong>Order #${order.orderNumber}</strong>
+                        <span style="color:var(--rose-gold);font-weight:600;">${order.orderStatus || order.status}</span>
+                    </div>
+                    <p style="margin:10px 0 6px;color:var(--text-muted);">${order.items?.length || 0} item(s) • Total: à§³${order.totalAmount || order.subtotal || 0}</p>
+                    <p style="margin:0;font-size:14px;color:var(--text-muted);">Shipped to ${order.shippingAddress?.city || order.shippingAddress?.region || 'your region'}</p>
+                </div>
+            `).join('');
+        }
+
+        function saveWishlist() {
+            try {
+                localStorage.setItem('tuavec_wishlist', JSON.stringify(window.wishlistState || []));
+            } catch (e) {
+                console.warn('Could not save wishlist', e);
+            }
+            renderWishlist();
+        }
+
+        function toggleWishlistItem(productId) {
+            const existing = (window.wishlistState || []).find(i => i.productId === productId);
+            if (existing) {
+                window.wishlistState = (window.wishlistState || []).filter(i => i.productId !== productId);
+                showToast('Removed from wishlist', 'info');
+            } else {
+                const product = posts.find(p => (p._id || p.id) == productId);
+                if (!product) return showToast('Product not found', 'error');
+                window.wishlistState = window.wishlistState || [];
+                window.wishlistState.push({
+                    productId: product._id || product.id,
+                    title: product.title || product.name,
+                    price: product.price || 0,
+                    image: getProductImage(product)
+                });
+                showToast('Added to wishlist', 'success');
+            }
+            saveWishlist();
+        }
+
+        function renderWishlist() {
+            const container = document.getElementById('wishlistItems');
+            if (!container) return;
+            const items = window.wishlistState || [];
+            if (items.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-heart"></i>
+                        <h3>Your wishlist is empty</h3>
+                        <p>Save products to view them later.</p>
+                    </div>
+                `;
+                return;
+            }
+            container.innerHTML = items.map(item => `
+                <div class="cart-item" style="align-items:flex-start;">
+                    <img src="${item.image}" class="cart-img" alt="${item.title}">
+                    <div class="cart-info">
+                        <div class="cart-title">${item.title}</div>
+                        <div class="cart-price">à§³${item.price}</div>
+                    </div>
+                    <button class="remove-btn" onclick="toggleWishlistItem('${item.productId}')">Remove</button>
+                </div>
+            `).join('');
         }
 
         function toggleAuth() {
-            showToast('Account panel coming soon!', 'info');
+            openLoginModal();
         }
 
         function toggleNotifications() {
@@ -2410,6 +2836,140 @@
             showToast('Detailed comparison is coming soon!', 'info');
         }
 
+        // ========== CART / WISHLIST HELPERS ==========
+        function saveCart() {
+            try {
+                localStorage.setItem('tuavec_cart', JSON.stringify(window.cartState || []));
+            } catch (e) { console.warn('Could not save cart', e); }
+            renderCart();
+        }
+
+        function addToCart(productId, qty = 1) {
+            const id = productId || (this && this.dataset && this.dataset.id);
+            const product = posts.find(p => (p._id || p.id) == id);
+            if (!product) return showToast('Product not found', 'error');
+
+            const price = product.price || product.salePrice || 0;
+            const image = getProductImage(product);
+
+            const existing = (window.cartState || []).find(i => i.productId == (product._id || product.id));
+            if (existing) {
+                existing.quantity = Math.max(1, existing.quantity + qty);
+            } else {
+                (window.cartState = window.cartState || []).push({
+                    productId: product._id || product.id,
+                    title: product.title,
+                    price: price,
+                    image: image,
+                    quantity: Math.max(1, qty)
+                });
+            }
+
+            saveCart();
+            showToast('Added to cart', 'success');
+            updateCartBadge();
+        }
+
+        function changeQty(productId, delta) {
+            const item = (window.cartState || []).find(i => i.productId == productId);
+            if (!item) return;
+            item.quantity = Math.max(0, item.quantity + delta);
+            if (item.quantity === 0) removeFromCart(productId);
+            saveCart();
+        }
+
+        function removeFromCart(productId) {
+            window.cartState = (window.cartState || []).filter(i => i.productId != productId);
+            saveCart();
+            showToast('Removed from cart', 'info');
+            updateCartBadge();
+        }
+
+        function updateCartSummary() {
+            const summary = document.getElementById('cartSummary');
+            const footer = document.getElementById('cartFooter');
+            const items = window.cartState || [];
+            const subtotal = items.reduce((s, it) => s + (Number(it.price || 0) * (it.quantity || 1)), 0);
+            if (summary) {
+                summary.innerHTML = `
+                    <div class="summary-row"><span>Subtotal</span><span>à§³${subtotal}</span></div>
+                    <div class="summary-row"><span>Shipping</span><span>à§³100</span></div>
+                    <div class="summary-row total"><span>Total</span><span>à§³${subtotal + 100}</span></div>
+                `;
+            }
+            if (footer) {
+                footer.innerHTML = items.length > 0 ? `<button class="btn btn-primary" onclick="document.getElementById('checkoutModal').classList.add('active');document.getElementById('overlay').classList.add('active');">Checkout</button>` : '';
+            }
+        }
+
+        function updateCartBadge() {
+            const count = (window.cartState || []).reduce((s, i) => s + (i.quantity || 0), 0);
+            const cartBadge = document.getElementById('cartBadge');
+            if (cartBadge) {
+                cartBadge.textContent = count;
+                cartBadge.style.display = count > 0 ? 'inline-flex' : 'none';
+            }
+            const userGreeting = document.getElementById('userGreeting');
+            if (userGreeting) {
+                const token = localStorage.getItem('tuavec_jwt');
+                if (token) {
+                    const email = localStorage.getItem('tuavec_user_email') || 'Member';
+                    userGreeting.textContent = `Hello, ${email}`;
+                } else {
+                    userGreeting.textContent = count > 0 ? `Cart: ${count} item${count !== 1 ? 's' : ''}` : 'Welcome, Guest!';
+                }
+            }
+        }
+
+        function renderCart() {
+            const container = document.getElementById('cartItems');
+            container.innerHTML = '';
+            const items = window.cartState || [];
+            if (!items || items.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h3>Your cart is empty</h3>
+                        <p>Add items to get started.</p>
+                    </div>
+                `;
+                updateCartSummary();
+                updateCartBadge();
+                return;
+            }
+
+            items.forEach(item => {
+                const el = document.createElement('div');
+                el.className = 'cart-item';
+                el.innerHTML = `
+                    <img src="${item.image}" class="cart-img" alt="${item.title}">
+                    <div class="cart-info">
+                        <div class="cart-title">${item.title}</div>
+                        <div class="cart-variant">Quantity: <span class="quantity-display">${item.quantity}</span></div>
+                        <div class="cart-price">à§³${item.price}</div>
+                    </div>
+                    <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end;">
+                        <button class="quantity-btn" onclick="changeQty('${item.productId}',1)">+</button>
+                        <button class="quantity-btn" onclick="changeQty('${item.productId}',-1)">-</button>
+                        <button class="remove-btn" onclick="removeFromCart('${item.productId}')">Remove</button>
+                    </div>
+                `;
+                container.appendChild(el);
+            });
+
+            updateCartSummary();
+            updateCartBadge();
+        }
+
+        // Initialize cart UI on load
+        document.addEventListener('DOMContentLoaded', () => {
+            try { renderCart(); updateCartBadge(); } catch (e) { console.warn(e); }
+        });
+
+        // ========== PRODUCT DETAIL MODAL ==========
+        // Insert product modal container
+        
+
         function closeCheckout() {
             document.getElementById('checkoutModal').classList.remove('active');
             document.getElementById('overlay').classList.remove('active');
@@ -2442,6 +3002,16 @@
                 return;
             }
 
+            const orderItems = items.map(i => ({
+                productId: i.productId || i._id || i.id,
+                quantity: i.quantity
+            }));
+
+            if (orderItems.some(i => !i.productId)) {
+                showToast('Cart items are missing a product identifier.', 'error');
+                return;
+            }
+
             const payload = {
                 customer: { name, phone, email },
                 shippingAddress: {
@@ -2452,7 +3022,7 @@
                     area,
                     address
                 },
-                items: items.map(i => ({ productId: i.productId, quantity: i.quantity })),
+                items: orderItems,
                 paymentMethod,
                 notes,
                 giftWrap
@@ -2460,9 +3030,12 @@
 
             try {
                 showToast('Placing order...', 'info');
+                const token = localStorage.getItem('tuavec_jwt');
+                const headers = { 'Content-Type': 'application/json' };
+                if (token) headers.Authorization = `Bearer ${token}`;
                 const resp = await fetch(`${API_URL}/orders`, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers,
                     body: JSON.stringify(payload)
                 });
 
@@ -2474,15 +3047,14 @@
                 const data = await resp.json();
 
                 if (data && data.paymentUrl) {
-                    // Redirect user to bKash payment page
                     window.location.href = data.paymentUrl;
                     return;
                 }
 
                 if (data && data.success) {
                     showToast('Order created successfully!', 'success');
-                    // Optionally clear cart
                     window.cartState = [];
+                    saveCart();
                     closeCheckout();
                 } else {
                     throw new Error((data && data.error) || 'Order creation failed');
@@ -2490,7 +3062,7 @@
 
             } catch (err) {
                 console.error('Order submission error:', err);
-                showToast('Unable to place order right now. Please try again later.', 'error');
+                showToast(err.message || 'Unable to place order right now. Please try again later.', 'error');
             }
         }
 
@@ -2535,8 +3107,57 @@
                 showToast('Post details are unavailable.', 'warning');
                 return;
             }
-            const urlPost = encodeURIComponent(postSlug);
-            window.location.href = `/posts/${urlPost}`;
+            const product = posts.find(p => p.slug === postSlug || p._id === postSlug || p.id === postSlug);
+            if (!product) return showToast('Product not found', 'error');
+            openProductModal(product);
+        }
+
+        function openProductModal(product) {
+            const modal = document.getElementById('productModal');
+            const body = document.getElementById('productModalBody');
+            const title = document.getElementById('productModalTitle');
+            if (!modal || !body || !title) return;
+            const name = product.name || product.title || 'Product Details';
+            const price = product.price || product.salePrice || 0;
+            const comparePrice = product.comparePrice || 0;
+            const stock = (typeof product.stock === 'number' ? product.stock : product.inventory?.quantity) || 0;
+            title.textContent = name;
+            body.innerHTML = `
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;">
+                    <div>
+                        <img src="${getProductImage(product)}" alt="${name}" style="width:100%;border-radius:12px;" />
+                    </div>
+                    <div style="color:var(--text-light);">
+                        <h3 style="margin-top:0;">${name}</h3>
+                        <p style="color:var(--text-muted);">${product.category || 'General'}</p>
+                        <div style="font-size:22px;color:var(--gold);font-weight:700;margin:10px 0;">à§³${price}</div>
+                        ${comparePrice > price ? `<div style="font-size:14px;color:var(--text-muted);text-decoration:line-through;">à§³${comparePrice}</div>` : ''}
+                        <p style="line-height:1.6;">${product.shortDescription || product.description || ''}</p>
+                        <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
+                            <span style="font-size:14px;color:${stock > 0 ? '#4caf50' : '#f44336'};font-weight:600;">${stock > 0 ? 'In stock' : 'Out of stock'}</span>
+                            <span style="font-size:14px;color:var(--text-muted);">${product.rating?.toFixed(1) || '0.0'} ★</span>
+                        </div>
+                        <div style="margin-top:16px;">
+                            <label>Quantity</label>
+                            <input id="productModalQty" type="number" value="1" min="1" style="width:80px;margin-left:8px;padding:6px;border-radius:6px;border:1px solid rgba(183,110,121,0.2);background:var(--bg-dark);color:var(--text-light);" />
+                        </div>
+                    </div>
+                </div>
+            `;
+            const addBtn = document.getElementById('productModalAddBtn');
+            addBtn.onclick = () => {
+                const qty = Number(document.getElementById('productModalQty').value || 1);
+                addToCart(product._id || product.id, qty);
+            };
+            modal.classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        }
+
+        function closeProductModal() {
+            const modal = document.getElementById('productModal');
+            if (!modal) return;
+            modal.classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
         }
 
         function loadRecommendedPosts() {
@@ -2604,6 +3225,7 @@
             document.getElementById('overlay').classList.remove('active');
             document.querySelectorAll('.sidebar.active').forEach(sidebar => sidebar.classList.remove('active'));
             document.getElementById('checkoutModal').classList.remove('active');
+            document.getElementById('ordersModal').classList.remove('active');
             document.getElementById('chatWindow').classList.remove('active');
             closeShareMenus();
         }
@@ -2612,6 +3234,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             loadData();
             loadPosts();
+            renderWishlist();
+            initFlashSale();
         });
 
         document.addEventListener('keydown', (e) => {

@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 require('dotenv').config();
 
 const app = express();
@@ -37,7 +38,23 @@ app.use(cors({
 
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Serve uploads from root or backend folder (fallbacks)
+const uploadsPaths = [
+    path.join(__dirname, 'uploads'),
+    path.join(__dirname, 'tuavec-complete-final', 'backend', 'uploads')
+];
+uploadsPaths.forEach(p => {
+    if (fs.existsSync(p)) {
+        app.use('/uploads', express.static(p));
+    }
+});
+
+// Serve frontend static files if present (Netlify-style `frontend` folder)
+const frontendPath = path.join(__dirname, 'tuavec-complete-final', 'frontend');
+if (fs.existsSync(frontendPath)) {
+    app.use(express.static(frontendPath));
+}
 
 // ========== DATABASE CONNECTION ==========
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/tuavec')
@@ -77,8 +94,16 @@ app.use((err, req, res, next) => {
     });
 });
 
-// ========== 404 HANDLER ==========
+// ========== SPA / 404 HANDLER ==========
 app.use('*', (req, res) => {
+    // If the client expects HTML, serve the frontend index (SPA fallback)
+    if (req.method === 'GET' && req.accepts && req.accepts('html')) {
+        const indexFile = path.join(frontendPath, 'index.html');
+        if (fs.existsSync(indexFile)) {
+            return res.sendFile(indexFile);
+        }
+    }
+
     res.status(404).json({
         success: false,
         error: 'Route not found',

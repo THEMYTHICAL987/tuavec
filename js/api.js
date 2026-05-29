@@ -241,7 +241,7 @@ async function submitOrder() {
                 address: document.getElementById('customerAddress').value
             },
             items: cart.map(item => ({
-                productId: item.id,
+                productId: item.productId || item._id || item.id,
                 title: item.title,
                 price: item.price,
                 quantity: item.quantity || 1

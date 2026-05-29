@@ -1,0 +1,15 @@
+Fixes applied to avoid 404s when testing locally:
+- Serve frontend static files from root server.js and backend/server.js when frontend folder exists
+- Serve uploads from backend/uploads and root/uploads when present
+- SPA fallback: return frontend/index.html for HTML GET requests to avoid 404s
+
+How to test:
+1. From project root run: `npm run dev` (requires nodemon) or `npm start`
+2. Visit http://localhost:5000/ in your browser; the frontend should load and API calls point to /api
+3. Check `/uploads/<filename>` directly to verify uploaded assets are served
+
+If you prefer the backend folder server, run `npm run dev` inside `tuavec-complete-final/backend`.
+
+If you see any remaining 404, paste the exact failing URL from DevTools Network.
+
+-- End of fixes --
