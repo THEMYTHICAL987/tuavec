@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="TechDesh — Bangladesh's #1 tech deals, gadget reviews, and online earning guide for students and freelancers.">
+<title>TechDesh — Tech Deals, Reviews & Online Earning for Bangladesh</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root{
+  --primary:#6c47ff;--primary-dark:#5436d6;--accent:#00d4aa;
+  --bg:#0d0d12;--surface:#16161f;--card:#1e1e2c;--border:rgba(108,71,255,.18);
+  --txt:#f0f0ff;--muted:#8585a8;--gold:#f5c842;
+  --sh:0 4px 24px rgba(108,71,255,.15);--shl:0 8px 32px rgba(108,71,255,.25);
+  --r:14px;--tr:all .28s ease;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);line-height:1.65;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+button{font-family:inherit;cursor:pointer;}
+
+/* ===== HEADER ===== */
+header{background:rgba(13,13,18,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;}
+.hdr-row{display:flex;align-items:center;padding:14px 0;gap:20px;}
+.logo{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.logo-icon{width:36px;height:36px;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+.logo span{background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.nav-links{display:flex;gap:6px;margin-left:auto;}
+.nav-link{padding:9px 16px;border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);transition:var(--tr);}
+.nav-link:hover,.nav-link.active{background:rgba(108,71,255,.12);color:var(--txt);}
+.hdr-cta{padding:9px 20px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;transition:var(--tr);}
+.hdr-cta:hover{transform:translateY(-1px);box-shadow:var(--shl);}
+.mob-menu-btn{display:none;background:none;border:none;color:var(--txt);font-size:22px;}
+
+/* ===== CONTAINER ===== */
+.container{max-width:1280px;margin:0 auto;padding:0 20px;}
+
+/* ===== TICKER ===== */
+.ticker-bar{background:linear-gradient(90deg,var(--primary-dark),#4527a0,var(--primary-dark));padding:9px 0;overflow:hidden;white-space:nowrap;}
+.ticker-inner{display:inline-flex;gap:40px;animation:ticker 28s linear infinite;}
+.ticker-inner:hover{animation-play-state:paused;}
+.tick-item{font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:8px;color:#fff;}
+.tick-item span{background:rgba(255,255,255,.2);padding:2px 8px;border-radius:4px;font-size:11px;}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ===== HERO ===== */
+.hero{padding:80px 0 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-40%;left:-10%;width:600px;height:600px;background:radial-gradient(ellipse,rgba(108,71,255,.15) 0%,transparent 70%);pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-20%;right:-5%;width:400px;height:400px;background:radial-gradient(ellipse,rgba(0,212,170,.1) 0%,transparent 70%);pointer-events:none;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;}
+.hero-eyebrow{display:flex;align-items:center;gap:8px;margin-bottom:18px;}
+.live-badge{background:var(--accent);color:#000;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.4px;animation:pulse 2s infinite;}
+.hero-eyebrow span{font-size:13px;color:var(--muted);}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-size:52px;font-weight:700;line-height:1.12;margin-bottom:18px;}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{font-size:17px;color:var(--muted);margin-bottom:30px;line-height:1.7;max-width:500px;}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-fill{padding:14px 28px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:var(--tr);display:inline-flex;align-items:center;gap:8px;}
+.btn-fill:hover{transform:translateY(-2px);box-shadow:var(--shl);}
+.btn-ghost{padding:14px 28px;background:transparent;border:1.5px solid var(--border);color:var(--txt);border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;transition:var(--tr);display:inline-flex;align-items:center;gap:8px;}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary);}
+.hero-stats{display:flex;gap:28px;margin-top:32px;}
+.hstat{text-align:center;}
+.hstat strong{display:block;font-size:26px;font-weight:800;color:var(--accent);}
+.hstat span{font-size:12px;color:var(--muted);}
+.hero-visual{position:relative;}
+.hero-card-stack{position:relative;}
+.hcard{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 20px;margin-bottom:14px;transition:var(--tr);}
+.hcard:hover{transform:translateX(6px);border-color:var(--primary);}
+.hcard-row{display:flex;align-items:center;gap:14px;}
+.hcard-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.hc1{background:rgba(108,71,255,.2);color:var(--primary);}
+.hc2{background:rgba(0,212,170,.2);color:var(--accent);}
+.hc3{background:rgba(245,200,66,.2);color:var(--gold);}
+.hcard-txt strong{display:block;font-size:14px;font-weight:700;}
+.hcard-txt span{font-size:12px;color:var(--muted);}
+.hcard-badge{margin-left:auto;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:800;}
+.badge-hot{background:rgba(244,67,54,.15);color:#f44336;}
+.badge-new{background:rgba(0,212,170,.15);color:var(--accent);}
+.badge-live{background:rgba(108,71,255,.15);color:var(--primary);}
+
+/* ===== SECTION HEADERS ===== */
+.sec-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;}
+.sec-hd h2{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;}
+.sec-hd h2 span{color:var(--primary);}
+.sec-hd a{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:5px;transition:color .2s;}
+.sec-hd a:hover{color:var(--primary);}
+section{padding:60px 0;}
+section+section{padding-top:0;}
+
+/* ===== CATEGORY PILLS ===== */
+.cat-pills{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px;}
+.cpill{padding:8px 18px;border-radius:30px;font-size:13px;font-weight:600;border:1.5px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;transition:var(--tr);}
+.cpill:hover,.cpill.active{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border-color:transparent;}
+
+/* ===== FEATURED DEAL CARD ===== */
+.featured-deal{background:linear-gradient(135deg,var(--primary-dark) 0%,rgba(30,30,44,.95) 100%);border:1px solid rgba(108,71,255,.35);border-radius:20px;padding:32px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;margin-bottom:40px;position:relative;overflow:hidden;}
+.featured-deal::before{content:'HOT DEAL';position:absolute;top:20px;right:-28px;background:var(--accent);color:#000;font-size:10px;font-weight:900;padding:5px 36px;transform:rotate(45deg);}
+.fd-tag{display:inline-block;background:rgba(0,212,170,.15);color:var(--accent);padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:14px;}
+.fd-title{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;margin-bottom:10px;line-height:1.2;}
+.fd-desc{color:var(--muted);font-size:14px;margin-bottom:18px;line-height:1.6;}
+.fd-price{display:flex;align-items:baseline;gap:10px;margin-bottom:20px;}
+.fd-price .current{font-size:32px;font-weight:800;color:var(--gold);}
+.fd-price .original{font-size:16px;color:var(--muted);text-decoration:line-through;}
+.fd-price .save{background:rgba(244,67,54,.15);color:#f44336;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:700;}
+.fd-timer{display:flex;gap:8px;margin-bottom:22px;}
+.fd-timer-block{background:rgba(0,0,0,.4);padding:8px 12px;border-radius:8px;text-align:center;min-width:52px;}
+.fd-timer-block strong{display:block;font-size:20px;font-weight:800;color:#fff;line-height:1;}
+.fd-timer-block small{font-size:10px;color:var(--muted);text-transform:uppercase;}
+.fd-img{width:200px;height:200px;object-fit:contain;filter:drop-shadow(0 20px 40px rgba(108,71,255,.4));}
+
+/* ===== ARTICLE GRID ===== */
+.articles-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;}
+.article-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:var(--tr);cursor:pointer;}
+.article-card:hover{transform:translateY(-6px);box-shadow:var(--shl);border-color:var(--primary);}
+.ac-img{width:100%;height:185px;object-fit:cover;background:linear-gradient(135deg,var(--surface),var(--card));}
+.ac-img-placeholder{width:100%;height:185px;display:flex;align-items:center;justify-content:center;font-size:48px;}
+.ac-body{padding:18px;}
+.ac-tags{display:flex;gap:7px;margin-bottom:10px;flex-wrap:wrap;}
+.ac-tag{padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;}
+.tag-deals{background:rgba(244,67,54,.12);color:#f44336;}
+.tag-review{background:rgba(108,71,255,.12);color:var(--primary);}
+.tag-earning{background:rgba(0,212,170,.12);color:var(--accent);}
+.tag-tips{background:rgba(245,200,66,.12);color:var(--gold);}
+.tag-news{background:rgba(33,150,243,.12);color:#2196f3;}
+.ac-title{font-size:16px;font-weight:700;margin-bottom:8px;line-height:1.35;color:var(--txt);}
+.ac-excerpt{font-size:13px;color:var(--muted);line-height:1.55;margin-bottom:14px;display:-webkit-box; line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.ac-meta{display:flex;align-items:center;justify-content:space-between;font-size:12px;color:var(--muted);}
+.ac-author{display:flex;align-items:center;gap:7px;}
+.ac-avatar{width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;flex-shrink:0;}
+.ac-read{display:flex;align-items:center;gap:4px;}
+
+/* ===== REVIEW CARDS ===== */
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px;}
+.review-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:20px;transition:var(--tr);}
+.review-card:hover{border-color:var(--primary);transform:translateY(-3px);box-shadow:var(--sh);}
+.rc-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
+.rc-img{width:68px;height:68px;border-radius:10px;object-fit:contain;background:var(--surface);padding:6px;flex-shrink:0;}
+.rc-img-ph{width:68px;height:68px;border-radius:10px;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:28px;flex-shrink:0;}
+.rc-info .rc-name{font-size:15px;font-weight:700;margin-bottom:4px;}
+.rc-info .rc-brand{font-size:12px;color:var(--muted);margin-bottom:6px;}
+.rc-stars{display:flex;gap:2px;color:var(--gold);font-size:13px;margin-bottom:4px;}
+.rc-score{font-size:12px;color:var(--muted);}
+.rc-verdict{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:14px;}
+.rc-price-row{display:flex;align-items:center;justify-content:space-between;}
+.rc-price{font-size:16px;font-weight:800;color:var(--gold);}
+.rc-link{padding:7px 14px;background:rgba(108,71,255,.12);color:var(--primary);border-radius:7px;font-size:12px;font-weight:700;border:none;cursor:pointer;transition:var(--tr);}
+.rc-link:hover{background:var(--primary);color:#fff;}
+
+/* ===== EARNING SECTION ===== */
+.earning-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;}
+.earn-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:24px;text-align:center;transition:var(--tr);}
+.earn-card:hover{transform:translateY(-4px);box-shadow:var(--shl);border-color:var(--accent);}
+.earn-icon{width:56px;height:56px;border-radius:14px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:26px;}
+.ei1{background:rgba(108,71,255,.15);color:var(--primary);}
+.ei2{background:rgba(0,212,170,.15);color:var(--accent);}
+.ei3{background:rgba(245,200,66,.15);color:var(--gold);}
+.ei4{background:rgba(244,67,54,.12);color:#f44336;}
+.ei5{background:rgba(33,150,243,.12);color:#2196f3;}
+.earn-card h3{font-size:16px;font-weight:700;margin-bottom:8px;}
+.earn-card p{font-size:13px;color:var(--muted);margin-bottom:14px;line-height:1.55;}
+.earn-range{font-size:18px;font-weight:800;color:var(--accent);}
+.earn-range span{font-size:12px;color:var(--muted);font-weight:400;}
+
+/* ===== NEWSLETTER ===== */
+.newsletter{background:linear-gradient(135deg,rgba(108,71,255,.15),rgba(0,212,170,.08));border:1px solid var(--border);border-radius:20px;padding:50px 40px;text-align:center;margin:40px 0;}
+.nl-badge{display:inline-block;background:rgba(108,71,255,.15);color:var(--primary);padding:5px 16px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:16px;}
+.newsletter h2{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;margin-bottom:10px;}
+.newsletter p{color:var(--muted);font-size:15px;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+.nl-form{display:flex;gap:10px;max-width:460px;margin:0 auto;}mlu,kiluo8iopl
+/
+.nl-input{flex:1;padding:13px 18px;background:var(--card);border:1.5px solid var(--border);border-radius:10px;color:var(--txt);font-size:14px;}
+.nl-input:focus{outline:none;border-color:var(--primary);}
+.nl-btn{padding:13px 24px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;border:none;border-radius:10px;font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap;transition:var(--tr);}
+.nl-btn:hover{transform:translateY(-1px);box-shadow:var(--shl);}
+.nl-perks{display:flex;justify-content:center;gap:22px;margin-top:20px;flex-wrap:wrap;}
+.nl-perk{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px;}
+.nl-perk i{color:var(--accent);}
+
+/* ===== DEALS TABLE ===== */
+.deals-table{width:100%;border-collapse:separate;border-spacing:0 10px;}
+.deals-table th{font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);padding:0 16px 8px;text-align:left;}
+.deals-table td{padding:14px 16px;background:var(--card);font-size:14px;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.deals-table td:first-child{border-left:1px solid var(--border);border-radius:10px 0 0 10px;}
+.deals-table td:last-child{border-right:1px solid var(--border);border-radius:0 10px 10px 0;}
+.dt-prod{display:flex;align-items:center;gap:12px;}
+.dt-thumb{width:40px;height:40px;border-radius:8px;background:var(--surface);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.dt-name{font-weight:600;font-size:13px;}
+.dt-cat{font-size:11px;color:var(--muted);}
+.dt-price{font-weight:800;color:var(--gold);}
+.dt-was{font-size:12px;color:var(--muted);text-decoration:line-through;}
+.dt-save{padding:3px 8px;background:rgba(244,67,54,.12);color:#f44336;border-radius:4px;font-size:11px;font-weight:700;}
+.dt-shop{padding:7px 14px;background:rgba(108,71,255,.12);color:var(--primary);border-radius:7px;font-size:12px;font-weight:700;border:none;cursor:pointer;transition:var(--tr);}
+.dt-shop:hover{background:var(--primary);color:#fff;}
+.dt-hot{display:flex;align-items:center;gap:4px;font-size:11px;color:#f44336;font-weight:700;}
+
+/* ===== TOOLS SECTION ===== */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px;}
+.tool-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;transition:var(--tr);}
+.tool-card:hover{border-color:var(--accent);transform:translateY(-3px);}
+.tool-icon{font-size:32px;margin-bottom:12px;}
+.tool-name{font-size:15px;font-weight:700;margin-bottom:5px;}
+.tool-desc{font-size:12px;color:var(--muted);margin-bottom:10px;}
+.tool-tag{font-size:11px;font-weight:700;padding:3px 10px;border-radius:20px;}
+.free{background:rgba(0,212,170,.12);color:var(--accent);}
+.paid{background:rgba(245,200,66,.12);color:var(--gold);}
+.freemium{background:rgba(108,71,255,.12);color:var(--primary);}
+
+/* ===== FOOTER ===== */
+.site-footer{background:var(--surface);border-top:1px solid var(--border);padding:50px 0 28px;margin-top:60px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:36px;}
+.footer-brand .logo{margin-bottom:14px;}
+.footer-brand p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:18px;max-width:280px;}
+.social-row{display:flex;gap:10px;}
+.social-btn{width:36px;height:36px;background:rgba(108,71,255,.12);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:var(--tr);}
+.social-btn:hover{background:var(--primary);border-color:var(--primary);color:#fff;}
+.footer-col h4{font-size:14px;font-weight:700;margin-bottom:14px;color:var(--txt);}
+.footer-col a{display:block;font-size:13px;color:var(--muted);margin-bottom:9px;transition:color .2s;}
+.footer-col a:hover{color:var(--primary);}
+.footer-bottom{border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:var(--muted);}
+.monetization-note{font-size:11px;color:var(--muted);background:var(--card);border:1px solid var(--border);border-radius:6px;padding:6px 12px;}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-visual{display:none;}
+}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .mob-menu-btn{display:block;}
+  .hero h1{font-size:36px;}
+  .hero{padding:50px 0 40px;}
+  .featured-deal{grid-template-columns:1fr;}
+  .fd-img{display:none;}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+  .nl-form{flex-direction:column;}
+  .articles-grid{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .hero h1{font-size:28px;}
+  .hero-stats{gap:16px;}
+  .hstat strong{font-size:22px;}
+  .footer-grid{grid-template-columns:1fr;}
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.75}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+    <div class="ticker-inner">
+        <span class="tick-item"><i class="fas fa-fire"></i> Smartphone deals updated <span>2h ago</span></span>
+        <span class="tick-item"><i class="fas fa-dollar-sign"></i> Fiverr: Top BD earners making $3k+/month <span>NEW</span></span>
+        <span class="tick-item"><i class="fas fa-laptop"></i> Best budget laptops for students 2026 <span>GUIDE</span></span>
+        <span class="tick-item"><i class="fas fa-wifi"></i> Grameenphone vs Robi data comparison <span>HOT</span></span>
+        <span class="tick-item"><i class="fas fa-robot"></i> AI tools every Bangladeshi freelancer needs <span>FREE</span></span>
+        <span class="tick-item"><i class="fas fa-fire"></i> Smartphone deals updated <span>2h ago</span></span>
+        <span class="tick-item"><i class="fas fa-dollar-sign"></i> Fiverr: Top BD earners making $3k+/month <span>NEW</span></span>
+        <span class="tick-item"><i class="fas fa-laptop"></i> Best budget laptops for students 2026 <span>GUIDE</span></span>
+        <span class="tick-item"><i class="fas fa-wifi"></i> Grameenphone vs Robi data comparison <span>HOT</span></span>
+        <span class="tick-item"><i class="fas fa-robot"></i> AI tools every Bangladeshi freelancer needs <span>FREE</span></span>
+    </div>
+</div>
+
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <div class="hdr-row">
+            <a href="#" class="logo"><div class="logo-icon">⚡</div><span>TechDesh</span></a>
+            <nav class="nav-links">
+                <a href="#deals" class="nav-link active">Deals</a>
+                <a href="#reviews" class="nav-link">Reviews</a>
+                <a href="#earning" class="nav-link">Earn Online</a>
+                <a href="#articles" class="nav-link">Articles</a>
+                <a href="#tools" class="nav-link">Free Tools</a>
+            </nav>
+            <button class="hdr-cta" onclick="document.querySelector('.nl-input').focus()">
+                <i class="fas fa-bell"></i> Get Deal Alerts
+            </button>
+            <button class="mob-menu-btn" aria-label="Menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div>
+                <div class="hero-eyebrow">
+                    <div class="live-badge">LIVE</div>
+                    <span>Bangladesh's #1 Tech Deal Tracker — Updated Daily</span>
+                </div>
+                <h1>Find the Best Tech Deals &amp;<em> Earn Online</em> from Bangladesh</h1>
+                <p>Curated smartphone deals, honest gadget reviews, and real guides to building income through freelancing, content, and digital skills — no fluff, all Bangladesh-focused.</p>
+                <div class="hero-actions">
+                    <button class="btn-fill" onclick="document.getElementById('deals').scrollIntoView({behavior:'smooth'})"><i class="fas fa-bolt"></i> Today's Deals</button>
+                    <button class="btn-ghost" onclick="document.getElementById('earning').scrollIntoView({behavior:'smooth'})"><i class="fas fa-dollar-sign"></i> How to Earn</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="hstat"><strong>4,200+</strong><span>Deals tracked</span></div>
+                    <div class="hstat"><strong>38k</strong><span>Monthly readers</span></div>
+                    <div class="hstat"><strong>৳12,000+</strong><span>Avg. savings/reader</span></div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card-stack">
+                    <div class="hcard" style="animation:float 4s ease-in-out infinite;">
+                        <div class="hcard-row">
+                            <div class="hcard-icon hc1"><i class="fas fa-mobile-alt"></i></div>
+                            <div class="hcard-txt"><strong>Realme C65 5G</strong><span>৳18,999 — 34% off on Daraz</span></div>
+                            <div class="hcard-badge badge-hot">🔥 HOT</div>
+                        </div>
+                    </div>
+                    <div class="hcard" style="animation:float 4s ease-in-out infinite .8s;">
+                        <div class="hcard-row">
+                            <div class="hcard-icon hc2"><i class="fas fa-laptop"></i></div>
+                            <div class="hcard-txt"><strong>Asus VivoBook 15</strong><span>৳55,900 — free Office 365</span></div>
+                            <div class="hcard-badge badge-new">NEW</div>
+                        </div>
+                    </div>
+                    <div class="hcard" style="animation:float 4s ease-in-out infinite 1.6s;">
+                        <div class="hcard-row">
+                            <div class="hcard-icon hc3"><i class="fas fa-headphones-alt"></i></div>
+                            <div class="hcard-txt"><strong>Fiverr Gig Tips</strong><span>How BD sellers hit $2k/month</span></div>
+                            <div class="hcard-badge badge-live">GUIDE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- DEALS SECTION -->
+<section id="deals">
+    <div class="container">
+        <div class="sec-hd">
+            <h2>🔥 <span>Hot Deals</span> Right Now</h2>
+            <a href="#">All Deals <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Featured Deal -->
+        <div class="featured-deal">
+            <div>
+                <div class="fd-tag">⚡ Deal of the Day</div>
+                <div class="fd-title">Samsung Galaxy A55 5G<br>— Bangladesh Edition</div>
+                <div class="fd-desc">Snapdragon 7s Gen 3 · 6.6″ Super AMOLED · 50MP OIS camera · 5000mAh · Official warranty in Bangladesh. Available on Daraz, Chaldal, and Samsung stores.</div>
+                <div class="fd-price">
+                    <span class="current">৳42,999</span>
+                    <span class="original">৳52,000</span>
+                    <span class="save">Save ৳9,001</span>
+                </div>
+                <div class="fd-timer">
+                    <div class="fd-timer-block"><strong id="dH">07</strong><small>hrs</small></div>
+                    <span style="color:var(--primary);font-size:20px;font-weight:800;">:</span>
+                    <div class="fd-timer-block"><strong id="dM">34</strong><small>min</small></div>
+                    <span style="color:var(--primary);font-size:20px;font-weight:800;">:</span>
+                    <div class="fd-timer-block"><strong id="dS">12</strong><small>sec</small></div>
+                </div>
+                <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                    <button class="btn-fill" style="font-size:14px;padding:12px 22px;" onclick="showToast('Redirecting to Daraz…','info')"><i class="fas fa-external-link-alt"></i> Get This Deal</button>
+                    <button class="btn-ghost" style="font-size:14px;padding:12px 22px;" onclick="showToast('Watching price for you!','success')"><i class="fas fa-bell"></i> Watch Price</button>
+                </div>
+            </div>
+            <img class="fd-img" src="https://placehold.co/200x200/6c47ff/ffffff?text=A55+5G" alt="Samsung Galaxy A55">
+        </div>
+
+        <!-- Category Pills -->
+        <div class="cat-pills">
+            <button class="cpill active" onclick="filterDeals('all',this)">All</button>
+            <button class="cpill" onclick="filterDeals('phones',this)"><i class="fas fa-mobile-alt"></i> Phones</button>
+            <button class="cpill" onclick="filterDeals('laptops',this)"><i class="fas fa-laptop"></i> Laptops</button>
+            <button class="cpill" onclick="filterDeals('audio',this)"><i class="fas fa-headphones"></i> Audio</button>
+            <button class="cpill" onclick="filterDeals('accessories',this)"><i class="fas fa-plug"></i> Accessories</button>
+            <button class="cpill" onclick="filterDeals('gaming',this)"><i class="fas fa-gamepad"></i> Gaming</button>
+        </div>
+
+        <!-- Deals Table -->
+        <div style="overflow-x:auto;">
+            <table class="deals-table" id="dealsTable">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Current Price</th>
+                        <th>Was</th>
+                        <th>Saving</th>
+                        <th>Where</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="dealsBody"></tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- REVIEWS SECTION -->
+<section id="reviews">
+    <div class="container">
+        <div class="sec-hd">
+            <h2>✅ Honest <span>Reviews</span></h2>
+            <a href="#">All Reviews <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="reviews-grid" id="reviewsGrid"></div>
+    </div>
+</section>
+
+<!-- ONLINE EARNING SECTION -->
+<section id="earning" style="background:linear-gradient(180deg,transparent,rgba(108,71,255,.05),transparent);">
+    <div class="container">
+        <div class="sec-hd">
+            <h2>💰 Earn Online from <span>Bangladesh</span></h2>
+            <a href="#">Full Guide <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <p style="color:var(--muted);font-size:15px;margin-bottom:28px;max-width:620px;">Real, proven income streams that work in Bangladesh — from students to professionals. No scams, only platforms that have paid real BDT.</p>
+        <div class="earning-grid" id="earningGrid"></div>
+    </div>
+</section>
+
+<!-- ARTICLES SECTION -->
+<section id="articles">
+    <div class="container">
+        <div class="sec-hd">
+            <h2>📚 Latest <span>Articles</span></h2>
+            <a href="#">All Articles <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="articles-grid" id="articlesGrid"></div>
+    </div>
+</section>
+
+<!-- FREE TOOLS -->
+<section id="tools">
+    <div class="container">
+        <div class="sec-hd">
+            <h2>🛠 Free <span>Tools</span> for You</h2>
+        </div>
+        <div class="tools-grid" id="toolsGrid"></div>
+    </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="container">
+    <div class="newsletter">
+        <div class="nl-badge"><i class="fas fa-bolt"></i> Free Deal Alerts</div>
+        <h2>Never Miss a Deal Again</h2>
+        <p>Get the best Bangladesh tech deals, earning guides, and gadget reviews delivered to your inbox — daily or weekly, your choice.</p>
+        <div class="nl-form">
+            <input class="nl-input" type="email" placeholder="your@email.com" id="nlEmail">
+            <button class="nl-btn" onclick="subscribeNewsletter()"><i class="fas fa-paper-plane"></i> Subscribe Free</button>
+        </div>
+        <div class="nl-perks">
+            <span class="nl-perk"><i class="fas fa-check"></i> No spam, ever</span>
+            <span class="nl-perk"><i class="fas fa-check"></i> Unsubscribe anytime</span>
+            <span class="nl-perk"><i class="fas fa-check"></i> 38,000+ readers</span>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo"><div class="logo-icon">⚡</div><span>TechDesh</span></div>
+                <p>Bangladesh's most trusted tech deal tracker and online earning resource. We test, compare, and save you money and time.</p>
+                <div class="social-row">
+                    <a class="social-btn" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-youtube"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-telegram-plane"></i></a>
+                    <a class="social-btn" href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <a href="#">Today's Deals</a>
+                <a href="#">Phone Reviews</a>
+                <a href="#">Laptop Deals</a>
+                <a href="#">Deal Alerts</a>
+                <a href="#">Price History</a>
+            </div>
+            <div class="footer-col">
+                <h4>Earn Online</h4>
+                <a href="#">Fiverr Guide BD</a>
+                <a href="#">Upwork for Beginners</a>
+                <a href="#">YouTube Monetization</a>
+                <a href="#">Affiliate Marketing BD</a>
+                <a href="#">Freelancing Basics</a>
+            </div>
+            <div class="footer-col">
+                <h4>TechDesh</h4>
+                <a href="#">About Us</a>
+                <a href="#">Write for Us</a>
+                <a href="#">Advertise</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 TechDesh. All rights reserved.</span>
+            <div class="monetization-note"><i class="fas fa-info-circle"></i> Some links are affiliate links. We earn a small commission at no extra cost to you.</div>
+            <span>Built for Bangladesh 🇧🇩</span>
+        </div>
+    </div>
+</footer>
+
+<!-- TOAST -->
+<div id="tdToast" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(80px);background:#1e1e2c;color:#f0f0ff;padding:13px 22px;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.4);z-index:999;opacity:0;transition:all .35s;border-left:4px solid var(--accent);max-width:320px;text-align:center;pointer-events:none;"></div>
+
+<script>
+'use strict';
+
+/* ===== TOAST ===== */
+function showToast(msg, type='info') {
+    const t = document.getElementById('tdToast');
+    const colors = {success:'#00d4aa', info:'#6c47ff', error:'#f44336', warning:'#f5c842'};
+    t.textContent = msg;
+    t.style.borderLeftColor = colors[type] || colors.info;
+    t.style.opacity = '1';
+    t.style.transform = 'translateX(-50%) translateY(0)';
+    clearTimeout(window._toast);
+    window._toast = setTimeout(() => { t.style.opacity='0'; t.style.transform='translateX(-50%) translateY(80px)'; }, 3400);
+}
+
+/* ===== FEATURED DEAL TIMER ===== */
+(function() {
+    const end = Date.now() + 7.8 * 3600 * 1000;
+    const pad = n => String(n).padStart(2,'0');
+    const tick = () => {
+        const d = end - Date.now(); if(d<0) return;
+        document.getElementById('dH').textContent = pad(Math.floor(d/3600000));
+        document.getElementById('dM').textContent = pad(Math.floor((d%3600000)/60000));
+        document.getElementById('dS').textContent = pad(Math.floor((d%60000)/1000));
+    };
+    tick(); setInterval(tick, 1000);
+})();
+
+/* ===== DEALS DATA ===== */
+const DEALS = [
+    { cat:'phones',   icon:'📱', name:'Xiaomi Redmi Note 13 Pro',   brand:'Xiaomi',    price:28999, was:38000, where:'Daraz',   hot:true },
+    { cat:'phones',   icon:'📱', name:'Infinix Hot 40 Pro',          brand:'Infinix',   price:17499, was:22999, where:'Chaldal', hot:true },
+    { cat:'laptops',  icon:'💻', name:'HP Pavilion 15 (Core i5-13)',  brand:'HP',        price:64900, was:72000, where:'StarTech',hot:false },
+    { cat:'laptops',  icon:'💻', name:'Asus VivoBook 16 AMD',         brand:'Asus',      price:55900, was:63000, where:'Ryans',   hot:false },
+    { cat:'audio',    icon:'🎧', name:'JBL Tune 510BT',               brand:'JBL',       price:3499,  was:5499,  where:'Daraz',   hot:true },
+    { cat:'audio',    icon:'🎧', name:'Sony WH-1000XM4',              brand:'Sony',      price:24999, was:32000, where:'Reliance',hot:false },
+    { cat:'accessories',icon:'🔌',name:'Baseus 65W GaN Charger',      brand:'Baseus',    price:2199,  was:3500,  where:'Daraz',   hot:true },
+    { cat:'gaming',   icon:'🎮', name:'Logitech G102 Gaming Mouse',   brand:'Logitech',  price:2699,  was:3999,  where:'StarTech',hot:false },
+];
+
+let activeFilter = 'all';
+
+function renderDeals(filter) {
+    const tbody = document.getElementById('dealsBody');
+    if (!tbody) return;
+    const filtered = filter === 'all' ? DEALS : DEALS.filter(d => d.cat === filter);
+    tbody.innerHTML = filtered.map(d => {
+        const save = d.was - d.price;
+        const pct  = Math.round((save / d.was) * 100);
+        return `<tr>
+            <td><div class="dt-prod"><div class="dt-thumb">${d.icon}</div><div><div class="dt-name">${d.name}</div><div class="dt-cat">${d.brand}</div></div></div></td>
+            <td><span class="dt-price">৳${d.price.toLocaleString('en-BD')}</span></td>
+            <td><span class="dt-was">৳${d.was.toLocaleString('en-BD')}</span></td>
+            <td><span class="dt-save">${pct}% off · ৳${save.toLocaleString('en-BD')}</span>${d.hot?'<div class="dt-hot"><i class="fas fa-fire"></i> Popular</div>':''}</td>
+            <td>${d.where}</td>
+            <td><button class="dt-shop" onclick="showToast('Opening ${d.where} — affiliate link','info')"><i class="fas fa-external-link-alt"></i> Shop</button></td>
+        </tr>`;
+    }).join('');
+}
+
+function filterDeals(cat, btn) {
+    activeFilter = cat;
+    document.querySelectorAll('.cpill').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderDeals(cat);
+}
+
+/* ===== REVIEWS DATA ===== */
+const REVIEWS = [
+    { icon:'📱', name:'Realme C65 5G',     brand:'Realme',   stars:4,   score:'8.2/10', verdict:'Best 5G phone under ৳20k in Bangladesh. Great battery and smooth UI. Camera is average in low light.', price:'৳18,999' },
+    { icon:'💻', name:'HP 15s (Core i5)',   brand:'HP',       stars:4,   score:'8.0/10', verdict:'Solid everyday laptop for students. Fast boot with Windows 11, decent keyboard. Mediocre speakers.', price:'৳58,900' },
+    { icon:'🎧', name:'OnePlus Buds 3',     brand:'OnePlus',  stars:5,   score:'9.0/10', verdict:'Exceptional ANC at this price. 40h battery life with case. Best value TWS earbuds in BD market.', price:'৳6,999' },
+    { icon:'📡', name:'TP-Link Archer AX23',brand:'TP-Link',  stars:4,   score:'8.5/10', verdict:'Brilliant WiFi 6 router for home. Stable 200Mbps+ speeds at 15m range. Easy app setup.', price:'৳5,499' },
+    { icon:'⌚', name:'Xiaomi Mi Band 8',   brand:'Xiaomi',   stars:4,   score:'7.8/10', verdict:'Best budget fitness band in BD. 16d battery, 120+ sports modes, accurate HR. No built-in GPS.', price:'৳3,200' },
+    { icon:'📷', name:'Insta360 Go 3S',     brand:'Insta360', stars:5,   score:'9.2/10', verdict:'Perfect action camera for content creators. Tiny, 4K, incredible stabilisation. A game changer.', price:'৳28,500' },
+];
+
+function renderReviews() {
+    const grid = document.getElementById('reviewsGrid');
+    if (!grid) return;
+    grid.innerHTML = REVIEWS.map(r => `
+        <div class="review-card">
+            <div class="rc-top">
+                <div class="rc-img-ph">${r.icon}</div>
+                <div class="rc-info">
+                    <div class="rc-name">${r.name}</div>
+                    <div class="rc-brand">${r.brand}</div>
+                    <div class="rc-stars">${'<i class="fas fa-star"></i>'.repeat(r.stars)}${'<i class="far fa-star"></i>'.repeat(5-r.stars)}</div>
+                    <div class="rc-score">Score: <strong>${r.score}</strong></div>
+                </div>
+            </div>
+            <div class="rc-verdict">${r.verdict}</div>
+            <div class="rc-price-row">
+                <span class="rc-price">${r.price}</span>
+                <button class="rc-link" onclick="showToast('Opening best deal for ${r.name}','info')">Buy Now</button>
+            </div>
+        </div>
+    `).join('');
+}
+
+/* ===== EARNING DATA ===== */
+const EARNING_METHODS = [
+    { icon:'🎨', class:'ei1', name:'Graphic Design', platform:'Fiverr / Upwork', desc:'Logo design, social media graphics, and branding. High demand from international clients.', range:'$300–2,000+' },
+    { icon:'✍️', class:'ei2', name:'Content Writing', platform:'Fiverr / Freelancer', desc:'Blog posts, SEO articles, and copywriting. English writing skills land $15–80/hr gigs easily.', range:'$200–1,500+' },
+    { icon:'💻', class:'ei3', name:'Web Development', platform:'Upwork / Toptal', desc:'HTML, WordPress, React development. Highest-paying skill in Bangladesh freelancing market.', range:'$500–5,000+' },
+    { icon:'📱', class:'ei4', name:'Social Media Mgmt', platform:'Contra / PeoplePerHour', desc:'Manage Instagram, Facebook pages for brands. Package deals ৳8,000–25,000/month per client.', range:'$150–800+' },
+    { icon:'🎥', class:'ei5', name:'YouTube / Content', platform:'YouTube / TikTok', desc:'Bengali content on tech, education, or lifestyle. Monetization in 12 months with consistent uploads.', range:'$100–3,000+' },
+];
+
+function renderEarning() {
+    const grid = document.getElementById('earningGrid');
+    if (!grid) return;
+    grid.innerHTML = EARNING_METHODS.map(e => `
+        <div class="earn-card">
+            <div class="earn-icon ${e.class}">${e.icon}</div>
+            <h3>${e.name}</h3>
+            <p style="font-size:11px;color:var(--primary);font-weight:700;margin-bottom:6px;margin-top:-6px;">${e.platform}</p>
+            <p>${e.desc}</p>
+            <div class="earn-range">${e.range}<span>/mo (USD)</span></div>
+        </div>
+    `).join('');
+}
+
+/* ===== ARTICLES DATA ===== */
+const ARTICLES = [
+    { tag:'deals',   tagClass:'tag-deals',   emoji:'🔥', title:'Best Budget Phones Under ৳20,000 in Bangladesh (2026)', excerpt:'We tested 12 phones. These 5 offer the best value for money right now in the Bangladeshi market.', author:'Rahim', time:'5 min read', date:'June 25' },
+    { tag:'earning', tagClass:'tag-earning', emoji:'💰', title:'How I Made My First $500 on Fiverr from Dhaka', excerpt:'A real story from a 19-year-old student who went from zero to consistent Fiverr income in 4 months.', author:'Tasnim', time:'8 min read', date:'June 24' },
+    { tag:'review',  tagClass:'tag-review',  emoji:'⭐', title:'Xiaomi Redmi Note 13 Pro Full Review — Bangladesh Price & Buy Guide', excerpt:'108MP camera, AMOLED screen, 5000mAh — but should you buy it or wait for the next one?', author:'Arif', time:'10 min read', date:'June 23' },
+    { tag:'tips',    tagClass:'tag-tips',    emoji:'💡', title:'10 Free AI Tools That Will 10x Your Freelancing Output', excerpt:'ChatGPT alternatives, image generators, and automation tools that work from Bangladesh — free.', author:'Nadia', time:'6 min read', date:'June 22' },
+    { tag:'news',    tagClass:'tag-news',    emoji:'📰', title:'Grameenphone 5G Launch: What It Means for BD Tech Users', excerpt:'Coverage areas, speeds, compatible phones, and whether you should upgrade your SIM now.', author:'Karim', time:'4 min read', date:'June 21' },
+    { tag:'earning', tagClass:'tag-earning', emoji:'🎓', title:'Complete Guide to Starting a Bengali YouTube Channel (Monetize Fast)', excerpt:'Niche selection, equipment on a budget, upload schedule, and reaching 1000 subs in 6 months.', author:'Sadia', time:'12 min read', date:'June 20' },
+];
+
+function renderArticles() {
+    const grid = document.getElementById('articlesGrid');
+    if (!grid) return;
+    grid.innerHTML = ARTICLES.map(a => `
+        <article class="article-card" onclick="showToast('Opening article… (link coming soon)','info')">
+            <div class="ac-img-placeholder" style="background:linear-gradient(135deg,rgba(108,71,255,.15),rgba(0,212,170,.08));">${a.emoji}</div>
+            <div class="ac-body">
+                <div class="ac-tags"><span class="ac-tag ${a.tagClass}">${a.tag}</span></div>
+                <div class="ac-title">${a.title}</div>
+                <div class="ac-excerpt">${a.excerpt}</div>
+                <div class="ac-meta">
+                    <div class="ac-author"><div class="ac-avatar">${a.author[0]}</div><span>${a.author} · ${a.date}</span></div>
+                    <div class="ac-read"><i class="fas fa-clock" style="font-size:11px;"></i> ${a.time}</div>
+                </div>
+            </div>
+        </article>
+    `).join('');
+}
+
+/* ===== FREE TOOLS ===== */
+const TOOLS = [
+    { icon:'💰', name:'Budget Calculator', desc:'Track monthly expenses and plan savings in BDT.', tag:'free', tagClass:'free' },
+    { icon:'📊', name:'Freelance Rate Calculator', desc:'Calculate your minimum hourly rate on Fiverr/Upwork.', tag:'free', tagClass:'free' },
+    { icon:'📱', name:'Phone Comparator', desc:'Side-by-side specs for any two phones available in BD.', tag:'free', tagClass:'free' },
+    { icon:'💹', name:'Price History Tracker', desc:'See how prices on Daraz change over time.', tag:'freemium', tagClass:'freemium' },
+    { icon:'🤖', name:'AI Gig Description Writer', desc:'Write winning Fiverr gig descriptions with AI.', tag:'free', tagClass:'free' },
+    { icon:'📋', name:'Invoice Generator', desc:'Create professional invoices for freelance clients — BDT ready.', tag:'free', tagClass:'free' },
+    { icon:'📈', name:'Earning Tracker', desc:'Log your monthly freelance income and set goals.', tag:'free', tagClass:'free' },
+    { icon:'🔍', name:'Domain Checker BD', desc:'Check .com.bd and .bd domain availability instantly.', tag:'free', tagClass:'free' },
+];
+
+function renderTools() {
+    const grid = document.getElementById('toolsGrid');
+    if (!grid) return;
+    grid.innerHTML = TOOLS.map(t => `
+        <div class="tool-card" onclick="showToast('Tool launching soon — subscribe for early access!','info')">
+            <div class="tool-icon">${t.icon}</div>
+            <div class="tool-name">${t.name}</div>
+            <div class="tool-desc">${t.desc}</div>
+            <span class="tool-tag ${t.tagClass}">${t.tag}</span>
+        </div>
+    `).join('');
+}
+
+/* ===== NEWSLETTER ===== */
+function subscribeNewsletter() {
+    const email = document.getElementById('nlEmail').value.trim();
+    if (!email || !email.includes('@')) { showToast('Please enter a valid email.','warning'); return; }
+    showToast(`✅ Subscribed! Deal alerts coming to ${email}`,'success');
+    document.getElementById('nlEmail').value = '';
+}
+
+/* ===== INIT ===== */
+document.addEventListener('DOMContentLoaded', () => {
+    renderDeals('all');
+    renderReviews();
+    renderEarning();
+    renderArticles();
+    renderTools();
+});
+</script>
+</body>
+</html>
