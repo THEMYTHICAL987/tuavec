@@ -1,0 +1,121 @@
+const digitalProducts = [
+  {
+    name: 'Bangladesh School Operations Starter Pack',
+    slug: 'school-operations-starter-pack',
+    category: 'Digital Services',
+    productType: 'digital',
+    deliveryType: 'download',
+    price: 2490,
+    originalPrice: 3490,
+    description: 'Editable attendance, fee tracking, parent communication, exam planning, and school policy templates for small schools.',
+    seller: 'Tu Avec Digital Studio',
+    featured: true,
+    stock: 9999
+  },
+  {
+    name: 'Office Admin and HR Template Vault',
+    slug: 'office-admin-hr-template-vault',
+    category: 'Digital Services',
+    productType: 'digital',
+    deliveryType: 'download',
+    price: 2990,
+    originalPrice: 4490,
+    description: 'Practical editable templates for leave, onboarding, appraisals, meeting notes, procurement, and employee records.',
+    seller: 'Tu Avec Digital Studio',
+    featured: true,
+    stock: 9999
+  },
+  {
+    name: 'Small Business Cashflow and Inventory Dashboard',
+    slug: 'small-business-cashflow-inventory-dashboard',
+    category: 'Digital Services',
+    productType: 'digital',
+    deliveryType: 'download',
+    price: 1990,
+    originalPrice: 2990,
+    description: 'Spreadsheet dashboard for sales, expenses, stock movement, reorder alerts, and monthly profit visibility.',
+    seller: 'Tu Avec Digital Studio',
+    featured: true,
+    stock: 9999
+  },
+  {
+    name: 'Bangladesh NGO Reporting Toolkit',
+    slug: 'bangladesh-ngo-reporting-toolkit',
+    category: 'Digital Services',
+    productType: 'digital',
+    deliveryType: 'download',
+    price: 3990,
+    originalPrice: 5990,
+    description: 'Project plans, beneficiary registers, field monitoring forms, donor updates, and outcome reporting templates.',
+    seller: 'Tu Avec Digital Studio',
+    featured: true,
+    stock: 9999
+  },
+  {
+    name: 'Professional Bengali-English Business Writing Pack',
+    slug: 'bengali-english-business-writing-pack',
+    category: 'Digital Services',
+    productType: 'digital',
+    deliveryType: 'download',
+    price: 990,
+    originalPrice: 1490,
+    description: 'Ready-to-edit bilingual email, notice, quotation, invoice note, complaint response, and customer-care scripts.',
+    seller: 'Tu Avec Digital Studio',
+    featured: false,
+    stock: 9999
+  },
+  {
+    name: 'Frontline Customer Service Training Microcourse',
+    slug: 'frontline-customer-service-training-microcourse',
+    category: 'Digital Services',
+    productType: 'digital',
+    deliveryType: 'license',
+    price: 4990,
+    originalPrice: 6990,
+    description: 'Self-paced training slides, facilitator notes, role-play exercises, and completion certificate templates for teams.',
+    seller: 'Tu Avec Digital Studio',
+    featured: true,
+    stock: 9999
+  },
+  {
+    name: 'Digital Safety and Scam Awareness Workshop Kit',
+    slug: 'digital-safety-scam-awareness-workshop-kit',
+    category: 'Digital Services',
+    productType: 'digital',
+    deliveryType: 'license',
+    price: 3490,
+    originalPrice: 4990,
+    description: 'Institution-ready workshop slides, quizzes, posters, and facilitator guide for safer online payments and accounts.',
+    seller: 'Tu Avec Digital Studio',
+    featured: false,
+    stock: 9999
+  },
+  {
+    name: 'Team Productivity and Meeting System',
+    slug: 'team-productivity-meeting-system',
+    category: 'Digital Services',
+    productType: 'digital',
+    deliveryType: 'download',
+    price: 1490,
+    originalPrice: 2290,
+    description: 'Weekly planning board, meeting agenda, decision log, project tracker, and team review templates.',
+    seller: 'Tu Avec Digital Studio',
+    featured: false,
+    stock: 9999
+  },
+  {
+    name: 'Tu Avec Business Digital Starter Bundle',
+    slug: 'tuavec-business-digital-starter-bundle',
+    category: 'Digital Services',
+    productType: 'digital',
+    deliveryType: 'license',
+    price: 8990,
+    originalPrice: 13990,
+    description: 'Bundle of the office vault, cashflow dashboard, writing pack, productivity system, and customer-service resources.',
+    seller: 'Tu Avec Digital Studio',
+    featured: true,
+    stock: 9999
+  }
+];
+
+module.exports = digitalProducts;
