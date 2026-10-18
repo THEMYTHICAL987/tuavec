@@ -1,0 +1,2826 @@
+SKU
+Brand
+Product Name
+Category
+Size/Volume
+Target Concern / Description
+Estimated Cost (THB)
+Estimated Retail (BDT)
+SRI-POWDER-01
+Srichand
+Bare to Perfect Translucent Powder
+Cosmetics
+10g
+Oil-control setting powder for tropical humidity
+320
+1650
+SRI-SUN-02
+Srichand
+Sunlution Acne Care Sunscreen SPF50+ PA++++
+Skincare
+40ml
+Lightweight non-comedogenic acne sunscreen
+299
+1550
+SRI-FOUND-03
+Srichand
+Skin Essential Fine Foundation SPF50+ PA++++
+Cosmetics
+30ml
+Medium coverage natural finish liquid base
+350
+1790
+MIZU-SUN-01
+MizuMi
+UV Water Serum SPF50+ PA++++
+Skincare
+40g
+100% chemical-free sensitive skin sunscreen
+690
+3200
+MIZU-BODY-02
+MizuMi
+UV Bright Body Serum SPF50+ PA++++
+Skincare
+180ml
+Brightening non-sticky body sun protection
+390
+1950
+MIZU-ACNE-03
+MizuMi
+Peptide Acne Gel
+Skincare
+9g x 4
+Fast-acting emergency pimple spot treatment
+196
+1150
+INGU-LIP-01
+INGU
+Nio-Glow Peptide Balm SPF30 PA++
+Skincare
+10g
+Peptide lip barrier repair and sun defense
+290
+1550
+INGU-SERUM-02
+INGU
+Skin Clarifying 20% Niacinamide Crystal Serum
+Skincare
+40ml
+Pore refining and bright glass-skin serum
+890
+4200
+INGU-SUN-03
+INGU
+Super-Light Soothing Sunscreen SPF50+ PA++++
+Skincare
+50g
+Barrier repair lightweight daily sun lotion
+790
+3800
+PONG-SERUM-01
+Dr.Pong
+28D Whitening Drone Acne Serum
+Skincare
+15ml
+Targeted dark spot and acne mark fading
+399
+2100
+PONG-POWDER-02
+Dr.Pong
+Zero Acne Clear Tinted Powder SPF30
+Cosmetics
+9g
+Dermatologist-tested oil control acne powder
+299
+1550
+PONG-EYE-03
+Dr.Pong
+100K Hyalu 3D Revitalizing Eye Cream
+Skincare
+15g
+Dark circle reducing hyaluronic eye treatment
+399
+2100
+MIST-MASC-01
+Mistine
+Super Model 4D Extension Mascara
+Cosmetics
+5.5g
+Smudge-proof fiber lash lengthening mascara
+159
+950
+MIST-SUN-02
+Mistine
+Aqua Base Sunscreen Facial Matte Lotion SPF50+ PA++++
+Skincare
+70ml
+Water-based oil-free matte facial sunscreen
+329
+1690
+MIST-LIP-03
+Mistine
+Thai Tea Ice Cream Velvet Lip Glaze
+Cosmetics
+3g
+Long-lasting soft matte lip stain
+199
+1150
+CATHY-CUSH-01
+Cathy Doll
+Skin Fit Jelly Cushion SPF50+ PA++++
+Cosmetics
+12g
+Glow-finish hydration cushion foundation
+395
+2100
+CATHY-SERUM-02
+Cathy Doll
+Whitamin C Day Cream & Spot Serum Duo
+Skincare
+50ml
+Vitamin C brightening day lotion and spot treat
+279
+1490
+4U2-BLUSH-01
+4U2
+For You Too Matte & Shimmer Blush
+Cosmetics
+5g
+Highly pigmented dual-finish cheek blush
+159
+950
+4U2-LIP-02
+4U2
+Jelly Tint Long-Wear Lip Stain
+Cosmetics
+4g
+Non-drying lightweight jelly lip stain
+179
+1050
+GARN-VITC-01
+Garnier
+Bright Complete Vitamin C Booster Serum
+Skincare
+30ml
+Fast-absorbing anti-dark spot brightening serum
+399
+1950
+GARN-MICE-02
+Garnier
+Micellar Cleansing Water Salicylic BHA
+Skincare
+400ml
+Deep cleansing water for acne-prone skin
+299
+1550
+EUC-SPOT-01
+Eucerin
+Spotless Brightening Booster Serum
+Skincare
+30ml
+Thiamidol clinical anti-pigment serum
+2025
+8500
+EUC-SUN-02
+Eucerin
+Sun Dry Touch Oil Control Face SPF50+
+Skincare
+50ml
+8-hour matte oil control facial sunscreen
+1260
+5400
+MISE-SERUM-01
+Mise en Scène
+Perfect Serum Original Hair Essence
+Haircare
+80ml
+Argan oil damaged hair smoothing treatment
+379
+1850
+RYO-SHAMP-01
+Ryo
+Jayangyunmo Hair Loss Care Shampoo
+Haircare
+400ml
+Ginseng scalp soothing anti-hairfall shampoo
+590
+2850
+HER-SUN-01
+Her Hyness
+Royal Hya Water Sunscreen SPF50+ PA++++
+Skincare
+50ml
+Clean beauty zero-irritation fluid sunscreen
+1690
+7200
+HER-SERUM-02
+Her Hyness
+Bio-Peptide Advanced Youth Serum
+Skincare
+30ml
+Clean skincare anti-aging peptide concentrate
+1490
+6400
+ANES-MILK-01
+ANESSA
+Perfect UV Sunscreen Skincare Milk NA SPF50+ PA++++
+Skincare
+60ml
+Ultra-waterproof sweat-resistant sunscreen
+919
+4200
+ANES-MILD-02
+ANESSA
+Perfect UV Sunscreen Mild Milk
+Skincare
+60ml
+Additive-free gentle sunscreen for sensitive skin
+919
+4200
+BOJ-SUN-01
+Beauty of Joseon
+Relief Sun : Rice + Probiotics SPF50+ PA++++
+Skincare
+50ml
+Moisturizing organic cream sunscreen
+599
+2850
+BOJ-SERUM-02
+Beauty of Joseon
+Glow Serum : Propolis + Niacinamide
+Skincare
+30ml
+Honey-like glass skin soothing serum
+520
+2500
+BIOD-MASK-01
+Biodance
+Bio-Collagen Real Deep Mask
+Skincare
+34g x 4
+Overnight pore tightening hydrogel mask
+590
+2950
+BIOD-PAD-02
+Biodance
+Collagen Gel Toner Pad
+Skincare
+60 Pads
+Deep hydrating cooling toner prep pads
+545
+2700
+SKIN-CENT-01
+SKIN1004
+Madagascar Centella Ampoule
+Skincare
+55ml
+100% Centella Asiatica barrier repair serum
+459
+2250
+SKIN-CLAY-02
+SKIN1004
+Madagascar Centella Poremizing Quick Clay Stick
+Skincare
+27g
+No-mess easy stick clay pore mask
+389
+1950
+AEST-SERUM-01
+AESTURA
+Atobarrier365 Hydro Serum
+Skincare
+50ml
+Ceramide capsule deep barrier hydration
+677
+3250
+AEST-CREAM-02
+AESTURA
+Atobarrier365 Cream
+Skincare
+80ml
+Derma moisture capsule skin repair cream
+850
+3950
+TORR-SERUM-01
+Torriden
+DIVE-IN Low Molecular Hyaluronic Acid Serum
+Skincare
+50ml
+Soothing 5D hyaluronic acid moisture booster
+590
+2850
+TORR-PAD-02
+Torriden
+DIVE-IN Multi Pad
+Skincare
+80 Pads
+Cooling hydrating sheet compress toner pads
+550
+2700
+MEDI-PAD-01
+MEDIHEAL
+Madecassoside Blemish Pad
+Skincare
+100 Pads
+Calming blemish and acne trace treatment pads
+599
+2850
+MEDI-PDRN-02
+MEDIHEAL
+PDRN Lifting Pad
+Skincare
+100 Pads
+Collagen elasticity firming toner pads
+649
+3100
+ANUA-OIL-01
+ANUA
+Heartleaf Pore Control Cleansing Oil
+Skincare
+200ml
+Sebum melting deep cleansing oil
+590
+2850
+ANUA-TONER-02
+ANUA
+Heartleaf 77% Soothing Toner
+Skincare
+250ml
+Redness relief acne calming toner
+690
+3300
+COSRX-SNAIL-01
+COSRX
+Advanced Snail 96 Mucin Power Essence
+Skincare
+100ml
+Repairing glass skin mucin essence
+480
+2350
+INNI-GREEN-01
+INNISFREE
+Green Tea Seed Hyaluronic Serum
+Skincare
+80ml
+Hydrating inner-skin moisture serum
+1000
+4500
+ROCT-SUN-01
+Rohto Mentholatum
+Skin Aqua Tone Up UV Essence Lavender SPF50+
+Skincare
+80g
+Color-correcting radiance sunscreen
+329
+1650
+CAN-MERMAID-01
+Canmake
+Mermaid Skin Gel UV SPF50+ PA++++
+Skincare
+40g
+Moisturizing makeup primer sunscreen gel
+300
+1550
+CEZA-BASE-01
+Cezanne
+Make Keep Base Pink Tint SPF28 PA++
+Cosmetics
+30ml
+Long-lasting shine control primer
+360
+1800
+SORA-LIP-01
+3CE
+Velvet Lip Tint Daffodil
+Cosmetics
+4g
+Soft matte blur effect liquid lip color
+590
+2850
+ROM-JUICY-01
+rom&nd
+Juicy Lasting Tint 23 Nucadamia
+Cosmetics
+5.5g
+Tanghulu glossy long-wear lip tint
+350
+1750
+ROM-PALETTE-02
+rom&nd
+Better Than Palette 02 Mahogany Garden
+Cosmetics
+8g
+10-shade neutral brown eyeshadow palette
+690
+3250
+CLIO-CUSH-01
+CLIO
+Kill Cover High Glow Cushion SPF50+ PA++++
+Cosmetics
+15g x 2
+High coverage long-wear glow cushion
+990
+4500
+SMOO-TOMA-01
+Smooto
+Tomato Collagen White Serum
+Skincare
+10g x 6
+Brightening tomato gel concentrate
+234
+1200
+OXE-ACNE-01
+Oxe'Cure
+Acne Clear Potion
+Skincare
+15ml
+Pink powder spot treatment for active pimples
+189
+1100
+BK-ACNE-01
+BK Acne
+Balancing Mask
+Skincare
+35g
+Charcoal clay mask for oil and blemish control
+350
+1750
+KA-CREAM-01
+KA
+UV Whitening Soft Cream SPF50+ PA++++
+Skincare
+30g
+Featherlight non-greasy daily sunscreen
+199
+1150
+NAM-ALOE-01
+Nami
+I'm Fresh Aloe-Lemon Brightening Gel
+Skincare
+300g
+Cooling multi-purpose hydration gel
+149
+900
+SMO-GEL-01
+Smooth E
+Babyface Non-Ionic Gel Cleanser
+Skincare
+120ml
+Gentle SLS-free barrier cleansing gel
+240
+1250
+ROY-MEL-01
+Royal Beauty
+White Anti Melasma Serum
+Skincare
+15ml
+Alpha arbutin hyperpigmentation serum
+249
+1200
+PRO-ACNE-01
+Provamed
+Acniclear Facial Gel
+Skincare
+40g
+Oil-free hydrating gel for sensitive acne skin
+220
+1150
+BAN-ACNE-01
+Banobagi
+Bye Bye Acne Hydrocolloid Patch
+Skincare
+12 Patches
+Pimple pus absorbing protection patches
+159
+850
+BAN-MASK-02
+Banobagi
+Vita Genic Jelly Mask Acne
+Skincare
+30g x 5
+Dermatologist jelly sheet mask for blemishes
+245
+1350
+CATHY-BODY-03
+Cathy Doll
+Ready 2 White Whitening Body Lotion
+Skincare
+150ml
+Instant tone-up hydrating body lotion
+259
+1350
+MIST-BROW-04
+Mistine
+3D Brows Secret Brow Palette
+Cosmetics
+4.5g
+3-in-1 eyebrow pencil powder and mascara
+229
+1200
+SRI-LIP-04
+Srichand
+Me Myself and Bold Matte Lip
+Cosmetics
+3.5g
+Hydrating intense pigment matte lipstick
+199
+1100
+MIZU-MICE-04
+MizuMi
+Smooth Cleansing Water
+Skincare
+500ml
+Gentle micellar water for sensitive skin
+490
+2400
+GARN-NIGHT-03
+Garnier
+Bright Complete Night Yoghurt Sleeping Mask
+Skincare
+50ml
+Nourishing vitamin C night moisturizer
+299
+1500
+NIV-SERUM-01
+Nivea
+Extra Bright C&E Vitamin Body Lotion
+Skincare
+320ml
+Fast-absorbing brightening body lotion
+239
+1300
+VAS-GLUTA-01
+Vaseline
+Gluta-Hya Serum Burst Lotion Dewy Radiance
+Skincare
+300ml
+Hyaluronic acid serum body lotion
+269
+1400
+VAS-PRO-02
+Vaseline
+Pro Derma Niacinamide Brightening Body Lotion
+Skincare
+250ml
+Dermatological dark spot body serum
+379
+1850
+POND-SERUM-01
+Pond's
+Bright Beauty Triple Glow Serum
+Skincare
+30g
+Gluta-boost C bright skin essence
+399
+1950
+HADA-LOTION-01
+Hada Labo
+Gokujyun Hyaluronic Acid Lotion
+Skincare
+170ml
+5-type hyaluronic hydration toner
+520
+2500
+HADA-BLEM-02
+Hada Labo
+Blemish & Oil Control Hydrating Lotion
+Skincare
+170ml
+Plant-extract acne soothing toner
+520
+2500
+BIO-H2O-01
+Bioderma
+Sensibio H2O Micellar Water
+Skincare
+500ml
+Dermatological soothing makeup remover
+1150
+4800
+MEL-CC-01
+Melano CC
+Vitamin C Brightening Essence
+Skincare
+20ml
+Pure vitamin C spot fading essence
+480
+2300
+BIO-AQUA-01
+Biore
+UV Aqua Rich Watery Essence SPF50+ PA++++
+Skincare
+85g
+Micro-defense weightless sun essence
+499
+2400
+L'OR-SERUM-01
+L'Oreal Paris
+Revitalift 1.5% Pure Hyaluronic Acid Serum
+Skincare
+30ml
+Anti-wrinkle skin plumping serum
+999
+4200
+L'OR-GLY-02
+L'Oreal Paris
+Glycolic-Bright Instant Glowing Serum
+Skincare
+30ml
+Glycolic acid dark spot reduction serum
+999
+4200
+NEO-STR-01
+Neostrata
+Resurface Smoothing Lotion
+Skincare
+200ml
+10 AHA exfoliating body and face lotion
+1450
+5800
+PHY-CREAM-01
+Physiogel
+Daily Moisture Therapy Cream
+Skincare
+150ml
+BioMimic skin barrier repair cream
+995
+4500
+PHY-AI-02
+Physiogel
+Soothing Care AI Cream
+Skincare
+100ml
+Calming cream for eczema and severe redness
+1390
+5800
+SMI-JEL-01
+Smith
+Soft Jelly Wash
+Skincare
+100ml
+pH balanced gentle gel cleanser
+350
+1750
+KIN-GLOW-01
+Kindness
+Happy Glow Antioxidant Radiance Moisturizer
+Skincare
+30ml
+Non-comedogenic sensitive skin cream
+1590
+6200
+DERM-MASK-01
+Dermedy
+Skin Lab Acne Drip Mask
+Skincare
+25g x 5
+Targeted acne calming sheet mask set
+195
+1100
+GLA-LIP-01
+Glad2Glow
+Brightening Lip Serum Pumpkin Frost
+Cosmetics
+7g
+Moisturizing muted coral lip serum
+269
+1350
+GLA-MOIST-02
+Glad2Glow
+Peach Retinol Moisturizer
+Skincare
+30g
+Gentle smoothing retinol gel cream
+339
+1650
+PURE-PAD-01
+Pink by Pure Beauty
+Bye Bye Pores AHA BHA PHA Peeling Pad
+Skincare
+70 Pads
+Triple acid pore exfoliating pads
+600
+2800
+BAB-SHOWER-01
+Babi Mild
+Ultra Mild Organic Serum Shower Daydream
+Bodycare
+370ml
+Hypoallergenic organic body wash
+170
+950
+SCH-REPAIR-01
+Extra Care
+Hair Mask Intense Repair
+Haircare
+200g
+Keratin deep damage hair treatment
+299
+1500
+PAN-SERUM-01
+Pantene
+Miracles Daily Hair Treatment Serum
+Haircare
+180ml
+Pro-V leave-in hair repairing serum
+299
+1500
+VIT-KER-01
+Vita Keratin
+Salon Daily Treatment Color Shine
+Haircare
+250ml
+Color-treated hair shine mask
+180
+950
+SKU
+Brand
+Product Name
+Category
+Size/Volume
+Target Concern / Description
+Estimated Cost (THB)
+Estimated Retail (BDT)
+KIEH-SERU-01
+Kiehl's
+Vital Skin-Strengthening Super Serum
+Skincare
+30ml
+Hyaluronic acid skin barrier strengthening serum
+2890
+11800
+KIEH-NIAC-02
+Kiehl's
+Ultra Pure High-Potency 5% Niacinamide Serum
+Skincare
+30ml
+Minimalist serum for shine reduction and texture
+1445
+6200
+ESTE-BRIG-01
+Estée Lauder
+Perfectionist Pro Rapid Brightening Treatment
+Skincare
+50ml
+Vitamin C and ferment dark spot treatment
+6000
+24500
+CLAR-LIGH-01
+Clarins
+Double Serum Light Texture
+Skincare
+75ml
+Lightweight dual-phase anti-aging treatment
+7000
+28500
+GUER-OIL-01
+Guerlain
+Abeille Royale Youth Watery Oil Serum
+Skincare
+50ml
+Plumping honey-infused luxury oil serum
+6500
+26500
+IPSA-BARR-01
+IPSA
+IP Barrier Serum
+Skincare
+50ml
+Moisture retaining shield serum for sensitive skin
+1850
+7800
+SKIN-VITC-01
+Skincyclopedia
+Face Serum 20% Vitamin C
+Skincare
+30ml
+High-potency affordable brightening serum
+345
+1650
+SKIN-NIAC-02
+Skincyclopedia
+Face Serum 10% Niacinamide + 1% Zinc
+Skincare
+30ml
+Oil-control blemish target serum
+345
+1650
+CLIN-GLOW-01
+Clinique
+Moisture Surge Active Glow Serum
+Skincare
+50ml
+Hydration booster and radiance serum
+3000
+12500
+CLIN-DARK-02
+Clinique
+Even Better Clinical Dark Spot Serum
+Skincare
+30ml
+Targeted pigment clearing serum
+2700
+11200
+111S-BOOS-01
+111Skin
+Black Diamond Vitamin C Brightening Booster
+Skincare
+20ml
+Clinical strength luxury brightening booster
+5450
+22500
+CHAN-OIL-01
+Chanel
+L'Huile Anti-Pollution Cleansing Oil
+Skincare
+150ml
+Purifying facial cleansing oil
+1950
+8200
+THRE-WASH-01
+Three
+Balancing Clear Creamy Wash
+Skincare
+100g
+Essential oil infused creamy facial cleanser
+1710
+7200
+THRE-OIL-02
+Three
+Balancing Clear Cleansing Oil
+Skincare
+185ml
+Botanical makeup removing cleansing oil
+1890
+7900
+CLIN-BALM-01
+Clinique
+Take The Day Off Cleansing Balm
+Skincare
+125ml
+Transformative makeup dissolving cleansing balm
+1690
+7200
+CLAR-MICE-02
+Clarins
+Cleansing Micellar Water
+Skincare
+200ml
+Soothing plant-extract micellar water
+1600
+6800
+COSR-MICE-01
+COSRX
+Low pH Niacinamide Micellar Cleansing Water
+Skincare
+400ml
+Gentle hydrating makeup remover water
+750
+3200
+ESTE-GELE-02
+Estée Lauder
+Advanced Night Cleansing Gelée with 15 Amino Acids
+Skincare
+100ml
+Amino acid rich barrier cleansing gel
+2200
+9200
+LAME-FOAM-01
+La Mer
+The Essence Foaming Cleanser
+Skincare
+125ml
+Miracle Broth infused luxury cleanser foam
+5050
+21000
+EUC-AMINO-03
+Eucerin
+Spotless Brightening Amino Cleansing Foam
+Skincare
+150ml
+Deep cleansing brightening amino wash
+760
+3200
+MUJI-SENS-01
+Muji
+Oil Cleansing for Sensitive Skin
+Skincare
+200ml
+Hypoallergenic olive oil cleansing base
+490
+2200
+ELIX-FOAM-01
+Elixir
+Superieur Cleansing Foam II N
+Skincare
+145g
+Anti-aging collagen moisture foam cleanser
+990
+4200
+DIOR-FOAM-01
+Dior
+Off/On Foaming Cleanser
+Skincare
+150ml
+Purifying water lily cleansing foam
+2300
+9800
+COVE-MILK-01,Covermark,Treatment Cleansing Milk L,Skincare,400g,Moisturizing milk cleanser for dry skin,1800,7600
+SKU
+Brand
+Product Name
+Category
+Size/Volume
+Target Concern / Description
+Estimated Cost (THB)
+Estimated Retail (BDT)
+SHIS-ULTI-01
+Shiseido
+Ultimune Power Infusing Concentrate
+Skincare
+50ml
+Botanical skin immunity boosting serum
+4150
+17500
+SHIS-EUD-02
+Shiseido
+Eudermine Activating Essence
+Skincare
+145ml
+Bio-hyaluronic acid skin activating lotion
+3550
+15000
+LANC-GENI-01
+Lancôme
+Advanced Génifique Youth Activating Serum
+Skincare
+50ml
+Microbiome technology anti-aging serum
+4500
+18900
+LANC-CLAR-02
+Lancôme
+Clarifique Dual Essence
+Skincare
+150ml
+Beech bud extract enzymatic skin refining essence
+3800
+16000
+LA-PRAI-SKIN-01
+La Prairie
+Skin Caviar Liquid Lift
+Skincare
+50ml
+Caviar extract luxury firming serum
+28500
+118000
+LA-MER-CREM-01
+La Mer
+Crème de la Mer Moisturizing Cream
+Skincare
+60ml
+Miracle Broth rich soothing cream
+14200
+59000
+SKII-ESS-01
+SK-II
+Facial Treatment Essence
+Skincare
+160ml
+Pitera rich skin clear lotion
+6250
+26000
+SKII-AURA-02
+SK-II
+GenOptics Aura Essence
+Skincare
+50ml
+Prunus extract skin brightening serum
+9300
+38500
+DEC-LIPO-01
+Decorté
+Liposome Advanced Repair Serum
+Skincare
+50ml
+Time-release moisture capsule serum
+3700
+15500
+DEC-AQ-02
+Decorté
+AQ Absolute Glow Radiant Brightening Emulsion
+Skincare
+200ml
+Botanical radiance restoring lotion
+3200
+13500
+ALB-HERB-01
+Albion
+Skin Conditioner Essential N
+Skincare
+165ml
+Job's tears extract skin balancing lotion
+1900
+8000
+ALB-FLOR-02
+Albion
+Flora Drip Essence
+Skincare
+160ml
+Fermented plant-derived skin elixir
+4200
+17800
+SULW-FIRST-01
+Sulwhasoo
+First Care Activating Serum VI
+Skincare
+60ml
+Korean herbal boost serum
+3100
+13000
+SULW-GINS-02
+Sulwhasoo
+Concentrated Ginseng Renewing Cream
+Skincare
+60ml
+Ginsenomics firming anti-aging cream
+7500
+31500
+LANE-WATER-01
+Laneige
+Water Bank Blue Hyaluronic Cream
+Skincare
+50ml
+Micro-hyaluronic barrier moisturizer
+1550
+6500
+LANE-LIP-02
+Laneige
+Lip Sleeping Mask EX Berry
+Skincare
+20g
+Overnight hydrating lip treatment
+700
+2900
+HERA-BLACK-01
+Hera
+Black Cushion SPF34 PA++
+Cosmetics
+15g x 2
+Velvet matte full coverage cushion foundation
+1900
+8000
+HERA-SERU-02
+Hera
+Sensual Powder Matte Liquid Lip
+Cosmetics
+5g
+Soft blur matte liquid lip tint
+1250
+5200
+JUNG-MUG-01
+Jung Saem Mool
+Essential Skin Nuder Cushion SPF50+ PA+++
+Cosmetics
+14g x 2
+Natural glow skin-like cushion base
+1500
+6300
+INNI-RET-01,Innisfree,Retinol Cica Repair Ampoule,Skincare,30ml,Gentle retinol soothing blemish serum,1350,5700
+SKU
+Brand
+Product Name
+Category
+Size/Volume
+Target Concern / Description
+Estimated Cost (THB)
+Estimated Retail (BDT)
+GALA-MELT-01
+Gala Camille
+Melty Lip Butter Balm
+Cosmetics
+3.2g
+Click-pen hydration melting lip balm tint
+299
+1550
+GALA-BLUSH-02
+Gala Camille
+Glimmer Glam Blush Stick
+Cosmetics
+6g
+Dual-ended cream blush with application brush
+169
+1000
+ROJU-SLEEP-01
+Rojukiss
+Poreless Serum Sleeping Mask
+Skincare
+35ml
+Overnight Korean pore tightening treatment
+390
+1950
+ROJU-SERU-02
+Rojukiss
+White Poreless Day Serum SPF35 PA+++
+Skincare
+30ml
+Clinical dark spot and pore refining serum
+490
+2300
+MEIL-EYE-01
+Meilinda
+Ultra Lift & Curl Mascara
+Cosmetics
+10g
+Smudge-proof lifting waterproof mascara
+229
+1200
+MEIL-SHAD-02
+Meilinda
+Fit Color Eye Palette
+Cosmetics
+9g
+9-shade pigmented daily eyeshadow palette
+279
+1450
+SUPE-BALM-01
+Supershades
+Blah Blah Black Lip Balm
+Cosmetics
+3.5g
+PH-adjusting color changing hydrating lip balm
+179
+1050
+SUPE-TINT-02
+Supershades
+Universe Tinted Lip Water
+Cosmetics
+3.5ml
+High-shine water glossy lip stain
+199
+1150
+CUTE-PERF-01
+Cute Press
+Juliet Rose Eau De Toilette
+Perfume
+60ml
+Long-lasting floral daily fragrance spray
+300
+1650
+CUTE-SUN-02
+Cute Press
+Nonstop Beauty Matte Lock Sunscreen SPF50+
+Skincare
+30g
+Oil-control matte finish facial sunscreen
+350
+1750
+YANH-ACNE-01
+Yanhee
+Acne Cream Spot Treatment
+Skincare
+10g
+Hospital formula fast-acting pimple gel
+98
+750
+YANH-LIPO-02
+Yanhee
+Ultimate Lipo Face Firming Cream
+Skincare
+50g
+Contouring and anti-aging face treatment
+390
+1950
+CLEA-MOIS-01
+Clear Nose
+Moist Skin Barrier Moisturizing Gel
+Skincare
+120ml
+Hypoallergenic barrier repair gel moisturizer
+499
+2400
+CLEA-ACNE-02
+Clear Nose
+Acne Care Solution Serum
+Skincare
+100ml
+Gentle salicylic acid blemish control serum
+890
+380
+SKU
+Brand
+Product Name
+Category
+Size/Volume
+Target Concern / Description
+Estimated Cost (THB)
+Estimated Retail (BDT)
+SRI-LUM-05
+Srichand
+Luminescence Fabulous UV Shield SPF50+ PA++++
+Skincare
+40ml
+Lightweight non-greasy daily sunscreen lotion
+390
+1950
+SRI-POW-06
+Srichand
+Translucent Fine Powder Compact
+Cosmetics
+4.5g
+On-the-go oil control touch up powder
+199
+1150
+SRI-GLO-07
+Srichand
+Glamour Glow Foundation Powder SPF35
+Cosmetics
+9g
+Shimmer infused radiance powder foundation
+350
+1750
+MIZU-ACN-05
+MizuMi
+Acne Gel BHA Intense Concentrate
+Skincare
+13g
+Targeted salicylic acid pimple drying gel
+229
+1200
+MIZU-MUD-06
+MizuMi
+Sulfur Acne Clay Mud Mask
+Skincare
+13g
+Overnight detoxifying acne clay treatment
+229
+1200
+MIZU-CLE-07
+MizuMi
+Gentle Ultimate Cleansing Foam
+Skincare
+100g
+pH balanced soothing barrier cleanser
+290
+1500
+INGU-CLE-04
+INGU
+Hydrating Gentle Cleanser
+Skincare
+150ml
+Barrier-friendly gentle gel cleanser
+390
+1950
+INGU-MOI-05
+INGU
+Green Tea Calming Cream Moisturizer
+Skincare
+50g
+Soothing antioxidant moisturizer for acne skin
+620
+2850
+INGU-LIP-06
+INGU
+Nio-Glow Peptide Lip Oil Clear Tint
+Skincare
+10ml
+High-shine hydrating peptide lip treatment
+290
+1550
+PONG-SER-04
+Dr.Pong
+MC133 Whitening Drone Facial Serum
+Skincare
+30ml
+Melanin inhibiting targeted brightening serum
+399
+1950
+PONG-SUN-05
+Dr.Pong
+Hyalu 3D Sunscreen Aqua Serum SPF50+
+Skincare
+30ml
+Hydrating weightless sun protection serum
+399
+1950
+PONG-ACN-06
+Dr.Pong
+28D Whitening Drone Acne Clear Powder
+Cosmetics
+10g
+Medicated acne soothing translucent powder
+299
+1500
+MIST-EYE-05
+Mistine
+So Black Matte Liquid Eyeliner
+Cosmetics
+1g
+Intense black waterproof smudge-proof liner
+159
+950
+MIST-LIP-06
+Mistine
+Juicy Lip Glaze Stain
+Cosmetics
+3.5g
+High-shine hydration glass finish lip stain
+199
+1150
+MIST-POW-07
+Mistine
+GR21 All in One Oil Control Powder SPF30
+Cosmetics
+10g
+Heavy-duty oil absorb setting foundation powder
+259
+1350
+CATH-AMPO-05
+Cathy Doll
+Whitamin C Ampoule Serum
+Skincare
+30ml
+High-potency spot clearing vitamin serum
+395
+1950
+CATH-LIP-06
+Cathy Doll
+Vit C Water Lip Tint
+Cosmetics
+2.7g
+Fresh fruit pigment hydrating lip stain
+129
+850
+CATH-SUN-07
+Cathy Doll
+Aqua Sun Non-Greasy Body Sun Serum SPF50+
+Bodycare
+138ml
+Cooling water-break body sun serum
+299
+1500
+4U2-POW-03
+4U2
+Good Skin Oil Control Loose Powder
+Cosmetics
+10g
+Micro-fine translucent blur setting powder
+259
+1350
+4U2-LIP-04
+4U2
+Water Lip Stain Glass Effect
+Cosmetics
+3g
+Non-sticky mirror gloss long wear tint
+179
+1050
+4U2-BLU-05
+4U2
+Hey Rainbow Liquid Blush
+Cosmetics
+4.2g
+Buildable natural dew cream blush
+199
+1150
+GARN-ACN-05
+Garnier
+Bright Complete Anti-Acne Booster Serum
+Skincare
+30ml
+Salicylic acid and vitamin C clearing serum
+399
+1950
+GARN-CLE-06
+Garnier
+Bright Complete Vitamin C Gel Wash
+Skincare
+120ml
+Refreshing brightening daily cleanser gel
+179
+1000
+EUC-FAC-04
+Eucerin
+ProACNE Solution Cleanser Gel
+Skincare
+200ml
+Dermatological soap-free acne facial wash
+790
+3400
+EUC-SER-05
+Eucerin
+ProACNE Solution Triple Effect Serum
+Skincare
+40ml
+Post-acne mark clearing Thiamidol serum
+1150
+4800
+HER-AMPO-03
+Her Hyness
+Bio-Peptide Clear Skin Ampoule
+Skincare
+30ml
+Concentrated anti-blemish clean formula
+1390
+5600
+HER-CLE-04
+Her Hyness
+Royal Jelly Milk Cleanser
+Skincare
+100ml
+Gentle nourishing clean beauty cleanser
+690
+2900
+ANES-GEL-03
+ANESSA
+Perfect UV Sunscreen Skincare Gel SPF50+
+Skincare
+90g
+Hydrating fresh gel UV protector
+919
+3800
+ANES-SPRA-04
+ANESSA
+Perfect UV Sunscreen Skincare Spray SPF50+
+Skincare
+60g
+360-degree touch-up mist sunscreen
+650
+2850
+BOJ-SER-03
+Beauty of Joseon
+Revive Serum : Ginseng + Snail Mucin
+Skincare
+30ml
+Elasticity restoring anti-aging serum
+520
+2400
+BOJ-CLE-04
+Beauty of Joseon
+Ginseng Cleansing Oil
+Skincare
+210ml
+Lightweight deep pore cleansing oil
+650
+2850
+BIOD-TON-03
+Biodance
+Bio-Collagen Deep Hydration Toner
+Skincare
+150ml
+Plumping collagen barrier prep lotion
+690
+2950
+SKIN-CENT-03
+SKIN1004
+Madagascar Centella Light Cleansing Oil
+Skincare
+200ml
+Soothing plant-derived makeup remover oil
+590
+2650
+SKIN-TON-04
+SKIN1004
+Madagascar Centella Toning Toner
+Skincare
+210ml
+Gentle PHA daily exfoliating toner
+590
+2650
+AEST-CLE-03
+AESTURA
+Atobarrier365 Soft Cleansing Foam
+Skincare
+150ml
+Ceramide rich barrier strengthening wash
+590
+2650
+TORR-CLE-03
+Torriden
+DIVE-IN Low Molecular Hyaluronic Cleansing Foam
+Skincare
+150ml
+Deep hydration moisture retaining wash
+490
+2250
+TORR-CRE-04
+Torriden
+DIVE-IN Soothing Cream Gel
+Skincare
+100ml
+Cooling water-gel barrier cream
+690
+2950
+MEDI-PAD-03
+MEDIHEAL
+Watermide Moisture Pad
+Skincare
+100 Pads
+Deep ocean water hydrating cooling pads
+599
+2650
+MEDI-PAD-04
+MEDIHEAL
+Phyto-Enzyme Peeling Pad
+Skincare
+100 Pads
+Exfoliating papaya enzyme smooth skin pads
+599
+2650
+ANUA-SER-03
+ANUA
+Peach 70% Niacinamide Serum
+Skincare
+30ml
+Glass skin tone evening peach serum
+690
+2950
+ANUA-CRE-04
+ANUA
+Heartleaf 70% Intense Calming Cream
+Skincare
+50ml
+Barrier repair soothing redness cream
+750
+3200
+COSR-CLE-02
+COSRX
+Low pH Good Morning Gel Cleanser
+Skincare
+150ml
+BHA gentle barrier daily cleanser
+390
+1850
+COSR-PAD-03
+COSRX
+One Step Original Clear Pad
+Skincare
+70 Pads
+Salicylic acid pore clearing toner pads
+590
+2650
+INNI-CLE-02
+INNISFREE
+Volcanic Calming Pore Clay Mask
+Skincare
+100ml
+AHA PHA pore absorbing clay mask
+650
+2800
+INNI-TON-03
+INNISFREE
+Green Tea Seed Hyaluronic Toner
+Skincare
+170ml
+Multi-depth hydration skin balancer
+750
+3200
+ROCH-SUN-02
+Rohto Mentholatum
+Melano CC Deep Clear Enzyme Face Wash
+Skincare
+130g
+Enzyme and vitamin C pore cleansing foam
+329
+1600
+CAN-POW-02
+Canmake
+Marshmallow Finish Powder SPF50+
+Cosmetics
+10g
+Matte velvety skin blurring compact powder
+390
+1850
+CEZA-BLU-02
+Cezanne
+Natural Cheek N Powder Blush
+Cosmetics
+4g
+Soft buildable matte cheek blush
+220
+1200
+SORA-EYE-02
+3CE
+Multi Eye Color Palette (#Overtake)
+Cosmetics
+8.1g
+Iconic 9-shade warm neutral eyeshadow
+1250
+5200
+ROM-CUS-03
+rom&nd
+Bare Water Cushion SPF38 PA++++
+Cosmetics
+20g
+Ultra-hydrating sheer glass skin cushion
+690
+2950
+CLIO-EYE-03
+CLIO
+Pro Eye Palette Air 01 Every Rose
+Cosmetics
+0.6g x 12
+12-color high pigment silky shadow palette
+990
+4200
+SMO-CRE-02
+Smooto
+Tomato Gluta Aura Sleeping Mask
+Skincare
+10g x 6
+Overnight tomato extract brightening gel
+234
+1200
+OXE-SPR-02
+Oxe'Cure
+Body Acne Spray
+Skincare
+50ml
+Salicylic acid back and chest acne spray
+259
+1350
+BK-ACN-02
+BK Acne
+Serum Brightening Anti-Acne
+Skincare
+35g
+Centella soothing anti-blemish facial serum
+380
+1850
+KA-NIG-02
+KA
+Night Repair Butter Cream
+Skincare
+45g
+Nourishing barrier repair night cream
+220
+1200
+NAM-SER-02
+Nami
+I'm Fresh Centella Smooth Serum
+Skincare
+30g
+Centella soothing blemish treatment serum
+159
+950
+SMO-FAC-03
+Smooth E
+Gold Foam Anti-Aging Facial Wash
+Skincare
+120g
+Omega oil enriched firming foam wash
+290
+1500
+ROY-SUN-02
+Royal Beauty
+UV Sunscreen Velvet Matte SPF50+
+Skincare
+15ml
+Oil-control velvet finish face sunscreen
+199
+1150
+PRO-SUN-02
+Provamed
+Sun Face SPF50+ PA+++ Non Chemical
+Skincare
+30g
+Physical mineral sun protection cream
+350
+1750
+BAN-CRE-03
+Banobagi
+Calming Care Moisture Cream
+Skincare
+50ml
+Dermatologist barrier repair gel cream
+490
+2300
+CATH-BOD-08
+Cathy Doll
+L-Glutathione Magic Cream SPF50+
+Bodycare
+138ml
+Tone-up instant whitening body sunscreen
+299
+1500
+MIST-LIN-08
+Mistine
+Super Model Black Eyeliner Pen
+Cosmetics
+1g
+Waterproof precision tip liquid eyeliner
+139
+850
+SRI-LIP-05
+Srichand
+Enchanted Duo Lip Color
+Cosmetics
+4g
+Dual-ended matte lip and gloss combination
+220
+1200
+MIZU-CLE-08
+MizuMi
+Dry Touch Micellar Water
+Skincare
+475ml
+Oil-absorbing non-sticky cleansing water
+490
+2300
+GARN-BOD-07
+Garnier
+Body Bright Complete Extra Brightening Lotion
+Bodycare
+400ml
+Lemon extract body brightening lotion
+239
+1300
+NIV-SUN-03
+Nivea
+Sun Protect & Refresh Cooling Sun Mist SPF50
+Bodycare
+200ml
+Continuous spray cooling body sunscreen
+499
+2350
+VAS-GLU-02
+Vaseline
+Gluta-Hya Serum Burst UV Lotion Flawless Glow
+Bodycare
+300ml
+Pro-retinol night repair body lotion
+269
+1400
+VAS-PRO-06
+Vaseline
+Pro Derma AHA Smoothing Body Lotion No.5
+Bodycare
+250ml
+Lactic acid rough skin body lotion
+379
+1850
+PON-CRE-03
+Pond's
+Age Miracle Day Cream SPF18
+Skincare
+50g
+Retinol-C complex firming moisturizer
+499
+2350
+HAD-LOT-03
+Hada Labo
+Shirojyun Premium Whitening Lotion
+Skincare
+170ml
+Tranexamic acid dark spot fading toner
+550
+2550
+HAD-CRE-04
+Hada Labo
+Gokujyun Alpha Lift Cream
+Skincare
+50g
+Elastin and collagen anti-aging cream
+620
+2850
+BIO-WAT-03
+Bioderma
+Sebium H2O Micellar Water
+Skincare
+500ml
+Purifying micellar water for oily skin
+1150
+4800
+MEL-CRE-02
+Melano CC
+Vitamin C Brightening Gel Moisturizer
+Skincare
+100g
+Weightless vitamin C face cream
+490
+2300
+BIO-SUN-03
+Biore
+UV Aqua Rich Watery Gel SPF50+ PA++++
+Skincare
+90g
+High-moisture UV body and face gel
+399
+1950
+LOR-SER-02
+L'Oreal Paris
+Revitalift Triple Action Renewing Serum
+Skincare
+30ml
+Pro-xylane anti-wrinkle facial serum
+999
+4200
+NEO-CRE-02
+Neostrata
+Ultra Smoothing Cream 10 AHA
+Skincare
+40g
+Cellular renewal AHA night cream
+1350
+5500
+PHY-LOT-03
+Physiogel
+Daily Moisture Therapy Facial Lotion
+Skincare
+200ml
+Lightweight barrier restoration lotion
+950
+4200
+PHY-CLE-04
+Physiogel
+Daily Moisture Therapy Cleanser
+Skincare
+150ml
+Soap-free gentle sensitive skin cleanser
+490
+2250
+SMI-SUN-02
+Smith
+Total Sunscreen SPF50+ PA+++
+Skincare
+30g
+Physical mineral dermatologist sunscreen
+790
+3400
+KIN-CLE-02
+Kindness
+Free Sensitive Gentle Cleanser
+Skincare
+100ml
+Sulfate-free pH balanced wash
+490
+2250
+DER-PAD-02
+Dermedy
+Acne Clear Wipe Pads
+Skincare
+20 Pads
+Salicylic acid on-the-go acne wipes
+129
+850
+GLA-SER-03
+Glad2Glow
+Centella Allantoin Soothing Serum
+Skincare
+17ml
+Skin redness relief barrier serum
+229
+1200
+GLA-CLE-04
+Glad2Glow
+Milk Amino Acid Gentle Cleanser
+Skincare
+80ml
+Hydrating creamy face cleanser
+199
+1100
+PUR-CRE-02
+Pink by Pure Beauty
+Bye Bye Pores Drying Lotion
+Skincare
+18ml
+BHA zinc pink powder pimple spot treat
+390
+1950
+BAB-LOT-02
+Babi Mild
+Ultra Mild Organic Baby Lotion Sakura
+Bodycare
+400ml
+Hypoallergenic daily moisture lotion
+189
+1100
+SCH-CON-02
+Extra Care
+Hydro Collagen Conditioner
+Haircare
+200ml
+Moisture locking hair conditioner
+180
+950
+PAN-MAS-02
+Pantene
+Miracles Rich Moisture Hair Treatment
+Haircare
+160g
+Deep conditioning dry hair mask
+299
+1500
+VIT-SHM-02
+Vita Keratin
+Deep Repair Shampoo
+Haircare
+250ml
+Keratin infused damaged hair wash
+180
+950
+GAL-TIN-03
+Gala Camille
+Tiny Silky Lip Stain
+Cosmetics
+2g
+Compact high pigment velvet lip stain
+199
+1150
+MEI-BRO-03
+Meilinda
+Smart Auto Eyebrow Pencil
+Cosmetics
+0.25g
+Waterproof angled eyebrow pencil
+129
+850
+SUP-LIP-03
+Supershades
+Mini Matte Lip Tint
+Cosmetics
+2.5ml
+Long-lasting lightweight matte lip stain
+149
+900
+CUT-POW-03
+Cute Press
+Evory Retouch Oil Control Foundation Powder
+Cosmetics
+12g
+Full coverage pore-blurring powder
+350
+1750
+YAN-FOA-03
+Yanhee
+Acne Cleansing Foaming Wash
+Skincare
+100ml
+Hospital grade acne clearing cleanser
+150
+950
+CLE-PAD-03
+Clear Nose
+Acne Care Cleansing Wipes
+Skincare
+20 Wipes
+Anti-acne facial cleansing sheets
+129
+850
+SKI-SER-03
+Skintific
+10% Niacinamide Brightening Serum
+Skincare
+20ml
+Arbutin and niacinamide dark spot serum
+499
+2350
+BOM-C10-02
+Bomi
+Instant Bright Vitamin C Powder
+Wellness
+14 Sachets
+Immunity and skin glow vitamin C
+290
+1500
+NIV-BOD-04
+Nivea
+Extra Bright Super C10 Body Serum
+Bodycare
+320ml
+50x vitamin C body lotion
+259
+1350
+BEN-WAS-02
+BeNice
+Anit-Bacteria Shower Cream
+Bodycare
+450ml
+Purifying daily body wash
+169
+1000
+MYU-MAS-02
+Myu-Nique
+Hyaluron Collagen Sheet Mask
+Skincare
+25ml x 10
+Hydrating elasticity sheet mask set
+290
+1500
+THO-STR-02
+The Original
+Acne Clear Pimple Patches
+Skincare
+12 Patches
+Hydrocolloid pimple absorbing patches
+99
+700
+SKU
+Brand
+Product Name
+Category
+Size/Volume
+Target Concern / Description
+Estimated Cost (THB)
+Estimated Retail (BDT)
+GRAV-HYA-01
+Gravich
+Triple Vitamin C Booster Serum
+Skincare
+30ml
+High-potency triple C antioxidant dark spot serum
+350
+1750
+GRAV-RET-02
+Gravich
+Retinol Concentrate Serum 1%
+Skincare
+30ml
+Gentle anti-aging skin smoothing serum
+390
+1950
+GRAV-ACN-03
+Gravich
+Acnocare BHA 2% Clarifying Serum
+Skincare
+30ml
+Salicylic acid pore clearing serum
+290
+1500
+FYNE-BHA-01
+Fyne
+BHA Clarifying Serum 2%
+Skincare
+30ml
+Clean science pore refining gentle exfoliator
+990
+4200
+FYNE-CICA-02
+Fyne
+Phyto-Calming Gentle Essence
+Skincare
+100ml
+Redness relief skin barrier soothing essence
+1250
+5200
+KENE-VITC-01
+Kene
+Brightage-C 12% Vitamin C & Peptide Serum
+Skincare
+30ml
+Dermatological dark spot and firming serum
+890
+3800
+KENE-ACN-02
+Kene
+Genwhite Anti-Hyperpigmentation Serum
+Skincare
+30ml
+Targeted stubborn pigment lightening serum
+950
+4000
+BABY-LIP-01
+Baby Bright
+2% Hyaluron Lip Mask Berry
+Cosmetics
+4g
+Deep hydration overnight lip sleeping mask
+159
+950
+BABY-CUSH-02
+Baby Bright
+Water Water Gel Cushion SPF50+
+Cosmetics
+13g
+Lightweight breathable dew foundation cushion
+299
+1500
+BABY-EYE-03
+Baby Bright
+3in1 Volume Lash & Brow Mascara
+Cosmetics
+8g
+Smudge-proof dual wand lash and brow gel
+189
+1100
+SNAI-CREA-01
+Snail White
+Moisture Facial Cream Snail Mucin
+Skincare
+50ml
+Snail secretion filtrate skin recovery cream
+790
+3400
+SNAI-SUN-02
+Snail White
+Everyday Glow Sunscreen SPF50+ PA++++
+Skincare
+50ml
+Glow boosting non-greasy facial sunscreen
+590
+2600
+SNAI-GLOW-03
+Snail White
+Glow Potion AHA BHA Liquid Toner
+Skincare
+150ml
+Exfoliating radiant skin prep toner
+390
+1950
+ORIENT-VITC-01
+Oriental Princess
+Natural Power C Miracle Brightening Serum
+Skincare
+30ml
+Heritage Thai brand vitamin C radiance serum
+475
+2300
+ORIENT-BODY-02
+Oriental Princess
+Princess Garden Frangipani Body Lotion
+Bodycare
+250ml
+Fragrant botanical soothing body lotion
+255
+1350
+CUTE-LIP-04
+Cute Press
+2% Hyaluron Lip Mask Orange
+Cosmetics
+4.5g
+Nourishing vitamin C lip repair balm
+159
+950
+CUTE-POW-05
+Cute Press
+1-2-Beautiful Oil Control Powder
+Cosmetics
+10g
+Matte finish pore blurring compact powder
+299
+1500
+MEI-LIP-04
+Meilinda
+Dewy Tint Liquid Lip
+Cosmetics
+3.8g
+High-shine weightless water lip stain
+189
+1100
+MEI-LIN-05
+Meilinda
+Real Fit Pencil Eyeliner
+Cosmetics
+0.3g
+Waterproof soft glide gel eyeliner pencil
+149
+900
+GALA-OIL-03
+Gala Camille
+Painting Plump Lip Oil
+Cosmetics
+4ml
+Glossy nourishing lip plumping treatment
+229
+1200
+GALA-TIN-04
+Gala Camille
+Silky Velvet Lip Touch
+Cosmetics
+3.5g
+Soft blur matte finish liquid lip tint
+229
+1200
+SUP-LIP-04
+Supershades
+Plumping Lip Sauce Gloss
+Cosmetics
+3.8ml
+Cooling effect ultra shine lip gloss
+199
+1150
+SUP-BLU-05
+Supershades
+Mood Change Liquid Blush
+Cosmetics
+5ml
+pH-reactive color changing cheek tint
+229
+1200
+PANP-BODY-01
+Pañpuri
+Lotus Defense Glow Serum
+Skincare
+30ml
+Luxury organic spa lotus extract serum
+2400
+9800
+PANP-HAND-02
+Panpuri
+Siamese Water Uplifting Hand Cream
+Bodycare
+50ml
+Jasmine essential oil luxury hand cream
+850
+3600
+THAN-SUN-01
+Thann
+Very-Water Resistant Facial Sunscreen SPF50+
+Skincare
+40g
+Shiso extract luxury spa sunscreen
+1200
+4900
+THAN-OIL-02
+Thann
+Rice Advanced Nourishing Face Oil
+Skincare
+30ml
+Rice bran oil anti-aging facial treatment
+1600
+6500
+HARN-BODY-01
+Harnn
+Cymbopogon Body Lotion
+Bodycare
+230ml
+Lemongrass essential oil spa body moisturizer
+950
+4000
+ERB-BODY-01
+Erb Asia
+Wine & Rose Body Serum Lotion
+Bodycare
+220ml
+Royal Siamese court inspired body lotion
+1250
+5200
+SMO-E-CRE-01
+Smooth E
+Centella Scar & Mark Recovery Cream
+Skincare
+40g
+Hospital pharmacy scar fading cream
+390
+1950
+SMO-E-SUN-02
+Smooth E
+Physical White Babyface Sunscreen SPF50+
+Skincare
+30g
+100% non-chemical mineral face sunscreen
+420
+2100
+ABHA-HERB-01
+Abhaibhubejhr
+Turmeric Herbal Facial Cream
+Skincare
+45g
+Traditional Thai hospital turmeric cream
+150
+950
+ABHA-TAMA-02
+Abhaibhubejhr
+Tamarind Facial Cleansing Scrub
+Skincare
+100g
+Natural AHA tamarind brightening scrub
+120
+800
+BEAU-COT-01
+Beauty Cottage
+Luxurious Velvet Matte Lip Color
+Cosmetics
+3.5g
+Vintage aesthetic soft matte lipstick
+350
+1750
+WAT-TOMA-01
+Naturals by Watsons
+Energising Tomato Sheet Mask
+Skincare
+25ml x 5
+Brightening organic tomato mask pack
+250
+1350
+WAT-C-02
+Watsons
+Potent Triple Vitamin C Facial Mask
+Skincare
+25ml x 5
+Radiance boosting sheet mask set
+250
+1350
+COL-PDRN-01
+Collagen by Watsons
+99% PDRN Booster Essence Gel Mask
+Skincare
+30g x 3
+Hydrogel skin elasticity lifting mask
+390
+1950
+FAIT-WAT-01
+Faith in Face
+Truly Waterly Cleansing Water
+Skincare
+500ml
+Bestselling gentle hydrating micellar water
+369
+1850
+FAIT-MAS-02
+Faith in Face
+I Need S.O.S Hydrogel Mask
+Skincare
+30g x 4
+Instant cooling barrier repair hydrogel mask
+350
+1750
+REGE-TON-01
+Regenez
+Hair Tonic Spray Anti-Hair Fall
+Haircare
+30ml
+Biotin and zinc scalp growth tonic
+390
+1950
+ALOE-SER-01
+AloEx
+Hair Regrowth Scalp Serum
+Haircare
+50ml
+Thai herbal extract scalp stimulating spray
+680
+2900
+ALOE-SHM-02
+AloEx
+Hair Regrowth Herbal Shampoo
+Haircare
+200ml
+Sulfates-free anti-hairfall shampoo
+490
+2250
+VIST-CERR-01
+Vistra
+Acerola Cherry 1000mg Supplement
+Wellness
+45 Tablets
+Radiant skin glow vitamin C tablets
+390
+1950
+MEGA-FISH-01
+Mega We Care
+Fish Oil 1000mg Omega-3
+Wellness
+100 Capsules
+High purity essential fatty acid softgels
+450
+2200
+GLA-RET-05
+Glad2Glow
+Peach Retinol Smoothing Serum
+Skincare
+17ml
+Gentle anti-aging retinol facial serum
+299
+1500
+GLA-CENT-06
+Glad2Glow
+Centella Allantoin Soothing Cream
+Skincare
+30g
+Redness calming barrier moisturizer
+259
+1350
+SKIN-CICA-03
+Skintific
+Centella Acne Calming Cleanser
+Skincare
+120ml
+Salicylic acid anti-blemish wash
+299
+1500
+SKIN-SUN-04
+Skintific
+All-Out Cover Serum Sunscreen SPF50+
+Skincare
+30ml
+Serum-like non-sticky daily sunscreen
+350
+1750
+MIST-SUN-09
+Mistine
+Watery Sunscreen Facial Lotion SPF50+
+Skincare
+40ml
+Xiaohongshu viral light sun lotion
+299
+1500
+SRI-ACN-08
+Srichand
+Sunlution Anti-Acne Gel Sunscreen
+Skincare
+40ml
+Oil absorb acne safe daily sunscreen
+299
+1500
+MIZU-ACN-09
+MizuMi
+B3 Acne Concentrate Serum
+Skincare
+13g
+12% Niacinamide spot fading serum
+229
+1200
+PONG-BLU-07
+Dr.Pong
+ACTIVEIN 711 Poreless Blurring Serum
+Skincare
+30ml
+7% Niacinamide and zinc pore serum
+399
+1950
+INGU-SUN-07
+INGU
+Super-Light Soothing Sunscreen Mini
+Skincare
+30g
+Travel-friendly sensitive skin sun lotion
+490
+2250
+CATH-LIP-09
+Cathy Doll
+Shiny Bear Lip Moist Balm
+Cosmetics
+3.2g
+Cute bear packaging tinted lip balm
+169
+1000
+4U2-BLU-06
+4U2
+For You Too Shimmer Cheek Blush
+Cosmetics
+5g
+Radiant shimmer cheek tint powder
+159
+950
+EUC-EPIC-06
+Eucerin
+Hyaluron-Filler Epicelline Serum
+Skincare
+30ml
+Advanced age-rewinding facial serum
+2250
+9200
+GARN-MICE-08
+Garnier
+Vitamin C Micellar Cleansing Water
+Skincare
+400ml
+Brightening micellar makeup remover
+299
+1500
+MISE-STYL-02
+Mise en Scène
+Perfect Styling Hair Serum
+Haircare
+80ml
+Heat protection curl styling hair essence
+379
+1850
+RYO-SCAL-02
+Ryo
+Scalp Cooling Refreshing Shampoo
+Haircare
+400ml
+Cooling mint tea tree scalp wash
+590
+2850
+HER-AMPO-05
+Her Hyness
+Bio-Peptide Youth Ampoule
+Skincare
+30ml
+Peptide anti-wrinkle clean formula
+1490
+6200
+ANES-MILD-05
+ANESSA
+Moisture UV Sunscreen Mild Milk SPF35
+Skincare
+60ml
+Ultra-gentle formula for sensitive skin
+919
+3800
+BOJ-CLE-05
+Beauty of Joseon
+Green Plum Refreshing Cleanser
+Skincare
+100ml
+Low pH plant-based gel wash
+490
+2250
+BIOD-PAD-03
+Biodance
+First Collagen Gel Pads
+Skincare
+60 Pads
+Firming cooling collagen toner pads
+545
+2600
+SKIN-TEA-05
+SKIN1004
+Madagascar Centella Tea-Trica Relief Ampoule
+Skincare
+55ml
+Tea tree and cica acne soothing serum
+459
+2200
+AEST-CRE-04
+AESTURA
+Atobarrier365 Lotion Moisture
+Skincare
+150ml
+Daily ceramide hydrating body and face lotion
+850
+3600
+TORR-CRE-05
+Torriden
+DIVE-IN Hyaluronic Acid Moisture Cream
+Skincare
+80ml
+Deep hydration light barrier cream
+690
+2950
+MEDI-PAD-05
+MEDIHEAL
+Tea Tree Calming Moisture Pad
+Skincare
+100 Pads
+Blemish calming tea tree toner pads
+599
+2650
+ANUA-SER-05
+ANUA
+Niacinamide 10% + TXA 4% Dark Spot Serum
+Skincare
+30ml
+High-strength hyperpigmentation serum
+750
+3200
+COSR-PEE-04
+COSRX
+AHA BHA Vitamin C Daily Toner
+Skincare
+150ml
+Exfoliating radiance daily toner
+590
+2650
+INNI-CRE-04
+INNISFREE
+Collagen Green Tea Ceramide Bounce Cream
+Skincare
+50ml
+Plumping firming ceramide cream
+1148
+4800
+ROCH-TON-04
+Rohto Mentholatum
+Melano CC Brightening Vitamin C Lotion
+Skincare
+170ml
+Hydrating dark spot control toner
+480
+2300
+CAN-PRI-03
+Canmake
+Poreless Airdry Primer Gel
+Cosmetics
+18g
+Instant pore blurring matte primer
+320
+1600
+CEZA-HIGHLIGHT-03
+Cezanne
+Pearl Glow Highlight 01 Champagne
+Cosmetics
+2.4g
+High-shine multidimensional glow highlighter
+290
+1500
+SORA-BLU-03
+3CE
+Face Blush (#Mono Pink)
+Cosmetics
+5.5g
+Soft dusty pink matte cheek blush
+690
+2950
+ROM-TIN-04
+rom&nd
+Glasting Water Tint (#02 Red Drop)
+Cosmetics
+4g
+Water-like glossy non-sticky lip stain
+350
+1750
+CLIO-CUS-04
+CLIO
+Kill Cover Founwear Cushion The New SPF50+
+Cosmetics
+15g x 2
+72-hour semi-matte full coverage base
+990
+4200
+SMO-GEL-03
+Smooto
+Aloe-E Snail Bright Gel
+Skincare
+50g x 4
+Cooling aloe and snail repair gel pack
+196
+1150
+OXE-POW-03
+Oxe'Cure
+Acne Clear Powder Mud
+Skincare
+13g
+Overnight spot drying acne mud mask
+229
+1200
+BK-MAS-03
+BK Acne
+Bright & Balance Mask
+Skincare
+35g
+Charcoal clay oil control acne mask
+350
+1750
+KA-CRE-03
+KA
+UV Super Gloss Soft Cream SPF50+
+Skincare
+30g
+Lightweight glow finish sunscreen
+199
+1100
+NAM-GEL-03
+Nami
+I'm Fresh Mangosteen Acne Gel
+Skincare
+30g x 6
+Anti-bacterial mangosteen blemish gel
+234
+1200
+SMO-FOA-04
+Smooth E
+Extra Sensitive Cleansing Foam
+Skincare
+120g
+Non-ionic SLS-free sensitive foam
+240
+1250
+ROY-SER-03
+Royal Beauty
+Collagen Vitamin C Serum
+Skincare
+15ml
+Concentrated brightening firming gel
+199
+1100
+PRO-CLE-03
+Provamed
+Acniclear Cleansing Water
+Skincare
+200ml
+Micellar water for acne-prone skin
+250
+1350
+BAN-PAT-04
+Banobagi
+Heartleaf Calming Hydrogel Patch
+Skincare
+12 Patches
+Hydrocolloid blemish absorbing patches
+159
+950
+CAT-LOT-10
+Cathy Doll
+Whitamin C Body Lotion
+Bodycare
+450ml
+Vitamin C brightening body moisturizer
+299
+1500
+MIS-BRO-09
+Mistine
+3D Eyebrow Soft Pencil
+Cosmetics
+0.3g
+Dual wand waterproof eyebrow pencil
+159
+950
+SRI-LIP-06
+Srichand
+Bare to Perfect Hydration Lip Balm
+Cosmetics
+3.5g
+Nourishing moisture sheer lip balm
+199
+1100
+MIZ-SER-10
+MizuMi
+Advance Niacinamide 15 Serum
+Skincare
+30ml
+15% Niacinamide texture refining serum
+890
+3800
+GAR-LOT-09
+Garnier
+Bright Complete Extra Body Lotion Twin
+Bodycare
+400ml x 2
+Value pack body brightening lotion
+399
+1950
+NIV-SUN-05
+Nivea
+Sun Extra Protect Oil Control Sun Serum SPF50+
+Skincare
+50ml
+Matte finish non-comedogenic sun serum
+299
+1500
+VAS-LIP-05
+Vaseline
+Lip Therapy Rosy Lips Mini
+Skincare
+7g
+Deep moisturizing sheer pink lip tub
+129
+850
+VAS-PRO-07
+Vaseline
+Pro Derma Retinol Firming Body Lotion No.4
+Bodycare
+250ml
+Anti-aging peptide body serum
+379
+1850
+PON-FOA-04
+Pond's
+Bright Beauty Serum Facial Foam
+Skincare
+100g
+Niacinamide enriched cleansing wash
+159
+950
+HAD-CLE-05
+Hada Labo
+Gokujyun Hydrating Foaming Wash
+Skincare
+160ml
+Self-foaming hyaluronic acid wash
+350
+1750
+BIO-SUN-04
+Biore
+UV Aqua Rich Light Up Essence
+Skincare
+70g
+Tone-up light-reflecting sun essence
+399
+1950
+LOR-CRE-03
+L'Oreal Paris
+Glycolic-Bright Day Cream SPF17
+Skincare
+50ml
+Exfoliating dark spot day moisturizer
+499
+2350
+PHY-CRE-05
+Physiogel
+Red Soothing AI Body Lotion
+Bodycare
+200ml
+Soothes itching and eczema body lotion
+990
+4200
+SMI-CLE-03
+Smith
+Basi Clear Deep Cleansing Wash
+Skincare
+150ml
+One-step gentle deep makeup wash
+501
+2400
+KIN-CRE-03
+Kindness
+Happy Glow Radiance Cream
+Skincare
+30ml
+Antioxidant sensitive skin cream
+710
+3200
