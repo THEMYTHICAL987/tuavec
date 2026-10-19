@@ -21,11 +21,11 @@ npm start
 
 The app will be available at http://localhost:5000.
 
-The product seeder imports `beautyandskincareproducts.txt` from the repository root, looks up images with Google Custom Search, upserts products by SKU, then deletes only the known legacy demo product records. Configure `MONGO_URI` (or `MONGODB_URI`), `GOOGLE_CSE_API_KEY`, and `GOOGLE_CSE_ID` in `backend/.env`. Image searches are rate-limited; ensure the CSE quota covers the catalog before running. Imported products have stock 0 because the source has no inventory counts, so update verified inventory before taking orders.
+The product seeder imports `beautyandskincareproducts.txt` from the repository root, looks up images with Google Custom Search, upserts products by SKU, then deletes only the known legacy demo product records. Configure `MONGO_URI` (or `MONGODB_URI`), `GOOGLE_CSE_API_KEY`, and `GOOGLE_CSE_ID` in `backend/.env`. Image searches are rate-limited; ensure the CSE quota covers the catalog before running. Imported products have stock 0 because the source has no inventory counts, so update verified inventory before taking orders. The storefront also serves `frontend/catalog-preview.json` as a display-only fallback; these previews remain unavailable for purchase until verified inventory is imported into MongoDB.
 
 ## Credentials and integrations
 
-Copy `backend/.env.example` to `backend/.env`. Keep the real file private; it is ignored by Git.
+Configure the existing `backend/.env` with local credentials. Never commit `.env` files or share their values.
 
 - `MONGODB_URI`: MongoDB Atlas connection string. Create the database user and allow the backend host in Atlas Network Access.
 - `JWT_SECRET`: long random string used to sign customer login tokens.
