@@ -427,8 +427,8 @@ function buildProductDocument(product, imageUrl) {
     originalPrice: product.priceBDT,
     imageUrl,
     image: imageUrl,
-    images: [{ url: imageUrl }],
-    inStock: true,
+    images: imageUrl ? [{ url: imageUrl }] : [],
+    inStock: false,
     stock: 0,
     seller: 'Tu Avec',
     consumable: true,
@@ -456,18 +456,20 @@ function buildLegacyDemoFilter(products) {
 }
 
 function parseArguments(args) {
-  const options = { dryRun: false, refreshImages: false, catalogPath: null };
+  const options = { dryRun: false, refreshImages: false, skipImages: false, catalogPath: null };
   for (let index = 0; index < args.length; index += 1) {
     const argument = args[index];
     if (argument === '--dry-run') {
       options.dryRun = true;
     } else if (argument === '--refresh-images') {
       options.refreshImages = true;
+    } else if (argument === '--skip-images') {
+      options.skipImages = true;
     } else if (argument === '--file' && args[index + 1]) {
       options.catalogPath = path.resolve(args[index + 1]);
       index += 1;
     } else {
-      throw new Error(`Unknown or incomplete argument "${argument}". Use --file <path>, --dry-run, or --refresh-images.`);
+      throw new Error(`Unknown or incomplete argument "${argument}". Use --file <path>, --dry-run, --refresh-images, or --skip-images.`);
     }
   }
   return options;
@@ -487,7 +489,7 @@ async function seedCatalog(options) {
 
   const apiKey = process.env.GOOGLE_CSE_API_KEY;
   const engineId = process.env.GOOGLE_CSE_ID;
-  if (!apiKey || !engineId) {
+  if (!options.skipImages && (!apiKey || !engineId)) {
     throw new Error('Set GOOGLE_CSE_API_KEY and GOOGLE_CSE_ID in backend/.env to search product images.');
   }
 
@@ -495,9 +497,8 @@ async function seedCatalog(options) {
   if (!mongoUri) throw new Error('Set MONGO_URI in backend/.env before seeding.');
 
   await mongoose.connect(mongoUri);
-  await Product.init();
 
-  const existingProducts = options.refreshImages
+  const existingProducts = options.refreshImages || options.skipImages
     ? []
     : await Product.find({ sku: { $in: products.map(product => product.sku) } })
       .select('sku imageUrl')
@@ -518,11 +519,18 @@ async function seedCatalog(options) {
   for (let index = 0; index < products.length; index += 1) {
     const product = products[index];
     const cachedImage = existingImages.get(product.sku);
-    const imageUrl = cachedImage && !options.refreshImages
-      ? cachedImage
-      : await searchProductImage(product, searchOptions);
+    const imageUrl = options.skipImages
+      ? null
+      : cachedImage && !options.refreshImages
+        ? cachedImage
+        : await searchProductImage(product, searchOptions);
     enrichedProducts.push({ ...product, imageUrl });
-    console.log(`[images ${index + 1}/${products.length}] ${product.sku}: ${cachedImage && !options.refreshImages ? 'reused saved image' : 'image found'}`);
+    const imageStatus = options.skipImages
+      ? 'image lookup skipped'
+      : cachedImage && !options.refreshImages
+        ? 'reused saved image'
+        : 'image found';
+    console.log(`[images ${index + 1}/${products.length}] ${product.sku}: ${imageStatus}`);
   }
 
   for (let index = 0; index < enrichedProducts.length; index += 1) {

@@ -96,6 +96,23 @@ test('maps catalog data into the app schema without inventing inventory', () => 
   assert.equal(document.price, 200);
   assert.equal(document.imageUrl, 'https://example.com/serum.jpg');
   assert.equal(document.stock, 0);
+  assert.equal(document.inStock, false);
+  assert.deepEqual(document.images, [{ url: 'https://example.com/serum.jpg' }]);
+
+  const withoutImage = buildProductDocument({
+    sku: 'AB-13',
+    brand: 'Brand',
+    title: 'Cleanser',
+    category: 'Skincare',
+    size: '100ml',
+    description: 'Gentle cleanser',
+    priceTHB: 100,
+    priceBDT: 200
+  }, null);
+  assert.equal(withoutImage.imageUrl, null);
+  assert.deepEqual(withoutImage.images, []);
+  assert.equal(withoutImage.stock, 0);
+  assert.equal(withoutImage.inStock, false);
 });
 
 test('limits demo cleanup to known legacy products and protects catalog matches', () => {

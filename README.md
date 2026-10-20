@@ -15,13 +15,13 @@ A lean, deploy-ready single-site e-commerce storefront with:
 cd backend
 npm install
 npm run seed:products -- --dry-run
-npm run seed:products
+npm run seed:products -- --skip-images
 npm start
 ```
 
 The app will be available at http://localhost:5000.
 
-The product seeder imports `beautyandskincareproducts.txt` from the repository root, looks up images with Google Custom Search, upserts products by SKU, then deletes only the known legacy demo product records. Configure `MONGO_URI` (or `MONGODB_URI`), `GOOGLE_CSE_API_KEY`, and `GOOGLE_CSE_ID` in `backend/.env`. Image searches are rate-limited; ensure the CSE quota covers the catalog before running. Imported products have stock 0 because the source has no inventory counts, so update verified inventory before taking orders. The storefront also serves `frontend/catalog-preview.json` as a display-only fallback; these previews remain unavailable for purchase until verified inventory is imported into MongoDB.
+The product seeder imports `beautyandskincareproducts.txt` from the repository root and upserts products by SKU. By default it looks up images with Google Custom Search, then deletes only the known legacy demo product records. Configure `MONGO_URI` (or `MONGODB_URI`), `GOOGLE_CSE_API_KEY`, and `GOOGLE_CSE_ID` in `backend/.env` for image lookups. Use `--skip-images` to import without image URLs when image search is not configured. Imported products have stock 0 and are marked unavailable because the source has no inventory counts; update verified inventory before taking orders. The storefront also serves `frontend/catalog-preview.json` as a display-only fallback.
 
 ## Credentials and integrations
 
