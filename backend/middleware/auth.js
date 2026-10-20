@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const crypto = require('node:crypto');
 
 const authenticateUser = (req, res, next) => {
   const header = req.headers.authorization || '';
@@ -32,13 +33,19 @@ const optionalAuthenticateUser = (req, _res, next) => {
 // Admin authentication middleware - checks for admin token in header
 const adminAuth = (req, res, next) => {
   const adminToken = req.headers['x-admin-token'];
-  const expectedToken = process.env.ADMIN_TOKEN || 'admin-secret-key-change-in-production';
+  const expectedToken = process.env.ADMIN_TOKEN;
 
-  if (!adminToken || adminToken !== expectedToken) {
+  if (typeof adminToken !== 'string' || !expectedToken) {
     return res.status(403).json({
       success: false,
-      message: 'Unauthorized: Admin token required'
+      message: 'Admin access is not configured or the token is missing'
     });
+  }
+
+  const supplied = Buffer.from(adminToken);
+  const expected = Buffer.from(expectedToken);
+  if (supplied.length !== expected.length || !crypto.timingSafeEqual(supplied, expected)) {
+    return res.status(403).json({ success: false, message: 'Invalid admin token' });
   }
 
   next();

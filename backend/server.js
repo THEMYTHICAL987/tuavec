@@ -21,6 +21,7 @@ const digitalProducts = require('./data/digital-products');
 
 // Import routes
 const vendorRoutes = require('./routes/vendors');
+const adminRoutes = require('./routes/admin');
 const { adminAuth, authenticateUser, optionalAuthenticateUser } = require('./middleware/auth');
 
 const app = express();
@@ -108,6 +109,7 @@ connectDB();
 
 // Routes
 app.use('/api/vendors', vendorRoutes);
+app.use('/api/admin', adminRoutes);
 
 const JWT_SECRET = process.env.JWT_SECRET || 'change-this-jwt-secret';
 

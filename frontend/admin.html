@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Store operations | Yow by KSA</title>
+  <style>
+    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:#27231f;background:#f6f4f1;font-synthesis:none;--ink:#27231f;--muted:#716b63;--line:#e8e2da;--paper:#fff;--accent:#9b4f3f;--green:#206c50;--red:#9a392f}
+    *{box-sizing:border-box}body{margin:0}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit}
+    header{display:flex;justify-content:space-between;align-items:center;padding:18px clamp(16px,4vw,52px);background:var(--paper);border-bottom:1px solid var(--line)}
+    header h1{font-size:18px;margin:0}header small{display:block;color:var(--muted);font-weight:400;margin-top:3px}
+    .shell{max-width:1440px;margin:0 auto;padding:26px clamp(14px,3vw,40px) 64px}.login,.panel,.metric{background:var(--paper);border:1px solid var(--line);border-radius:14px}
+    .login{max-width:480px;margin:8vh auto;padding:28px}.login h2{margin:0 0 8px}.login p,.muted{color:var(--muted);line-height:1.5}
+    label{display:block;font-size:13px;font-weight:650;margin:12px 0 6px}input,select,textarea{width:100%;border:1px solid #d8d0c7;border-radius:8px;background:white;color:var(--ink);padding:10px 11px;min-height:40px}
+    input[type=checkbox]{width:auto;min-height:0;accent-color:var(--accent)}button{border:0;border-radius:8px;background:var(--ink);color:#fff;padding:10px 14px;font-weight:650}button.secondary{background:#eee9e3;color:var(--ink)}button.accent{background:var(--accent)}button.danger{background:var(--red)}button:disabled{opacity:.55;cursor:wait}
+    .login button{width:100%;margin-top:16px}.notice{margin:12px 0;padding:11px 13px;border-radius:8px;background:#f5efe6;color:#59452d}.notice.error{background:#f9e9e7;color:#812d25}.notice.ok{background:#e9f4ed;color:#235a40}
+    .hidden{display:none!important}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0}.toolbar input[type=search]{flex:1;min-width:220px}.tabs{display:flex;gap:8px;border-bottom:1px solid var(--line);margin-bottom:18px}.tabs button{border-radius:8px 8px 0 0;background:transparent;color:var(--muted)}.tabs button.active{background:var(--ink);color:#fff}
+    .metrics{display:grid;grid-template-columns:repeat(5,minmax(120px,1fr));gap:12px;margin:18px 0}.metric{padding:16px}.metric span{color:var(--muted);font-size:12px}.metric strong{display:block;font-size:25px;margin-top:6px}
+    .panel{padding:16px;margin:16px 0}.panel h2{font-size:17px;margin:0 0 12px}.table-wrap{overflow:auto}.product-table,.orders-table{width:100%;border-collapse:collapse;min-width:940px}.product-table th,.product-table td,.orders-table th,.orders-table td{padding:10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top;font-size:13px}.product-table th,.orders-table th{color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.04em}.product-name{min-width:180px;font-weight:650}.product-name small{display:block;color:var(--muted);font-weight:400;margin-top:4px}.product-table input,.product-table select{min-width:84px;padding:8px}.product-table input[type=number]{width:104px}.product-table input[type=checkbox]{min-width:auto}.photo{width:54px;height:54px;object-fit:cover;border-radius:8px;background:#f0ede8}.photo-empty{width:54px;height:54px;border-radius:8px;background:#f0ede8;display:grid;place-items:center;color:#81796f;font-size:10px}.inline{display:flex;gap:6px;align-items:center}.inline input{width:78px!important}.row-actions{display:flex;flex-direction:column;gap:6px}.row-actions button{white-space:nowrap;padding:8px 10px;font-size:12px}.pagination{display:flex;justify-content:space-between;align-items:center;padding-top:14px;color:var(--muted)}
+    .candidate-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}.candidate{border:1px solid var(--line);border-radius:10px;padding:10px}.candidate img{width:100%;height:140px;object-fit:contain;background:#f6f4f1;border-radius:6px}.candidate p{font-size:12px;line-height:1.4;min-height:34px}.candidate button{width:100%;font-size:12px}
+    dialog{border:0;border-radius:14px;max-width:760px;width:calc(100% - 28px);max-height:85vh;padding:20px;box-shadow:0 20px 70px #0003}dialog::backdrop{background:#211e1bcc}.dialog-head{display:flex;justify-content:space-between;gap:10px;align-items:center}.dialog-head h2{font-size:18px}
+    .status{display:inline-block;border-radius:999px;padding:4px 8px;background:#f2eee8;font-size:11px}.status.pending{background:#fff2cc}.status.delivered,.status.completed{background:#e3f3e9}.status.cancelled{background:#fae6e4}
+    @media(max-width:750px){.metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.shell{padding-top:15px}.toolbar>*{width:100%}header{align-items:flex-start}}
+  </style>
+</head>
+<body>
+  <header><div><h1>Yow by KSA <small>Store operations</small></h1></div><a href="./" aria-label="Return to storefront">View storefront ↗</a></header>
+  <main class="shell">
+    <section id="login" class="login">
+      <h2>Admin sign in</h2>
+      <p>Use the private admin token configured in the backend. It stays in this browser tab only.</p>
+      <label for="apiBase">Backend API</label><input id="apiBase" type="url" value="https://tuavec.onrender.com/api" autocomplete="url">
+      <label for="adminToken">Admin token</label><input id="adminToken" type="password" autocomplete="current-password">
+      <button id="connectBtn" class="accent">Connect securely</button>
+      <div id="loginMessage" role="status" class="notice hidden"></div>
+    </section>
+
+    <section id="app" class="hidden">
+      <div class="toolbar"><div><strong>Operations overview</strong><div class="muted">Inventory, campaigns, images and orders</div></div><button id="refreshBtn" class="secondary">Refresh data</button><button id="logoutBtn" class="secondary">Sign out</button></div>
+      <div id="appMessage" role="status" class="notice hidden"></div>
+      <section id="metrics" class="metrics"></section>
+      <nav class="tabs" aria-label="Admin sections"><button class="active" data-tab="inventory">Products & inventory</button><button data-tab="orders">Orders</button></nav>
+
+      <section id="inventoryTab">
+        <div class="panel">
+          <h2>Bulk stock update</h2>
+          <p class="muted">Upload a CSV with <code>sku,stock</code> columns. This updates matching SKUs only; unknown SKUs are reported and never create products.</p>
+          <div class="toolbar"><input id="stockFile" type="file" accept=".csv,text/csv"><button id="stockImportBtn" class="accent">Import stock CSV</button><a href="#" id="stockTemplate">Download template</a></div>
+        </div>
+        <div class="toolbar">
+          <input id="productSearch" type="search" placeholder="Search SKU, product, brand or category">
+          <label class="inline"><input id="missingImageOnly" type="checkbox"> Missing images</label>
+          <label class="inline"><input id="outOfStockOnly" type="checkbox"> Out of stock</label>
+          <button id="searchBtn" class="secondary">Search</button>
+        </div>
+        <div class="panel table-wrap">
+          <table class="product-table"><thead><tr><th>Image</th><th>Product</th><th>Stock</th><th>Base price (BDT)</th><th>Campaign</th><th>Featured</th><th>Actions</th></tr></thead><tbody id="productsBody"></tbody></table>
+          <div class="pagination"><span id="productsPageLabel"></span><div class="inline"><button id="previousPage" class="secondary">Previous</button><button id="nextPage" class="secondary">Next</button></div></div>
+        </div>
+      </section>
+
+      <section id="ordersTab" class="hidden">
+        <div class="toolbar"><select id="orderStatus"><option value="all">All statuses</option><option>pending</option><option>confirmed</option><option>shipped</option><option>delivered</option><option>completed</option><option>cancelled</option></select><button id="ordersSearchBtn" class="secondary">Load orders</button></div>
+        <div class="panel table-wrap"><table class="orders-table"><thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Status / action</th></tr></thead><tbody id="ordersBody"></tbody></table></div>
+      </section>
+    </section>
+  </main>
+
+  <dialog id="imageDialog"><div class="dialog-head"><h2 id="imageDialogTitle">Choose a product image</h2><button id="closeImageDialog" class="secondary">Close</button></div><p id="imageMessage" class="muted"></p><div id="imageCandidates" class="candidate-list"></div><div class="panel"><label for="manualImageUrl">Or set an image URL (HTTPS)</label><input id="manualImageUrl" type="url" placeholder="https://..."><button id="saveManualImage" class="accent">Save image URL</button></div></dialog>
+  <dialog id="detailsDialog">
+    <div class="dialog-head"><h2>Edit product details</h2><button id="closeDetailsDialog" type="button" class="secondary">Close</button></div>
+    <form id="detailsForm">
+      <input id="detailsProductId" type="hidden">
+      <label for="detailsTitle">Product name</label><input id="detailsTitle" maxlength="200" required>
+      <label for="detailsBrand">Brand</label><input id="detailsBrand" maxlength="200">
+      <label for="detailsCategory">Category</label><input id="detailsCategory" maxlength="200" required>
+      <label for="detailsSize">Size / volume</label><input id="detailsSize" maxlength="200">
+      <label for="detailsDescription">Description</label><textarea id="detailsDescription" maxlength="5000" rows="4"></textarea>
+      <button class="accent" type="submit">Save product details</button>
+    </form>
+  </dialog>
+
+  <script>
+    (() => {
+      const state = { api: '', token: '', page: 1, total: 0, products: [], imageProductId: '' };
+      const $ = selector => document.querySelector(selector);
+      const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
+      const money = value => `৳${Number(value || 0).toLocaleString('en-BD')}`;
+      const message = (target, text, kind = '') => {
+        target.textContent = text;
+        target.className = `notice${kind ? ` ${kind}` : ''}`;
+        target.classList.toggle('hidden', !text);
+      };
+      async function request(path, options = {}) {
+        const response = await fetch(`${state.api}${path}`, {
+          ...options,
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Admin-Token': state.token,
+            ...(options.headers || {})
+          }
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.message || `Request failed (${response.status})`);
+        return data;
+      }
+      function connect() {
+        state.api = $('#apiBase').value.trim().replace(/\/+$/, '');
+        state.token = $('#adminToken').value;
+        if (!/^https:\/\/[^/]+\/api$/.test(state.api) && !/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?\/api$/.test(state.api)) {
+          message($('#loginMessage'), 'Enter a valid HTTPS backend API URL.', 'error');
+          state.token = '';
+          return;
+        }
+        $('#connectBtn').disabled = true;
+        request('/admin/dashboard').then(async () => {
+          $('#login').classList.add('hidden');
+          $('#app').classList.remove('hidden');
+          await refreshAll();
+        }).catch(error => {
+          state.token = '';
+          $('#adminToken').value = '';
+          message($('#loginMessage'), error.message, 'error');
+        }).finally(() => { $('#connectBtn').disabled = false; });
+      }
+      async function refreshAll() {
+        try {
+          const dashboard = await request('/admin/dashboard');
+          const metrics = dashboard.metrics;
+          $('#metrics').innerHTML = [
+            ['Products', metrics.products], ['Out of stock', metrics.outOfStock],
+            ['Missing images', metrics.missingImages], ['Active discounts', metrics.activeCampaigns],
+            ['Pending orders', metrics.orders.pending || 0]
+          ].map(([label, value]) => `<article class="metric"><span>${escapeHtml(label)}</span><strong>${Number(value).toLocaleString()}</strong></article>`).join('');
+          await loadProducts();
+          if (!$('#ordersTab').classList.contains('hidden')) await loadOrders();
+          message($('#appMessage'), '');
+        } catch (error) {
+          message($('#appMessage'), error.message, 'error');
+          if (/admin token|access is not configured/i.test(error.message)) signOut();
+        }
+      }
+      async function loadProducts() {
+        const params = new URLSearchParams({ page: String(state.page), limit: '50' });
+        if ($('#productSearch').value.trim()) params.set('search', $('#productSearch').value.trim());
+        if ($('#missingImageOnly').checked) params.set('missingImage', 'true');
+        if ($('#outOfStockOnly').checked) params.set('stock', 'out');
+        const data = await request(`/admin/products?${params}`);
+        state.products = data.products;
+        state.total = data.total;
+        renderProducts();
+      }
+      function renderProducts() {
+        $('#productsBody').innerHTML = state.products.map(product => {
+          const image = product.imageUrl || product.image;
+          const photo = image
+            ? `<img class="photo" src="${escapeHtml(image)}" alt="" loading="lazy" referrerpolicy="no-referrer">`
+            : '<div class="photo-empty">No image</div>';
+          const percentage = product.campaignType === 'percentage';
+          return `<tr data-id="${escapeHtml(product._id)}">
+            <td>${photo}</td>
+            <td class="product-name">${escapeHtml(product.title || product.name)}<small>${escapeHtml(product.sku || 'No SKU')} · ${escapeHtml(product.brand || '')} · ${escapeHtml(product.category || '')}</small></td>
+            <td><input data-field="stock" type="number" min="0" max="1000000" step="1" value="${Number(product.stock || 0)}" aria-label="Stock"></td>
+            <td><input data-field="price" type="number" min="0" step="1" value="${Number(product.originalPrice ?? product.priceBDT ?? product.price ?? 0)}" aria-label="Base price in BDT"></td>
+            <td><select data-field="campaignType" aria-label="Campaign type"><option value="none" ${percentage ? '' : 'selected'}>No discount</option><option value="percentage" ${percentage ? 'selected' : ''}>% off</option></select><div class="inline" style="margin-top:5px"><input data-field="campaignValue" type="number" min="1" max="80" step="1" value="${percentage ? Number(product.campaignValue) : ''}" placeholder="%" aria-label="Discount percentage"></div></td>
+            <td><input data-field="featured" type="checkbox" ${product.featured ? 'checked' : ''} aria-label="Featured"></td>
+            <td><div class="row-actions"><button data-action="save" class="accent">Save changes</button><button data-action="details" class="secondary">Edit details</button><button data-action="image" class="secondary">${image ? 'Change image' : 'Find image'}</button></div></td>
+          </tr>`;
+        }).join('') || '<tr><td colspan="7" class="muted">No products matched your filters.</td></tr>';
+        const start = state.total ? (state.page - 1) * 50 + 1 : 0;
+        $('#productsPageLabel').textContent = `${start}–${Math.min(state.page * 50, state.total)} of ${state.total}`;
+        $('#previousPage').disabled = state.page <= 1;
+        $('#nextPage').disabled = state.page * 50 >= state.total;
+      }
+      async function saveProduct(row) {
+        const fields = {};
+        row.querySelectorAll('[data-field]').forEach(input => {
+          if (input.dataset.field === 'featured') fields.featured = input.checked;
+          else if (input.dataset.field === 'campaignType') fields.campaignType = input.value;
+          else if (input.dataset.field === 'campaignValue') fields.campaignValue = Number(input.value || 0);
+          else fields[input.dataset.field] = Number(input.value);
+        });
+        if (fields.campaignType === 'none') fields.campaignValue = 0;
+        const button = row.querySelector('[data-action="save"]');
+        button.disabled = true;
+        try {
+          await request(`/admin/products/${encodeURIComponent(row.dataset.id)}`, { method: 'PATCH', body: JSON.stringify(fields) });
+          message($('#appMessage'), 'Product, stock and campaign settings saved.', 'ok');
+          await Promise.all([loadProducts(), loadDashboardMetrics()]);
+        } catch (error) {
+          message($('#appMessage'), error.message, 'error');
+        } finally { button.disabled = false; }
+      }
+      async function loadDashboardMetrics() {
+        const data = await request('/admin/dashboard');
+        const metrics = data.metrics;
+        $('#metrics').innerHTML = [
+          ['Products', metrics.products], ['Out of stock', metrics.outOfStock],
+          ['Missing images', metrics.missingImages], ['Active discounts', metrics.activeCampaigns],
+          ['Pending orders', metrics.orders.pending || 0]
+        ].map(([label, value]) => `<article class="metric"><span>${escapeHtml(label)}</span><strong>${Number(value).toLocaleString()}</strong></article>`).join('');
+      }
+      async function searchImages(product) {
+        state.imageProductId = product._id;
+        $('#imageDialogTitle').textContent = `${product.sku || ''} · ${product.title || product.name}`;
+        $('#imageMessage').textContent = 'Searching for large HTTPS product images. Review each result before saving.';
+        $('#imageCandidates').replaceChildren();
+        $('#manualImageUrl').value = product.imageUrl || product.image || '';
+        $('#imageDialog').showModal();
+        try {
+          const data = await request(`/admin/products/${encodeURIComponent(product._id)}/image-search`, { method: 'POST', body: '{}' });
+          $('#imageMessage').textContent = data.candidates.length ? `${data.candidates.length} image candidates. Verify the product and source before saving.` : 'No candidates returned. You can provide a verified HTTPS image URL below.';
+          $('#imageCandidates').innerHTML = data.candidates.map((candidate, index) => `<article class="candidate">
+            <img src="${escapeHtml(candidate.thumbnail || candidate.url)}" alt="" loading="lazy" referrerpolicy="no-referrer">
+            <p>${escapeHtml(candidate.title || 'Image result')} · ${candidate.width}×${candidate.height}</p>
+            <button data-candidate="${index}" class="secondary">Use this image</button>
+            <input type="hidden" value="${escapeHtml(candidate.url)}">
+          </article>`).join('');
+          $('#imageCandidates').querySelectorAll('[data-candidate]').forEach(button => button.addEventListener('click', async () => {
+            const url = button.parentElement.querySelector('input').value;
+            await saveImage(url);
+          }));
+        } catch (error) {
+          $('#imageMessage').textContent = error.message;
+        }
+      }
+      async function saveImage(url) {
+        try {
+          await request(`/admin/products/${encodeURIComponent(state.imageProductId)}`, { method: 'PATCH', body: JSON.stringify({ imageUrl: url }) });
+          $('#imageDialog').close();
+          message($('#appMessage'), 'Product image saved.', 'ok');
+          await Promise.all([loadProducts(), loadDashboardMetrics()]);
+        } catch (error) { $('#imageMessage').textContent = error.message; }
+      }
+      function editProductDetails(product) {
+        $('#detailsProductId').value = product._id;
+        $('#detailsTitle').value = product.title || product.name || '';
+        $('#detailsBrand').value = product.brand || '';
+        $('#detailsCategory').value = product.category || '';
+        $('#detailsSize').value = product.size || '';
+        $('#detailsDescription').value = product.description || '';
+        $('#detailsDialog').showModal();
+      }
+      async function saveProductDetails() {
+        const productId = $('#detailsProductId').value;
+        const payload = {
+          name: $('#detailsTitle').value.trim(),
+          title: $('#detailsTitle').value.trim(),
+          brand: $('#detailsBrand').value.trim(),
+          category: $('#detailsCategory').value.trim(),
+          size: $('#detailsSize').value.trim(),
+          description: $('#detailsDescription').value.trim()
+        };
+        try {
+          await request(`/admin/products/${encodeURIComponent(productId)}`, { method: 'PATCH', body: JSON.stringify(payload) });
+          $('#detailsDialog').close();
+          message($('#appMessage'), 'Product details saved.', 'ok');
+          await loadProducts();
+        } catch (error) { message($('#appMessage'), error.message, 'error'); }
+      }
+      async function loadOrders() {
+        const status = $('#orderStatus').value;
+        const data = await request(`/admin/orders?limit=50&status=${encodeURIComponent(status)}`);
+        $('#ordersBody').innerHTML = data.orders.map(order => {
+          const next = { pending: 'confirmed', confirmed: 'shipped', shipped: 'delivered', delivered: 'completed' }[order.status];
+          const action = next
+            ? `<button class="secondary" data-next="${next}">${next === 'completed' ? 'Complete & settle' : `Mark ${next}`}</button>`
+            : '';
+          const cancel = order.status === 'pending' ? '<button class="danger" data-cancel="true">Cancel order</button>' : '';
+          return `<tr data-id="${escapeHtml(order._id)}"><td>${escapeHtml(String(order._id).slice(-8))}<small class="muted"><br>${new Date(order.createdAt).toLocaleString()}</small></td>
+            <td>${escapeHtml(order.customer?.name)}<small class="muted"><br>${escapeHtml(order.customer?.phone)}</small></td>
+            <td>${(order.items || []).map(item => `${Number(item.quantity)} × ${escapeHtml(item.productId?.title || item.productId?.name || item.productId || 'Product')}`).join('<br>')}</td>
+            <td>${money(order.total)}</td><td>${escapeHtml(order.paymentMethod)}</td>
+            <td><span class="status ${escapeHtml(order.status)}">${escapeHtml(order.status)}</span><div class="row-actions" style="margin-top:8px">${action}${cancel}</div></td></tr>`;
+        }).join('') || '<tr><td colspan="6" class="muted">No orders found.</td></tr>';
+        $('#ordersBody').querySelectorAll('tr[data-id]').forEach(row => {
+          row.querySelector('[data-next]')?.addEventListener('click', async event => {
+            const next = event.currentTarget.dataset.next;
+            const endpoint = next === 'completed' ? `/orders/${row.dataset.id}/complete` : `/admin/orders/${row.dataset.id}/status`;
+            const method = next === 'completed' ? 'POST' : 'PATCH';
+            try {
+              await request(endpoint, { method, body: JSON.stringify({ status: next }) });
+              message($('#appMessage'), `Order updated to ${next}.`, 'ok');
+              await Promise.all([loadOrders(), loadDashboardMetrics()]);
+            } catch (error) { message($('#appMessage'), error.message, 'error'); }
+          });
+          row.querySelector('[data-cancel]')?.addEventListener('click', async () => {
+            if (!confirm('Cancel this pending order and release its reserved stock?')) return;
+            try {
+              await request(`/orders/${row.dataset.id}/cancel`, { method: 'POST', body: '{}' });
+              message($('#appMessage'), 'Order cancelled and reserved stock released.', 'ok');
+              await Promise.all([loadOrders(), loadDashboardMetrics()]);
+            } catch (error) { message($('#appMessage'), error.message, 'error'); }
+          });
+        });
+      }
+      async function importStock() {
+        const file = $('#stockFile').files[0];
+        if (!file) return message($('#appMessage'), 'Choose a CSV file first.', 'error');
+        const text = await file.text();
+        const rows = text.split(/\r?\n/).filter(Boolean).map((line, index) => {
+          const cells = line.split(',').map(cell => cell.trim().replace(/^"|"$/g, ''));
+          if (index === 0 && cells[0].toLowerCase() === 'sku') return null;
+          if (cells.length !== 2) throw new Error(`Invalid CSV row ${index + 1}; expected SKU,stock.`);
+          return { sku: cells[0], stock: Number(cells[1]) };
+        }).filter(Boolean);
+        try {
+          const data = await request('/admin/inventory/import', { method: 'POST', body: JSON.stringify({ rows }) });
+          message($('#appMessage'), `Updated ${data.updated} products.${data.unknownSkus.length ? ` Unknown SKUs: ${data.unknownSkus.join(', ')}` : ''}`, data.unknownSkus.length ? '' : 'ok');
+          await Promise.all([loadProducts(), loadDashboardMetrics()]);
+        } catch (error) { message($('#appMessage'), error.message, 'error'); }
+      }
+      function signOut() {
+        state.token = '';
+        $('#adminToken').value = '';
+        $('#app').classList.add('hidden');
+        $('#login').classList.remove('hidden');
+      }
+
+      $('#connectBtn').addEventListener('click', connect);
+      $('#adminToken').addEventListener('keydown', event => { if (event.key === 'Enter') connect(); });
+      $('#refreshBtn').addEventListener('click', refreshAll);
+      $('#logoutBtn').addEventListener('click', signOut);
+      $('#searchBtn').addEventListener('click', () => { state.page = 1; loadProducts().catch(error => message($('#appMessage'), error.message, 'error')); });
+      $('#productSearch').addEventListener('keydown', event => { if (event.key === 'Enter') $('#searchBtn').click(); });
+      $('#missingImageOnly').addEventListener('change', () => { state.page = 1; loadProducts().catch(error => message($('#appMessage'), error.message, 'error')); });
+      $('#outOfStockOnly').addEventListener('change', () => { state.page = 1; loadProducts().catch(error => message($('#appMessage'), error.message, 'error')); });
+      $('#previousPage').addEventListener('click', () => { state.page -= 1; loadProducts().catch(error => message($('#appMessage'), error.message, 'error')); });
+      $('#nextPage').addEventListener('click', () => { state.page += 1; loadProducts().catch(error => message($('#appMessage'), error.message, 'error')); });
+      $('#productsBody').addEventListener('click', event => {
+        const row = event.target.closest('tr[data-id]');
+        if (!row) return;
+        const product = state.products.find(item => item._id === row.dataset.id);
+        if (event.target.closest('[data-action="save"]')) saveProduct(row);
+        if (event.target.closest('[data-action="details"]') && product) editProductDetails(product);
+        if (event.target.closest('[data-action="image"]') && product) searchImages(product);
+      });
+      document.querySelectorAll('[data-tab]').forEach(button => button.addEventListener('click', () => {
+        document.querySelectorAll('[data-tab]').forEach(item => item.classList.toggle('active', item === button));
+        $('#inventoryTab').classList.toggle('hidden', button.dataset.tab !== 'inventory');
+        $('#ordersTab').classList.toggle('hidden', button.dataset.tab !== 'orders');
+        if (button.dataset.tab === 'orders') loadOrders().catch(error => message($('#appMessage'), error.message, 'error'));
+      }));
+      $('#ordersSearchBtn').addEventListener('click', () => loadOrders().catch(error => message($('#appMessage'), error.message, 'error')));
+      $('#orderStatus').addEventListener('change', () => loadOrders().catch(error => message($('#appMessage'), error.message, 'error')));
+      $('#stockImportBtn').addEventListener('click', () => importStock().catch(error => message($('#appMessage'), error.message, 'error')));
+      $('#stockTemplate').addEventListener('click', event => {
+        event.preventDefault();
+        const url = URL.createObjectURL(new Blob(['sku,stock\nINNI-RET-01,12\n'], { type: 'text/csv' }));
+        const link = document.createElement('a');
+        link.href = url; link.download = 'inventory-template.csv'; link.click(); URL.revokeObjectURL(url);
+      });
+      $('#closeImageDialog').addEventListener('click', () => $('#imageDialog').close());
+      $('#saveManualImage').addEventListener('click', () => saveImage($('#manualImageUrl').value.trim()));
+      $('#detailsForm').addEventListener('submit', event => { event.preventDefault(); saveProductDetails(); });
+      $('#closeDetailsDialog').addEventListener('click', () => $('#detailsDialog').close());
+    })();
+  </script>
+</body>
+</html>
